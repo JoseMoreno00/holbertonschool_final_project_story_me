@@ -16,7 +16,7 @@ class StoryMe(cmd.Cmd):
     prompt = " ~ story_me_console ~ "
     
 
-    def do_cnvbook(self, book):
+    def do_cnvbook(self, book, language):
         """Function"""
         # agarra archivo txt, ejecuta funcion para serializarlo en json
         
