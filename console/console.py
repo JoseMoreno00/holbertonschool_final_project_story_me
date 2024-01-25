@@ -19,7 +19,7 @@ class StoryMe(cmd.Cmd):
     def do_cnvbook(self, book, language):
         """Function"""
         # agarra archivo txt, ejecuta funcion para serializarlo en json
-        
+        # Meter un if especifico para 3 lenguajes y serializar el libro guardandolo con su especificacion de idioma. Si nonse especifica lenguaje devolver un error. Probar con un try and except. En los try meter los if y en el except meter el error
         text = ""
         dicty = {f"{book}": ""}
         with open(book) as filename:
@@ -29,7 +29,7 @@ class StoryMe(cmd.Cmd):
         filename = open(f"{book}.json", "w", encoding="utf-8")
         json.dump(dicty, filename,  ensure_ascii = False, indent=4)
         filename.close()
-
+  
 
     def do_quit(self, line):
         """Command to quit the console"""
