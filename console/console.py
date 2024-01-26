@@ -11,18 +11,16 @@ without the need of an interface for its use, it will have
 commands for its functionality.
 
 """
-cred = credentials.Certificate("credentials.json")
-database = firebase_admin.initialize_app(cred, {"databaseURL":"https://storyme-dcd11-default-rtdb.firebaseio.com/"})
+c = credentials.Certificate("credentials.json")
+database = firebase_admin.initialize_app(
+    c, {"databaseURL": "https://storyme-dcd11-default-rtdb.firebaseio.com/"})
+
 
 class StoryMe(cmd.Cmd):
     prompt = " ~ story_me_console ~ "
-    
 
     def do_cnvbook(self, book):
         """Function"""
-        # agarra archivo txt, ejecuta funcion para serializarlo en json
-        # Meter un if especifico para 3 lenguajes y serializar el libro guardandolo con su especificacion de idioma. Si nonse especifica lenguaje devolver un error. Probar con un try and except. En los try meter los if y en el except meter el error
-        
         text = ""
         dicty = {f"{book.replace('.', '')}": ""}
         with open(book) as filename:
@@ -30,29 +28,14 @@ class StoryMe(cmd.Cmd):
                 text = text + line
             dicty[f"{book.replace('.', '')}"] = text
         filename = open(f"{book}.json", "w", encoding="utf-8")
-        json.dump(dicty, filename,  ensure_ascii = False, indent=4)
+        json.dump(dicty, filename,  ensure_ascii=False, indent=4)
         filename.close()
-    
+
     def do_sendbookdb(slef, data):
+        lenguages = ["spn", "en", "br"]
         x = data.split(" ")
         book, leng = x[0], x[1]
-        if leng == "spn":
-            ref = db.reference(f"/books/{leng}")
-            if book[-4:] == "json":
-                with open(f"{book}", "r") as file:
-                    file_content = json.load(file)
-                ref.set(file_content)
-            else:
-                print(f"{book} not is a Json file")
-        elif leng == "en":
-            ref = db.reference(f"/books/{leng}")
-            if book[-4:] == "json":
-                with open(f"{book}", "r") as file:
-                    file_content = json.load(file)
-                ref.set(file_content)
-            else:
-                print(f"{book} not is a Json file")
-        elif leng == "br":
+        if leng in lenguages:
             ref = db.reference(f"/books/{leng}")
             if book[-4:] == "json":
                 with open(f"{book}", "r") as file:
@@ -62,11 +45,28 @@ class StoryMe(cmd.Cmd):
                 print(f"{book} not is a Json file")
         else:
             print("No manejo ese idioma xd")
-    
+
+    def do_cnvprompt(self, line):
+        text = ""
+        dicty = {}
+        with open(f"{line}", "r") as filename:
+            for linea in filename:
+                text += linea
+                split = linea.split(" .")
+                dicty[f"{split[0]}"] = split[1]
+        for k, v in dicty.items():
+            print(f"{k}, {v}")
+        file = open(f"{line}.json", "w")
+        json.dump(dicty, file, ensure_ascii=False, indent=4)
+        file.close()
+
+    def do_sendpromptdb(slef, data):
+        with open(f"{data}.json") as file:
+            pass
+
     def do_quit(self, line):
         """Command to quit the console"""
         return True
-
 
 
 if __name__ == "__main__":
