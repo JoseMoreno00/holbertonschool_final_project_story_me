@@ -78,6 +78,7 @@ class StoryMe(cmd.Cmd):
                 print(f"{book} not is a Json file")
         else:
             print("No manejo ese estilo xd")
+
     def do_quit(self, line):
         """Command to quit the console"""
         return True
