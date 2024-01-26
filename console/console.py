@@ -26,17 +26,19 @@ class StoryMe(cmd.Cmd):
         with open(book) as filename:
             for line in filename:
                 text = text + line
-            dicty[f"{book.replace('.', '')}"] = text
+            dicty[f"{book.replace('.', '_')}"] = text
         filename = open(f"{book}.json", "w", encoding="utf-8")
         json.dump(dicty, filename,  ensure_ascii=False, indent=4)
         filename.close()
 
     def do_sendbookdb(slef, data):
-        lenguages = ["spn", "en", "br"]
+        lenguages = ["es", "en", "br"]
         x = data.split(" ")
         book, leng = x[0], x[1]
+        namebook = book[:-9]
+        print(namebook)
         if leng in lenguages:
-            ref = db.reference(f"/books/{leng}")
+            ref = db.reference(f"/books/{leng}/{namebook}")
             if book[-4:] == "json":
                 with open(f"{book}", "r") as file:
                     file_content = json.load(file)
@@ -54,16 +56,28 @@ class StoryMe(cmd.Cmd):
                 text += linea
                 split = linea.split(" .")
                 dicty[f"{split[0]}"] = split[1]
-        for k, v in dicty.items():
-            print(f"{k}, {v}")
         file = open(f"{line}.json", "w")
         json.dump(dicty, file, ensure_ascii=False, indent=4)
         file.close()
 
     def do_sendpromptdb(slef, data):
-        with open(f"{data}.json") as file:
-            pass
-
+        styles = ["anime", "8bit", "cyberpunk"]
+        x = data.split(" ")
+        book, style = x[0], x[1]
+        namebook = book[:-9]
+        ref = db.reference(f"/promp/{style}/{namebook}")
+        if style in styles:
+            if book[-4:] == "json":
+                with open(f"{book}", "r+") as file:
+                    file_content = json.load(file)
+                    for k, v in file_content.items():
+                        new_v = v.replace('[INSERT STYLE]', '{}'.format(style))
+                        file_content[k] = new_v
+                ref.set(file_content)
+            else:
+                print(f"{book} not is a Json file")
+        else:
+            print("No manejo ese estilo xd")
     def do_quit(self, line):
         """Command to quit the console"""
         return True
