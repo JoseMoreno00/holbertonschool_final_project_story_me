@@ -31,12 +31,11 @@ class StoryMe(cmd.Cmd):
         json.dump(dicty, filename,  ensure_ascii=False, indent=4)
         filename.close()
 
-    def do_sendbookdb(slef, data):
+    def do_sendbookdb(self, data):
         lenguages = ["es", "en", "br"]
         x = data.split(" ")
         book, leng = x[0], x[1]
         namebook = book[:-9]
-        print(namebook)
         if leng in lenguages:
             ref = db.reference(f"/books/{leng}/{namebook}")
             if book[-4:] == "json":
@@ -60,7 +59,7 @@ class StoryMe(cmd.Cmd):
         json.dump(dicty, file, ensure_ascii=False, indent=4)
         file.close()
 
-    def do_sendpromptdb(slef, data):
+    def do_sendpromptdb(self, data):
         styles = ["anime", "8bit", "cyberpunk"]
         x = data.split(" ")
         book, style = x[0], x[1]
@@ -78,6 +77,18 @@ class StoryMe(cmd.Cmd):
                 print(f"{book} not is a Json file")
         else:
             print("No manejo ese estilo xd")
+
+    def do_deletebook(self, data):
+        x = data.split(" ")
+        book, lg = x[0], x[1]
+        ref = db.reference(f"/books/{lg}/{book}")
+        ref.delete()
+
+    def do_deletepromp(self, data):
+        x = data.split(" ")
+        book, promp = x[0], x[1]
+        ref = db.reference(f"/promp/{anex}/{book}")
+        ref.delete()
 
     def do_quit(self, line):
         """Command to quit the console"""
