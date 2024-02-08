@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'gallery.dart';
 
-void main(){
-  runApp(const MyApp());
+void main() {
+  runApp(const MaterialApp(
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
