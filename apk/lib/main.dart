@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:story_me/story_widget.dart';
 import 'gallery.dart';
 
 void main() {
@@ -12,6 +13,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GaleryWidget();
+    return const StoryWidget();
   }
 }
