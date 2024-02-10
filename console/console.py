@@ -87,7 +87,7 @@ class StoryMe(cmd.Cmd):
     def do_deletepromp(self, data):
         x = data.split(" ")
         book, promp = x[0], x[1]
-        ref = db.reference(f"/promp/{anex}/{book}")
+        ref = db.reference(f"/promp/{promp}/{book}")
         ref.delete()
 
     def do_quit(self, line):
