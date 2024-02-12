@@ -19,7 +19,7 @@ storagedatabase = firebase_admin.initialize_app(c, name='storageBucket', options
 
 class APILEONARDO():
     def __init__(self):
-        self.leonardo = Leonardo(auth_token='eb36c72b-8bc7-4da4-bd40-bd90664c07a5')
+        self.leonardo = Leonardo(auth_token='')
 
     def request_ia(self, book, style):
         refdb = db.reference(f"/promp/{style}/{book}")
