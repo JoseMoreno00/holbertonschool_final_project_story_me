@@ -2,20 +2,23 @@
 from leonardo_api import Leonardo
 import requests
 import firebase_admin
-from firebase_admin import credentials, db
+from firebase_admin import credentials, db, storage
+import os
 """
 
 """
-
-
 c = credentials.Certificate("credentials.json")
-database = firebase_admin.initialize_app(
-    c, {"databaseURL": "https://storyme-dcd11-default-rtdb.firebaseio.com/"})
 
+database = firebase_admin.initialize_app(c,{
+    "databaseURL": "https://storyme-dcd11-default-rtdb.firebaseio.com/"
+})
+
+storagedatabase = firebase_admin.initialize_app(c, name='storageBucket', options={
+    "storageBucket": "storyme-dcd11.appspot.com"
+})
 
 class APILEONARDO():
-
-    def __init__(self) -> None:
+    def __init__(self):
         self.leonardo = Leonardo(auth_token='eb36c72b-8bc7-4da4-bd40-bd90664c07a5')
 
     def request_ia(self, book, style):
@@ -43,8 +46,20 @@ class APILEONARDO():
                 delta = charly.split("', 'nsfw': False")
                 url = delta[0]
                 respuesta = requests.get(url)
-                with open(f"{key}-Image{book}-{style}.png", 'wb') as archivo:
+                fn = f"{key}-{book}-{style}.jpg"
+                with open(fn, 'wb') as archivo:
                     archivo.write(respuesta.content)
 
-# apireq = APILEONARDO()
-# apireq.request_ia('3_little_pigs_PM', 'anime')
+class UPLOADIMG():
+    def uploadimg(self, book, style, n):
+        for  idx in range(1, n + 1):
+            fn = f"({idx})-{book}-{style}.jpg"
+            bucket = storage.bucket('storyme-dcd11.appspot.com')
+            blob = bucket.blob(f'{book}/{style}/{fn}')
+            blob.upload_from_filename(f'{fn}')
+            os.remove(fn)
+
+# apires = APILEONARDO()
+# apires.request_ia('3_little_pigs_PM', 'cyberpunk')
+# uplpoad = UPLOADIMG()
+# uplpoad.uploadimg('3_little_pigs_PM', 'cyberpunk', 13)
