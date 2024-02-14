@@ -17,13 +17,13 @@ class RegistroScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 20, // Ajusta la posición vertical según necesites
+            top: 20,
             left: 0,
             right: 0,
             child: Center(
               child: Image.asset(
                 'assets/images/logo.png',
-                width: 100, // Ajusta el tamaño del logo según necesites
+                width: 100,
                 height: 100,
               ),
             ),

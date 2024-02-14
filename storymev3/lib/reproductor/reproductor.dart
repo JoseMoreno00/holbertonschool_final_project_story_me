@@ -18,13 +18,13 @@ class ReproductorScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 20, // Ajusta la posición vertical según necesites
+            top: 20,
             left: 0,
             right: 0,
             child: Center(
               child: Image.asset(
                 'assets/images/logo.png',
-                width: 100, // Ajusta el tamaño del logo según necesites
+                width: 100,
                 height: 100,
               ),
             ),
@@ -46,11 +46,11 @@ class ReproductorScreen extends StatelessWidget {
           } else if (index == 1) {
             Navigator.of(context).pushNamed('/cuentos'); // Ir a la pantalla de librería
           } else if (index == 2) {
-            Navigator.of(context).pushNamed('/biblioteca'); // Ir a la pantalla de descargas
+            Navigator.of(context).pushNamed('/biblioteca'); // Ir a la pantalla de biblioteca
           } else if (index == 3) {
-            Navigator.of(context).pushNamed('/descargas');
+            Navigator.of(context).pushNamed('/descargas'); // Ir a la pantalla de descargas
           } else if (index == 4) {
-            Navigator.of (context).pushNamed('/menu');
+            Navigator.of (context).pushNamed('/menu'); // ir al menu
           }
         },
       ),
