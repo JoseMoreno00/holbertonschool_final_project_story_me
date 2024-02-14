@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:storyme_rework/biblioteca/biblioteca.dart';
 import 'package:storyme_rework/registro/registro.dart';
-// import 'package:storyme_rework/galeria/galeria.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key});

@@ -1,8 +1,41 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:storyme_rework/functions/bottom_navigation_bar.dart';
+import 'package:storyme_rework/functions/cuentos_player.dart';
 
-class ReproductorScreen extends StatelessWidget {
-  const ReproductorScreen({super.key});
+class ReproductorScreen extends StatefulWidget {
+  const ReproductorScreen({Key? key}) : super(key: key);
+
+  @override
+  _ReproductorScreenState createState() => _ReproductorScreenState();
+}
+
+class _ReproductorScreenState extends State<ReproductorScreen> {
+  final DatabaseReference database = FirebaseDatabase().reference().child('cuentos');
+  List<String> imageUrls = [];
+  List<String> texts = [];
+  int currentIndex = 0;
+  final CuentosPlayer player = CuentosPlayer(); // Instancia de la clase CuentosPlayer
+
+  @override
+  void initState() {
+    super.initState();
+    loadCuentos();
+  }
+
+  Future<void> loadCuentos() async {
+    database.once().then((DataSnapshot snapshot) {
+      Object? values = snapshot.value;
+      var forEach = values?.forEach((key, value) {
+        setState(() {
+          imageUrls.add(value['imageUrl']);
+          texts.add(value['text']);
+        });
+      });
+    } as FutureOr Function(DatabaseEvent value));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +63,19 @@ class ReproductorScreen extends StatelessWidget {
             ),
           ),
           // Aquí va el contenido principal de la pantalla
-          const Center(
-            child: Text(
-              'Reproductor',
-              style: TextStyle(fontSize: 24, color: Colors.black),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (imageUrls.isNotEmpty && currentIndex < imageUrls.length)
+                  Image.network(imageUrls[currentIndex]),
+                const SizedBox(height: 20),
+                if (texts.isNotEmpty && currentIndex < texts.length)
+                  Text(
+                    texts[currentIndex],
+                    style: const TextStyle(fontSize: 24, color: Colors.black),
+                  ),
+              ],
             ),
           ),
         ],
@@ -50,9 +92,15 @@ class ReproductorScreen extends StatelessWidget {
           } else if (index == 3) {
             Navigator.of(context).pushNamed('/descargas'); // Ir a la pantalla de descargas
           } else if (index == 4) {
-            Navigator.of (context).pushNamed('/menu'); // ir al menu
+            Navigator.of(context).pushNamed('/menu'); // ir al menu
           }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          player.playCuento(texts[currentIndex]);
+        },
+        child: const Icon(Icons.play_arrow),
       ),
     );
   }
