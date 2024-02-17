@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../welcome_widget.dart' show WelcomeWidget;
+import 'package:storymev50b2/welcome_widget.dart' show WelcomeWidget;
 import 'package:flutter/material.dart';
 
 class WelcomeModel extends FlutterFlowModel<WelcomeWidget> {
