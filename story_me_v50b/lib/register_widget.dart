@@ -1,36 +1,40 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/galery_widget.dart';
-import 'app/log_in_model.dart';
-export 'app/log_in_model.dart';
-import 'package:storymev50b2/authenticator/loginauth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'app/register_model.dart';
+export 'app/register_model.dart';
 import 'package:provider/provider.dart';
+import 'package:storymev50b2/authenticator/registerauth.dart';
 
-class LogInWidget extends StatefulWidget {
-  const LogInWidget({super.key});
+class RegisterWidget extends StatefulWidget {
+  const RegisterWidget({super.key});
 
   @override
-  State<LogInWidget> createState() => _LogInWidgetState();
+  State<RegisterWidget> createState() => _RegisterWidgetState();
 }
 
-class _LogInWidgetState extends State<LogInWidget> {
-  late LogInModel _model;
-  Map<String, String> formData = {'email': '', 'password': ''};
+class _RegisterWidgetState extends State<RegisterWidget> {
+  late RegisterModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LogInModel());
+    _model = createModel(context, () => RegisterModel());
+
+    _model.usuarioController ??= TextEditingController();
+    _model.usuarioFocusNode ??= FocusNode();
 
     _model.emailController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
 
     _model.contraseaController ??= TextEditingController();
     _model.contraseaFocusNode ??= FocusNode();
+
+    _model.confirmarContraseaController ??= TextEditingController();
+    _model.confirmarContraseaFocusNode ??= FocusNode();
   }
 
   @override
@@ -41,9 +45,10 @@ class _LogInWidgetState extends State<LogInWidget> {
   }
 
   var formKey = GlobalKey<FormState>();
+  Map<String, String> formData = {'usuario': '', 'email': '', 'password': ''};
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<LogInUser>(context);
+    final registerProvider = Provider.of<RegisterUser>(context);
     if (isiOS) {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
@@ -66,7 +71,12 @@ class _LogInWidgetState extends State<LogInWidget> {
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
-              color: Color(0xFFE1D5B6),
+              gradient: LinearGradient(
+                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+                stops: [0, 1],
+                begin: AlignmentDirectional(0, -1),
+                end: AlignmentDirectional(0, 1),
+              ),
             ),
             child: Stack(
               children: [
@@ -74,56 +84,50 @@ class _LogInWidgetState extends State<LogInWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: Container(
                     width: 414,
-                    height: 142,
+                    height: 208,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  130, 20, 0, 0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
-                                  width: 133,
-                                  height: 97,
-                                  fit: BoxFit.cover,
+                    child: Align(
+                      alignment: const AlignmentDirectional(0, 0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 10, 0, 0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.asset(
+                                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                                width: 175,
+                                height: 139,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            'StoryMe',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'DARKLANDS',
+                                  fontSize: 35,
+                                  useGoogleFonts: false,
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  130, 0, 0, 0),
-                              child: Text(
-                                'StoryMe',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'DARKLANDS',
-                                      fontSize: 28,
-                                      useGoogleFonts: false,
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 Align(
                   alignment: const AlignmentDirectional(0, 0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
                     child: Container(
                       width: 353,
-                      height: 401,
+                      height: 494,
                       decoration: const BoxDecoration(
                         color: Color(0x9CFFFFFF),
                         borderRadius: BorderRadius.only(
@@ -144,7 +148,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0, 25, 0, 0),
                                 child: Text(
-                                  'Bienvenido/a! de nuevo!',
+                                  'Bienvenido/a!',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -159,10 +163,106 @@ class _LogInWidgetState extends State<LogInWidget> {
                               alignment: const AlignmentDirectional(0, -1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10, 30, 10, 0),
+                                    10, 20, 10, 0),
                                 child: TextFormField(
-                                  onChanged: (value) async {
+                                  onChanged: (value) {
+                                    formData['usuario'] = value;
+                                  },
+                                  validator: (value) {
+                                    if (value!.length < 5) {
+                                      return 'Usuario no valido';
+                                    }
+                                    return null;
+                                  },
+                                  controller: _model.usuarioController,
+                                  focusNode: _model.usuarioFocusNode,
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Usuario',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFC4C5C7),
+                                        width: 2,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(30),
+                                        bottomRight: Radius.circular(30),
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        width: 2,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(30),
+                                        bottomRight: Radius.circular(30),
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        width: 2,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(30),
+                                        bottomRight: Radius.circular(30),
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        width: 2,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(30),
+                                        bottomRight: Radius.circular(30),
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0, -1),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    10, 20, 10, 0),
+                                child: TextFormField(
+                                  onChanged: (value) {
                                     formData['email'] = value;
+                                  },
+                                  validator: (value) {
+                                    if (value!.length < 5) {
+                                      return 'Correo no valido';
+                                    }
+                                    return null;
                                   },
                                   controller: _model.emailController,
                                   focusNode: _model.emailFocusNode,
@@ -236,8 +336,6 @@ class _LogInWidgetState extends State<LogInWidget> {
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  validator: _model.emailControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
                             ),
@@ -247,8 +345,14 @@ class _LogInWidgetState extends State<LogInWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     10, 20, 10, 0),
                                 child: TextFormField(
-                                  onChanged: (value) async {
+                                  onChanged: (value) {
                                     formData['password'] = value;
+                                  },
+                                  validator: (value) {
+                                    if (value!.length < 5) {
+                                      return 'Contraseña no valida';
+                                    }
+                                    return null;
                                   },
                                   controller: _model.contraseaController,
                                   focusNode: _model.contraseaFocusNode,
@@ -330,81 +434,15 @@ class _LogInWidgetState extends State<LogInWidget> {
                                             ? Icons.visibility_outlined
                                             : Icons.visibility_off_outlined,
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .primaryText,
                                         size: 22,
                                       ),
                                     ),
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  validator: _model.contraseaControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 0, 0),
-                                  child: Theme(
-                                    data: ThemeData(
-                                      checkboxTheme: CheckboxThemeData(
-                                        visualDensity: VisualDensity.compact,
-                                        materialTapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                        ),
-                                      ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                    ),
-                                    child: Checkbox(
-                                      value: _model.checkboxValue ??= true,
-                                      onChanged: (newValue) async {
-                                        setState(() =>
-                                            _model.checkboxValue = newValue!);
-                                      },
-                                      activeColor:
-                                          FlutterFlowTheme.of(context).primary,
-                                      checkColor:
-                                          FlutterFlowTheme.of(context).info,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
-                                  child: Text(
-                                    'Recordarme',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Eczar',
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      40, 10, 0, 0),
-                                  child: SelectionArea(
-                                      child: Text(
-                                    'Olvidaste tu contraseña?',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Eczar',
-                                          fontSize: 16,
-                                        ),
-                                  )),
-                                ),
-                              ],
                             ),
                             Align(
                               alignment: const AlignmentDirectional(0, 1),
@@ -414,24 +452,18 @@ class _LogInWidgetState extends State<LogInWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (formKey.currentState!.validate()) {
-                                      var response = await loginProvider
-                                          .logedUser(formData);
-                                      if (response) {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const GaleryWidget()));
-                                      }
+                                      await registerProvider
+                                          .registrarUsuario(formData);
                                     } else {
                                       if (kDebugMode) {
                                         print('No se pudo validar');
                                       }
                                     }
                                     if (kDebugMode) {
-                                      print('Button pressed ...');
+                                      print('crearcuenta pressed ...');
                                     }
                                   },
-                                  text: 'Iniciar Sesión',
+                                  text: 'Crear Cuenta',
                                   options: FFButtonOptions(
                                     height: 40,
                                     padding:
@@ -468,10 +500,10 @@ class _LogInWidgetState extends State<LogInWidget> {
                               alignment: const AlignmentDirectional(0, 1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 14, 0, 0),
+                                    0, 12, 0, 0),
                                 child: SelectionArea(
                                     child: Text(
-                                  'No tienes cuenta?',
+                                  'Ya tienes cuenta?',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

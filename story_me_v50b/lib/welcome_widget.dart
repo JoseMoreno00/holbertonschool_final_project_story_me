@@ -1,15 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storymev50b2/log_in_widget.dart';
-
 import 'app/welcome_model.dart';
 export 'app/welcome_model.dart';
 
 class WelcomeWidget extends StatefulWidget {
-  const WelcomeWidget({Key? key}) : super(key: key);
+  const WelcomeWidget({super.key});
 
   @override
   State<WelcomeWidget> createState() => _WelcomeWidgetState();
@@ -73,7 +71,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
@@ -87,28 +86,28 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                     Text(
                       'StoryMe',
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'DARKLANDS',
-                        color: const Color(0xFF170E0D),
-                        fontSize: 85,
-                        fontWeight: FontWeight.normal,
-                        useGoogleFonts: false,
-                      ),
+                            fontFamily: 'DARKLANDS',
+                            color: const Color(0xFF170E0D),
+                            fontSize: 85,
+                            fontWeight: FontWeight.normal,
+                            useGoogleFonts: false,
+                          ),
                     ),
                     Align(
                       alignment: const AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: Text(
                           'Listo para una nueva aventura?',
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                            fontFamily: 'Eczar',
-                            color: const Color(0xFF170E0D),
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Eczar',
+                                    color: const Color(0xFF170E0D),
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                         ),
                       ),
                     ),
