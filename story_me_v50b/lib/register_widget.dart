@@ -2,6 +2,7 @@ import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:storymev50b2/log_in_widget.dart';
 import 'app/register_model.dart';
 export 'app/register_model.dart';
 import 'package:provider/provider.dart';
@@ -452,8 +453,20 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (formKey.currentState!.validate()) {
-                                      await registerProvider
+                                      var response = await registerProvider
                                           .registrarUsuario(formData);
+                                      if (response) {
+                                        // ignore: use_build_context_synchronously
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const LogInWidget()));
+                                      } else {
+                                        // ignore: use_build_context_synchronously
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {return const AlertDialog(title: Text('No se pudo registrar el Usuario'),);});
+                                      }
                                     } else {
                                       if (kDebugMode) {
                                         print('No se pudo validar');

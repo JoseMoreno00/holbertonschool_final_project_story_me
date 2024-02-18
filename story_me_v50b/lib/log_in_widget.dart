@@ -417,10 +417,21 @@ class _LogInWidgetState extends State<LogInWidget> {
                                       var response = await loginProvider
                                           .logedUser(formData);
                                       if (response) {
+                                        // ignore: use_build_context_synchronously
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     const GaleryWidget()));
+                                      } else {
+                                        // ignore: use_build_context_synchronously
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return const AlertDialog(
+                                                title: Text(
+                                                    'No se pudo encontrar el usuario'),
+                                              );
+                                            });
                                       }
                                     } else {
                                       if (kDebugMode) {
