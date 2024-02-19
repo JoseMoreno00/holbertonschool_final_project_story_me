@@ -6,10 +6,18 @@
       <excludeFolder url="file://$MODULE_DIR$/storymev3/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/storymev3/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/storymev3/build" />
+      <excludeFolder url="file://$MODULE_DIR$/delete/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/delete/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/delete/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v40b/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v40b/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v40b/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
-    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>
