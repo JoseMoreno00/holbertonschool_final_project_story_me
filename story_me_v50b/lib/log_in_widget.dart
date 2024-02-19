@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storymev50b2/galery_widget.dart';
+import 'package:storymev50b2/register_widget.dart';
 import 'app/log_in_model.dart';
 export 'app/log_in_model.dart';
 import 'package:storymev50b2/authenticator/loginauth.dart';
@@ -90,7 +91,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
-                                  'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                                  'assets/images/logo.png',
                                   width: 133,
                                   height: 97,
                                   fit: BoxFit.cover,
@@ -460,7 +461,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                           color: const Color(0xFF1E1210),
                                           fontSize: 20,
                                         ),
-                                    elevation: 15,
+                                    elevation: 8,
                                     borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1,
@@ -480,19 +481,40 @@ class _LogInWidgetState extends State<LogInWidget> {
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0, 14, 0, 0),
-                                child: SelectionArea(
-                                    child: Text(
-                                  'No tienes cuenta?',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Eczar',
-                                        color: const Color(0xEA1E1210),
-                                        fontSize: 18,
-                                      ),
-                                )),
+                                child: FFButtonWidget(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const RegisterWidget()));
+                                  },
+                                  text: 'No tienes cuenta?',
+                                  options: FFButtonOptions(
+                                    height: 40,
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 24, 0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 0),
+                                    color: Colors.transparent,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Eczar',
+                                          color: const Color(0xEA1E1210),
+                                          fontSize: 18,
+                                        ),
+                                    elevation: 0,
+                                    borderSide: const BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
                               ),
-                            ),
+                            )
                           ],
                         ),
                       ),

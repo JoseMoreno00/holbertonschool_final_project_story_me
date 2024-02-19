@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'jojo_widget.dart';
+import 'jojo_widget.dart' show JojoWidget;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class JojoModel extends FlutterFlowModel<JojoWidget> {
     barrabusquedaController?.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

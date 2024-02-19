@@ -1,6 +1,6 @@
 import '/components/jojo_widget.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../galery_widget.dart' show GaleryWidget;
+import '/galery_widget.dart' show GaleryWidget;
 import 'package:flutter/material.dart';
 
 class GaleryModel extends FlutterFlowModel<GaleryWidget> {
@@ -23,7 +23,7 @@ class GaleryModel extends FlutterFlowModel<GaleryWidget> {
     jojoModel.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

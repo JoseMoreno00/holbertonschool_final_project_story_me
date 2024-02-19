@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
 import 'jojo_model.dart';
 export 'jojo_model.dart';
 
@@ -44,24 +43,17 @@ class _JojoWidgetState extends State<JojoWidget> {
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        gradient: LinearGradient(
+          colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+          stops: [0, 1],
+          begin: AlignmentDirectional(0, -1),
+          end: AlignmentDirectional(0, 1),
+        ),
       ),
       child: Stack(
         children: [
           Align(
-            alignment: const AlignmentDirectional(0, 0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                'assets/images/344c4a87ad585f889b9d297a11212d96.jpg',
-                width: double.infinity,
-                height: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: AlignmentDirectional(0, -1),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
@@ -73,20 +65,23 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-0.01, -0.58),
-            child: Text(
-              'StoryMe',
-              style: FlutterFlowTheme.of(context).displayMedium.override(
-                fontFamily: 'DARKLANDS',
-                useGoogleFonts: false,
+            alignment: AlignmentDirectional(-0.01, -0.58),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+              child: Text(
+                'StoryMe',
+                style: FlutterFlowTheme.of(context).displayMedium.override(
+                      fontFamily: 'DARKLANDS',
+                      useGoogleFonts: false,
+                    ),
               ),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.04, -0.31),
+            alignment: AlignmentDirectional(0.04, -0.31),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-              child: SizedBox(
+              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+              child: Container(
                 width: 300,
                 child: TextFormField(
                   controller: _model.barrabusquedaController,
@@ -95,16 +90,16 @@ class _JojoWidgetState extends State<JojoWidget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                    ),
+                          fontFamily: 'Readex Pro',
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                        ),
                     hintText: 'Buscar',
                     hintStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Eczar',
-                      fontSize: 19,
-                      fontWeight: FontWeight.w300,
-                    ),
-                    enabledBorder: const OutlineInputBorder(
+                          fontFamily: 'Eczar',
+                          fontSize: 19,
+                          fontWeight: FontWeight.w300,
+                        ),
+                    enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0xFF382924),
                         width: 2,
@@ -116,7 +111,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    focusedBorder: const OutlineInputBorder(
+                    focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0xFF382924),
                         width: 2,
@@ -128,9 +123,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    errorBorder: const OutlineInputBorder(
+                    errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xbacd382924),
+                        color: Color(0xBACD382924),
                         width: 2,
                       ),
                       borderRadius: BorderRadius.only(
@@ -140,9 +135,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    focusedErrorBorder: const OutlineInputBorder(
+                    focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xbacd382924),
+                        color: Color(0xBACD382924),
                         width: 2,
                       ),
                       borderRadius: BorderRadius.only(
@@ -153,7 +148,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                       ),
                     ),
                     filled: true,
-                    fillColor: const Color(0xFF382924),
+                    fillColor: Color(0xFF382924),
                     prefixIcon: Icon(
                       Icons.search_sharp,
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -161,10 +156,10 @@ class _JojoWidgetState extends State<JojoWidget> {
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodySmall.override(
-                    fontFamily: 'Readex Pro',
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    fontWeight: FontWeight.w300,
-                  ),
+                        fontFamily: 'Readex Pro',
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        fontWeight: FontWeight.w300,
+                      ),
                   textAlign: TextAlign.justify,
                   validator: _model.barrabusquedaControllerValidator
                       .asValidator(context),
@@ -173,25 +168,25 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-0.89, -0.04),
+            alignment: AlignmentDirectional(-0.89, -0.04),
             child: Text(
               'Libros',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Eczar',
-                fontSize: 25,
-                fontWeight: FontWeight.w600,
-              ),
+                    fontFamily: 'Eczar',
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                  ),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-0.82, 0.47),
+            alignment: AlignmentDirectional(-0.82, 0.47),
             child: Container(
               width: double.infinity,
               height: 250,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.transparent,
               ),
-              child: SizedBox(
+              child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 child: CarouselSlider(
@@ -202,27 +197,25 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Expanded(
                           child: FFButtonWidget(
                             onPressed: () {
-                              if (kDebugMode) {
-                                print('imagencaperucita pressed ...');
-                              }
+                              print('imagencaperucita pressed ...');
                             },
                             text: '',
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                              const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                               elevation: 3,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -233,9 +226,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Text(
                           'Caperucita Roja',
                           style:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                          ),
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Eczar',
+                                  ),
                         ),
                       ],
                     ),
@@ -245,27 +238,25 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Expanded(
                           child: FFButtonWidget(
                             onPressed: () {
-                              if (kDebugMode) {
-                                print('imagentreschanchitos pressed ...');
-                              }
+                              print('imagentreschanchitos pressed ...');
                             },
                             text: '',
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                              const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                               elevation: 3,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -276,10 +267,10 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Text(
                           'Los Tres Chanchitos',
                           style:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                            fontSize: 16,
-                          ),
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Eczar',
+                                    fontSize: 16,
+                                  ),
                         ),
                       ],
                     ),
@@ -289,27 +280,25 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Expanded(
                           child: FFButtonWidget(
                             onPressed: () {
-                              if (kDebugMode) {
-                                print('imagenperrandalf pressed ...');
-                              }
+                              print('imagenperrandalf pressed ...');
                             },
                             text: '',
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                              const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                               elevation: 3,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -320,10 +309,10 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Text(
                           'Perrandalf',
                           style:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                            fontSize: 16,
-                          ),
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Eczar',
+                                    fontSize: 16,
+                                  ),
                         ),
                       ],
                     ),
@@ -333,27 +322,25 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Expanded(
                           child: FFButtonWidget(
                             onPressed: () {
-                              if (kDebugMode) {
-                                print('imagencofrecito pressed ...');
-                              }
+                              print('imagencofrecito pressed ...');
                             },
                             text: '',
                             options: FFButtonOptions(
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                              const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                               elevation: 3,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -364,9 +351,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         Text(
                           'El cofrecito',
                           style:
-                          FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                          ),
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Eczar',
+                                  ),
                         ),
                       ],
                     ),
@@ -383,37 +370,35 @@ class _JojoWidgetState extends State<JojoWidget> {
                     scrollDirection: Axis.horizontal,
                     autoPlay: false,
                     onPageChanged: (index, _) =>
-                    _model.carouselCurrentIndex = index,
+                        _model.carouselCurrentIndex = index,
                   ),
                 ),
               ),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0, 1),
+            alignment: AlignmentDirectional(0, 1),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FFButtonWidget(
                   onPressed: () {
-                    if (kDebugMode) {
-                      print('atras pressed ...');
-                    }
+                    print('atras pressed ...');
                   },
                   text: 'Atrás',
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Eczar',
-                      color: Colors.white,
-                    ),
+                          fontFamily: 'Eczar',
+                          color: Colors.white,
+                        ),
                     elevation: 3,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -422,23 +407,21 @@ class _JojoWidgetState extends State<JojoWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () {
-                    if (kDebugMode) {
-                      print('Button pressed ...');
-                    }
+                    print('Button pressed ...');
                   },
                   text: 'Inicio',
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Eczar',
-                      color: Colors.white,
-                    ),
+                          fontFamily: 'Eczar',
+                          color: Colors.white,
+                        ),
                     elevation: 3,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -447,24 +430,22 @@ class _JojoWidgetState extends State<JojoWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () {
-                    if (kDebugMode) {
-                      print('descargas pressed ...');
-                    }
+                    print('descargas pressed ...');
                   },
                   text: 'Descargas',
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Eczar',
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
+                          fontFamily: 'Eczar',
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                     elevation: 3,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -473,23 +454,21 @@ class _JojoWidgetState extends State<JojoWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () {
-                    if (kDebugMode) {
-                      print('menu pressed ...');
-                    }
+                    print('menu pressed ...');
                   },
                   text: 'Menú',
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Eczar',
-                      color: Colors.white,
-                    ),
+                          fontFamily: 'Eczar',
+                          color: Colors.white,
+                        ),
                     elevation: 3,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),

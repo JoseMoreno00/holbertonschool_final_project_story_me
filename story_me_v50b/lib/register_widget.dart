@@ -100,7 +100,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
-                                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                                'assets/images/logo.png',
                                 width: 175,
                                 height: 139,
                                 fit: BoxFit.cover,
@@ -465,7 +465,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         // ignore: use_build_context_synchronously
                                         showDialog(
                                             context: context,
-                                            builder: (context) {return const AlertDialog(title: Text('No se pudo registrar el Usuario'),);});
+                                            builder: (context) {
+                                              return const AlertDialog(
+                                                title: Text(
+                                                    'No se pudo registrar el Usuario'),
+                                              );
+                                            });
                                       }
                                     } else {
                                       if (kDebugMode) {
