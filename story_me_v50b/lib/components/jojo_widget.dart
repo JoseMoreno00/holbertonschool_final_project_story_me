@@ -57,7 +57,7 @@ class _JojoWidgetState extends State<JojoWidget> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
-                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                'assets/images/logo.png',
                 width: 178.41,
                 height: 185,
                 fit: BoxFit.cover,
