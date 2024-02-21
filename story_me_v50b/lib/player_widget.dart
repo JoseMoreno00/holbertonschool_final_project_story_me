@@ -237,7 +237,12 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
+                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,

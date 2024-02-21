@@ -1,7 +1,11 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:storymev50b2/home_widget.dart';
 import 'package:storymev50b2/language_widget.dart';
+import 'package:storymev50b2/log_in_widget.dart';
+import 'downloads_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'app/lateral_menu_model.dart';
 export 'app/lateral_menu_model.dart';
@@ -103,7 +107,7 @@ class _LateralMenuWidgetState extends State<LateralMenuWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Home');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -151,7 +155,7 @@ class _LateralMenuWidgetState extends State<LateralMenuWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Downloads');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -247,7 +251,7 @@ class _LateralMenuWidgetState extends State<LateralMenuWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('LogIn');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -295,8 +299,12 @@ class _LateralMenuWidgetState extends State<LateralMenuWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await launchURL(
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
+                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
