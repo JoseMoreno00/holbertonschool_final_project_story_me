@@ -1,8 +1,10 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/log_in_widget.dart';
+import 'package:storymev50b2/login_widget.dart';
+
 import 'app/welcome_model.dart';
 export 'app/welcome_model.dart';
 
@@ -23,7 +25,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
 
     Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const LogInWidget()),
+        MaterialPageRoute(builder: (context) => const LogInWidget()),
       );
     });
   }
@@ -52,70 +54,74 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         top: true,
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
-              stops: [0, 1],
-              begin: AlignmentDirectional(0, -1),
-              end: AlignmentDirectional(0, 1),
-            ),
-          ),
-          child: Stack(
-            children: [
-              Align(
-                alignment: const AlignmentDirectional(0, 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.asset(
-                          'assets/images/logo.png',
-                          width: 300,
-                          height: 214,
-                          fit: BoxFit.cover,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Container(
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+                  stops: [0, 1],
+                  begin: AlignmentDirectional(0, -1),
+                  end: AlignmentDirectional(0, 1),
+                ),
+              ),
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(0, 0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0, constraints.maxHeight * 0.1, 0, 0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              'assets/images/logo.png',
+                              width: constraints.maxWidth * 0.8,
+                              height: constraints.maxHeight * 0.3,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Text(
-                      'StoryMe',
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                        Text(
+                          'StoryMe',
+                          style: FlutterFlowTheme.of(context).bodyLarge.override(
                             fontFamily: 'DARKLANDS',
                             color: const Color(0xFF170E0D),
-                            fontSize: 85,
+                            fontSize: constraints.maxWidth * 0.2,
                             fontWeight: FontWeight.normal,
                             useGoogleFonts: false,
                           ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0, 0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                        child: Text(
-                          'Listo para una nueva aventura?',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Eczar',
-                                    color: const Color(0xFF170E0D),
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
-                      ),
+                        Align(
+                          alignment: const AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            child: Text(
+                              'Listo para una nueva aventura?',
+                              textAlign: TextAlign.center,
+                              style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Eczar',
+                                color: const Color(0xFF170E0D),
+                                fontSize: constraints.maxWidth * 0.05,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

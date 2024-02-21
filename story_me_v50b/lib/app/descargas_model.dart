@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../descargas_widget.dart' show DescargasWidget;
+import 'package:storymev50b2/descargas_widget.dart' show DescargasWidget;
 import 'package:flutter/material.dart';
 
 class DescargasModel extends FlutterFlowModel<DescargasWidget> {

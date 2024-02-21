@@ -1,10 +1,12 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterUser extends ChangeNotifier {
   RegisterUser() {
-    print('Esta en marcha');
+    if (kDebugMode) {
+      print('Esta en marcha');
+    }
   }
   Future<bool> registrarUsuario(Map<String, String> formData) async {
     var url = Uri.parse(

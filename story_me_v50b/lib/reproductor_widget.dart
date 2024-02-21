@@ -98,10 +98,10 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                fontFamily: 'DARKLANDS',
-                                fontSize: 28,
-                                useGoogleFonts: false,
-                              ),
+                                    fontFamily: 'DARKLANDS',
+                                    fontSize: 28,
+                                    useGoogleFonts: false,
+                                  ),
                             ),
                           ),
                         ],
@@ -113,7 +113,7 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                   alignment: const AlignmentDirectional(-0.99, -0.54),
                   child: Padding(
                     padding:
-                    const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                        const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                     child: Container(
                       width: double.infinity,
                       height: 280,
@@ -136,7 +136,7 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                   alignment: const AlignmentDirectional(-0.93, 0.21),
                   child: Padding(
                     padding:
-                    const EdgeInsetsDirectional.fromSTEB(10, 170, 10, 0),
+                        const EdgeInsetsDirectional.fromSTEB(10, 170, 10, 0),
                     child: Container(
                       width: double.infinity,
                       height: 180,
@@ -173,13 +173,13 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -201,13 +201,13 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -229,13 +229,13 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -257,13 +257,13 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -287,15 +287,15 @@ class _ReproductorWidgetState extends State<ReproductorWidget> {
                     options: FFButtonOptions(
                       height: 40,
                       padding:
-                      const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                       iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: const Color(0xFFFC772F),
                       textStyle:
-                      FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
-                        color: Colors.white,
-                      ),
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
                       elevation: 3,
                       borderSide: const BorderSide(
                         color: Colors.transparent,

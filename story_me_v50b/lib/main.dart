@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:storymev50b2/authenticator/authen.dart';
 import 'package:storymev50b2/galery_widget.dart';
-import 'package:storymev50b2/log_in_widget.dart';
+import 'package:storymev50b2/login_widget.dart';
 import 'package:storymev50b2/register_widget.dart';
+import 'package:storymev50b2/story_widget.dart';
 import 'welcome_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/register_widget': (context) => const RegisterWidget(),
         '/login_widget': (context) => const LogInWidget(),
         '/galery_widget': (context) => const GaleryWidget(),
+        '/story_widget': (context) => const StoryWidget(),
       },
     );
   }

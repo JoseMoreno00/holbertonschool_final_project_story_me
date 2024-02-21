@@ -1,26 +1,25 @@
-import '/components/jojo_widget.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../galery_widget.dart' show GaleryWidget;
+import 'package:storymev50b2/galery_widget.dart' show GaleryWidget;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class GaleryModel extends FlutterFlowModel<GaleryWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for jojo component.
-  late JojoModel jojoModel;
+  // State field(s) for Carousel widget.
+  CarouselController? carouselController;
+
+  int carouselCurrentIndex = 1;
 
   /// Initialization and disposal methods.
 
   @override
-  void initState(BuildContext context) {
-    jojoModel = createModel(context, () => JojoModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    jojoModel.dispose();
   }
 
 /// Action blocks are added here.

@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -54,13 +54,12 @@ class _StoryWidgetState extends State<StoryWidget> {
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  'assets/images/344c4a87ad585f889b9d297a11212d96.jpg',
-                ).image,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+                stops: [0, 1],
+                begin: AlignmentDirectional(0, -1),
+                end: AlignmentDirectional(0, 1),
               ),
             ),
             child: Stack(
@@ -80,7 +79,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
-                              'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                              'assets/images/logo.png',
                               width: 133,
                               height: 97,
                               fit: BoxFit.cover,
@@ -91,15 +90,16 @@ class _StoryWidgetState extends State<StoryWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                              fontFamily: 'DARKLANDS',
-                              fontSize: 28,
-                              useGoogleFonts: false,
-                            ),
+                                  fontFamily: 'DARKLANDS',
+                                  fontSize: 28,
+                                  useGoogleFonts: false,
+                                ),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(35, 80, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(35, 80, 0, 0),
                         child: Text(
                           'Los Tres\nChanchitos',
                           style: FlutterFlowTheme.of(context).bodyMedium,
@@ -108,7 +108,7 @@ class _StoryWidgetState extends State<StoryWidget> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
-                          'assets/images/Cuento_elegido.png',
+                          'assets/images/3cerd.jpg',
                           height: 200,
                           fit: BoxFit.cover,
                         ),
@@ -138,17 +138,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -167,17 +167,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -196,17 +196,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -241,17 +241,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -270,17 +270,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -299,17 +299,17 @@ class _StoryWidgetState extends State<StoryWidget> {
                           options: FFButtonOptions(
                             width: 110,
                             height: MediaQuery.sizeOf(context).height * 0.2,
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                            iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                24, 0, 24, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                            ),
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                ),
                             elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
@@ -339,14 +339,15 @@ class _StoryWidgetState extends State<StoryWidget> {
                     options: FFButtonOptions(
                       width: 150,
                       padding: const EdgeInsets.all(14),
-                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: const Color(0xFFFC772F),
                       textStyle:
-                      FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
-                        color: Colors.white,
-                      ),
-                      elevation: 3,
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                              ),
+                      elevation: 20,
                       borderSide: const BorderSide(
                         color: Colors.transparent,
                         width: 1,
@@ -360,9 +361,9 @@ class _StoryWidgetState extends State<StoryWidget> {
                   child: Text(
                     'Estilos',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Eczar',
-                      fontSize: 24,
-                    ),
+                          fontFamily: 'Eczar',
+                          fontSize: 24,
+                        ),
                   ),
                 ),
                 Align(
@@ -370,9 +371,9 @@ class _StoryWidgetState extends State<StoryWidget> {
                   child: Text(
                     'Idiomas',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Eczar',
-                      fontSize: 24,
-                    ),
+                          fontFamily: 'Eczar',
+                          fontSize: 24,
+                        ),
                   ),
                 ),
                 Align(
@@ -390,15 +391,16 @@ class _StoryWidgetState extends State<StoryWidget> {
                         options: FFButtonOptions(
                           width: 97.5,
                           height: 40,
-                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -417,15 +419,16 @@ class _StoryWidgetState extends State<StoryWidget> {
                         options: FFButtonOptions(
                           width: 97.5,
                           height: 40,
-                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -444,15 +447,16 @@ class _StoryWidgetState extends State<StoryWidget> {
                         options: FFButtonOptions(
                           width: 97.5,
                           height: 40,
-                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
@@ -471,15 +475,16 @@ class _StoryWidgetState extends State<StoryWidget> {
                         options: FFButtonOptions(
                           width: 97.5,
                           height: 40,
-                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              24, 0, 24, 0),
                           iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: Colors.white,
-                          ),
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                  ),
                           elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,

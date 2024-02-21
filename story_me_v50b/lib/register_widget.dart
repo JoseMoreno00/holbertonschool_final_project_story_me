@@ -2,7 +2,7 @@ import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:storymev50b2/log_in_widget.dart';
+import 'package:storymev50b2/login_widget.dart';
 import 'app/register_model.dart';
 export 'app/register_model.dart';
 import 'package:provider/provider.dart';
@@ -36,6 +36,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
     _model.confirmarContraseaController ??= TextEditingController();
     _model.confirmarContraseaFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
   }
 
   @override
@@ -100,7 +104,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
-                                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                                'assets/images/logo.png',
                                 width: 175,
                                 height: 139,
                                 fit: BoxFit.cover,
@@ -464,8 +468,14 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       } else {
                                         // ignore: use_build_context_synchronously
                                         showDialog(
+                                            // ignore: use_build_context_synchronously
                                             context: context,
-                                            builder: (context) {return const AlertDialog(title: Text('No se pudo registrar el Usuario'),);});
+                                            builder: (context) {
+                                              return const AlertDialog(
+                                                title: Text(
+                                                    'No se pudo registrar el Usuario'),
+                                              );
+                                            });
                                       }
                                     } else {
                                       if (kDebugMode) {
