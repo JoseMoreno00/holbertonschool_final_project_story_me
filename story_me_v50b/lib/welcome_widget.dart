@@ -1,6 +1,6 @@
-import 'dart:async';
-
+// WIDGET COMPLETE, DON'T TOUCH OR I KILL U
 import 'package:flutterflow_ui/flutterflow_ui.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';

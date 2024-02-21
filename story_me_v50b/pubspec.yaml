@@ -46,5 +46,9 @@ flutter:
     - family: DARKLANDS
       fonts:
         - asset: assets/fonts/Darklands.ttf
+    - family: Eczar
+      fonts:
+        - asset: assets/fonts/Eczar-VariableFont_wght.ttf   
+    
 
 
