@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'log_in_widget.dart';
 
 import 'app/welcome_model.dart';
 export 'app/welcome_model.dart';
@@ -11,11 +14,14 @@ class WelcomeWidget extends StatefulWidget {
 
   @override
   State<WelcomeWidget> createState() => _WelcomeWidgetState();
+
+
 }
 
 class _WelcomeWidgetState extends State<WelcomeWidget>
     with TickerProviderStateMixin {
   late WelcomeModel _model;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -83,6 +89,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => WelcomeModel());
+
+    Timer(const Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LogInWidget()),
+      );
+    });
   }
 
   @override

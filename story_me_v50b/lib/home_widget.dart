@@ -122,7 +122,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             elevation: 16,
             child: Container(
               width: 100,
-              height: 100,
+              height: 80,
               decoration: const BoxDecoration(
                 color: Color(0xFFF8EED7),
               ),
@@ -133,13 +133,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
                       width: 120,
-                      height: 120,
+                      height: 180,
                       clipBehavior: Clip.antiAlias,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
                       child: Image.asset(
-                        'assets/images/imagen_2024-02-20_035909040.png',
+                        'assets/images/logo.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -458,9 +458,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
-                                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
-                                width: 175,
-                                height: 123,
+                                'assets/images/logo.png',
+                                width: 165,
+                                height: 100,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -488,7 +488,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                   alignment: const AlignmentDirectional(0, 0.5),
                   child: Container(
                     width: double.infinity,
-                    height: 429,
+                    height: 420,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -497,7 +497,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: SizedBox(
                         width: double.infinity,
-                        height: 180,
+                        height: 160,
                         child: CarouselSlider(
                           items: [
                             Column(
@@ -512,7 +512,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -559,7 +559,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -596,7 +596,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ),
                                 Container(
                                   width: 185,
-                                  height: 100,
+                                  height: 90,
                                   decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
@@ -620,7 +620,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -666,7 +666,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),

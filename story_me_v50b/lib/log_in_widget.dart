@@ -8,6 +8,8 @@ import 'package:storymev50b2/register_widget.dart';
 export 'app/login_model.dart';
 import 'package:storymev50b2/authenticator/loginauth.dart';
 import 'package:provider/provider.dart';
+import 'package:storymev50b2/authenticator/authen.dart';
+import 'package:storymev50b2/authenticator/loginauth.dart';
 
 class LogInWidget extends StatefulWidget {
   const LogInWidget({super.key});
@@ -426,7 +428,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Eczar',
-                                          fontSize: 18,
+                                          fontSize: 16,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
