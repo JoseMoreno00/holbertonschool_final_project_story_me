@@ -2,7 +2,7 @@ import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:storymev50b2/login_widget.dart';
+import 'package:storymev50b2/log_in_widget.dart';
 import 'app/register_model.dart';
 export 'app/register_model.dart';
 import 'package:provider/provider.dart';

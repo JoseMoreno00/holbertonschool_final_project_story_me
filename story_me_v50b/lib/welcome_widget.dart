@@ -1,9 +1,7 @@
-import 'dart:async';
-
+import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/login_widget.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'app/welcome_model.dart';
 export 'app/welcome_model.dart';
@@ -15,28 +13,84 @@ class WelcomeWidget extends StatefulWidget {
   State<WelcomeWidget> createState() => _WelcomeWidgetState();
 }
 
-class _WelcomeWidgetState extends State<WelcomeWidget> {
+class _WelcomeWidgetState extends State<WelcomeWidget>
+    with TickerProviderStateMixin {
   late WelcomeModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'imageOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 800.ms,
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 800.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 800.ms,
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 800.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => WelcomeModel());
-
-    Timer(const Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LogInWidget()),
-      );
-    });
   }
 
   @override
   void dispose() {
     _model.dispose();
+
     super.dispose();
   }
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,79 +103,84 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
       );
     }
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        top: true,
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Container(
-              width: constraints.maxWidth,
-              height: constraints.maxHeight,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
-                  stops: [0, 1],
-                  begin: AlignmentDirectional(0, -1),
-                  end: AlignmentDirectional(0, 1),
-                ),
+    return GestureDetector(
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+                stops: [0, 1],
+                begin: AlignmentDirectional(0, -1),
+                end: AlignmentDirectional(0, 1),
               ),
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0, constraints.maxHeight * 0.1, 0, 0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.asset(
-                              'assets/images/logo.png',
-                              width: constraints.maxWidth * 0.8,
-                              height: constraints.maxHeight * 0.3,
-                              fit: BoxFit.cover,
+            ),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: const AlignmentDirectional(0, 0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            width: 300,
+                            height: 214,
+                            fit: BoxFit.cover,
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation']!),
+                      ),
+                      Text(
+                        'StoryMe',
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                              fontFamily: 'DARKLANDS',
+                              color: const Color(0xFF170E0D),
+                              fontSize: 85,
+                              fontWeight: FontWeight.normal,
+                              useGoogleFonts: false,
                             ),
-                          ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
+                      Align(
+                        alignment: const AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0, 150, 0, 0),
+                          child: Text(
+                            'Listo para una nueva aventura?',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Eczar',
+                                  color: const Color(0xFF170E0D),
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
                         ),
-                        Text(
-                          'StoryMe',
-                          style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'DARKLANDS',
-                            color: const Color(0xFF170E0D),
-                            fontSize: constraints.maxWidth * 0.2,
-                            fontWeight: FontWeight.normal,
-                            useGoogleFonts: false,
-                          ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0, 0),
-                          child: Padding(
-                            padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                            child: Text(
-                              'Listo para una nueva aventura?',
-                              textAlign: TextAlign.center,
-                              style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'Eczar',
-                                color: const Color(0xFF170E0D),
-                                fontSize: constraints.maxWidth * 0.05,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            );
-          },
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

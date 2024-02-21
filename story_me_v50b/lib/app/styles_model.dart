@@ -1,8 +1,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/welcome_widget.dart' show WelcomeWidget;
+import 'package:storymev50b2/styles_widget.dart' show StylesWidget;
 import 'package:flutter/material.dart';
 
-class WelcomeModel extends FlutterFlowModel<WelcomeWidget> {
+class StylesModel extends FlutterFlowModel<StylesWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
