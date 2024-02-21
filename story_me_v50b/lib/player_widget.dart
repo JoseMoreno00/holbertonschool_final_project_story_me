@@ -3,7 +3,6 @@ import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:storymev50b2/downloads_widget.dart';
 import 'package:storymev50b2/language_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'log_in_widget.dart';

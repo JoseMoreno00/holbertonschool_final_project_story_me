@@ -2,17 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-<<<<<<< HEAD
-import 'package:storymev50b2/galery_widget.dart';
-import 'package:storymev50b2/register_widget.dart';
-import 'app/log_in_model.dart';
-export 'app/log_in_model.dart';
-=======
+import 'package:storymev50b2/app/login_model.dart';
 import 'package:storymev50b2/home_widget.dart';
 import 'package:storymev50b2/register_widget.dart';
-import 'app/login_model.dart';
 export 'app/login_model.dart';
->>>>>>> origin/Martin
 import 'package:storymev50b2/authenticator/loginauth.dart';
 import 'package:provider/provider.dart';
 
@@ -95,7 +88,6 @@ class _LogInWidgetState extends State<LogInWidget> {
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
-<<<<<<< HEAD
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -133,8 +125,6 @@ class _LogInWidgetState extends State<LogInWidget> {
                         ),
                       ],
                     ),
-=======
->>>>>>> origin/Martin
                   ),
                 ),
                 Column(

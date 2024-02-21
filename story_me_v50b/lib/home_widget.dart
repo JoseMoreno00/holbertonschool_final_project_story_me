@@ -6,9 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:storymev50b2/downloads_widget.dart';
 import 'package:storymev50b2/language_widget.dart';
+import 'package:storymev50b2/player_widget.dart';
 import 'log_in_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import 'app/home_model.dart';
 export 'app/home_model.dart';
@@ -170,7 +170,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -218,7 +219,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -266,7 +268,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LanguageWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LanguageWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -314,7 +317,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -362,7 +366,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        const url =
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
@@ -546,17 +551,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () async {
-                                    context.pushNamed('Styles',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.bottomToTop,
-                                          duration:
-                                              const Duration(milliseconds: 2),
-                                        ),
-                                      },
-                                    );
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const PlayerWidget()));
                                   },
                                   text: '',
                                   options: FFButtonOptions(
