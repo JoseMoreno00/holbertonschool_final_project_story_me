@@ -2,10 +2,17 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
+<<<<<<< HEAD
 import 'package:storymev50b2/galery_widget.dart';
 import 'package:storymev50b2/register_widget.dart';
 import 'app/log_in_model.dart';
 export 'app/log_in_model.dart';
+=======
+import 'package:storymev50b2/home_widget.dart';
+import 'package:storymev50b2/register_widget.dart';
+import 'app/login_model.dart';
+export 'app/login_model.dart';
+>>>>>>> origin/Martin
 import 'package:storymev50b2/authenticator/loginauth.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +39,10 @@ class _LogInWidgetState extends State<LogInWidget> {
 
     _model.contraseaController ??= TextEditingController();
     _model.contraseaFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
   }
 
   @override
@@ -67,7 +78,12 @@ class _LogInWidgetState extends State<LogInWidget> {
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
-              color: Color(0xFFE1D5B6),
+              gradient: LinearGradient(
+                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
+                stops: [0, 1],
+                begin: AlignmentDirectional(0, -1),
+                end: AlignmentDirectional(0, 1),
+              ),
             ),
             child: Stack(
               children: [
@@ -79,6 +95,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
+<<<<<<< HEAD
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -116,7 +133,41 @@ class _LogInWidgetState extends State<LogInWidget> {
                         ),
                       ],
                     ),
+=======
+>>>>>>> origin/Martin
                   ),
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0, 0),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            width: 165,
+                            height: 129,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0, 0),
+                      child: Text(
+                        'StoryMe',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'DARKLANDS',
+                              fontSize: 36,
+                              useGoogleFonts: false,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: const AlignmentDirectional(0, 0),
@@ -124,7 +175,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
                     child: Container(
                       width: 353,
-                      height: 401,
+                      height: 461,
                       decoration: const BoxDecoration(
                         color: Color(0x9CFFFFFF),
                         borderRadius: BorderRadius.only(
@@ -151,7 +202,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                       .override(
                                         fontFamily: 'Eczar',
                                         color: const Color(0xFF1E1210),
-                                        fontSize: 24,
+                                        fontSize: 22,
                                       ),
                                 ),
                               ),
@@ -321,10 +372,9 @@ class _LogInWidgetState extends State<LogInWidget> {
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     suffixIcon: InkWell(
-                                      onTap: () => setState(
-                                        () => _model.contraseaVisibility =
-                                            !_model.contraseaVisibility,
-                                      ),
+                                      onTap: () => setState(() =>
+                                          _model.contraseaVisibility =
+                                              !_model.contraseaVisibility),
                                       focusNode: FocusNode(skipTraversal: true),
                                       child: Icon(
                                         _model.contraseaVisibility
@@ -395,15 +445,16 @@ class _LogInWidgetState extends State<LogInWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       40, 10, 0, 0),
                                   child: SelectionArea(
-                                      child: Text(
-                                    'Olvidaste tu contraseña?',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Eczar',
-                                          fontSize: 16,
-                                        ),
-                                  )),
+                                    child: Text(
+                                      'Olvidaste tu contraseña?',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Eczar',
+                                            fontSize: 16,
+                                          ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -422,10 +473,11 @@ class _LogInWidgetState extends State<LogInWidget> {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    const GaleryWidget()));
+                                                    const HomeWidget()));
                                       } else {
                                         // ignore: use_build_context_synchronously
                                         showDialog(
+                                            // ignore: use_build_context_synchronously
                                             context: context,
                                             builder: (context) {
                                               return const AlertDialog(
@@ -459,7 +511,7 @@ class _LogInWidgetState extends State<LogInWidget> {
                                         .override(
                                           fontFamily: 'Eczar',
                                           color: const Color(0xFF1E1210),
-                                          fontSize: 20,
+                                          fontSize: 18,
                                         ),
                                     elevation: 8,
                                     borderSide: const BorderSide(

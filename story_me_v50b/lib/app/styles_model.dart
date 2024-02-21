@@ -1,8 +1,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../descargas_widget.dart' show DescargasWidget;
+import 'package:storymev50b2/styles_widget.dart' show StylesWidget;
 import 'package:flutter/material.dart';
 
-class DescargasModel extends FlutterFlowModel<DescargasWidget> {
+class StylesModel extends FlutterFlowModel<StylesWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -17,7 +17,7 @@ class DescargasModel extends FlutterFlowModel<DescargasWidget> {
     unfocusNode.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

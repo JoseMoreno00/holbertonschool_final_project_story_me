@@ -1,8 +1,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../reproductor_widget.dart' show ReproductorWidget;
+import 'package:storymev50b2/lateral_menu_widget.dart' show LateralMenuWidget;
 import 'package:flutter/material.dart';
 
-class ReproductorModel extends FlutterFlowModel<ReproductorWidget> {
+class LateralMenuModel extends FlutterFlowModel<LateralMenuWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -17,7 +17,7 @@ class ReproductorModel extends FlutterFlowModel<ReproductorWidget> {
     unfocusNode.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

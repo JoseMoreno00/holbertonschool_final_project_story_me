@@ -36,6 +36,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
     _model.confirmarContraseaController ??= TextEditingController();
     _model.confirmarContraseaFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusScope.of(context).requestFocus(FocusNode());
+    });
   }
 
   @override
@@ -464,6 +468,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       } else {
                                         // ignore: use_build_context_synchronously
                                         showDialog(
+                                            // ignore: use_build_context_synchronously
                                             context: context,
                                             builder: (context) {
                                               return const AlertDialog(

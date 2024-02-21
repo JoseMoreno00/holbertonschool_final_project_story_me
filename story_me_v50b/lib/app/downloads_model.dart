@@ -1,8 +1,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import '../story_widget.dart' show StoryWidget;
+import 'package:storymev50b2/downloads_widget.dart' show DownloadsWidget;
 import 'package:flutter/material.dart';
 
-class StoryModel extends FlutterFlowModel<StoryWidget> {
+class DownloadsModel extends FlutterFlowModel<DownloadsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -17,7 +17,7 @@ class StoryModel extends FlutterFlowModel<StoryWidget> {
     unfocusNode.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

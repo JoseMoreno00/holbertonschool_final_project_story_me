@@ -16,9 +16,14 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   flutterflow_ui: ^0.2.0+1
+  url_launcher: ^6.0.9
   carousel_slider: ^4.2.1
+  google_fonts: 4.0.3
   http: ^0.13.6
   provider: ^6.0.4
+
+
+
   
 dev_dependencies:
   flutter_test:
@@ -32,9 +37,11 @@ flutter:
   uses-material-design: true
 
 
-assets:
-  - assets/images/
-  - fonts:
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
     - family: DARKLANDS
       fonts:
         - asset: assets/fonts/Darklands.ttf

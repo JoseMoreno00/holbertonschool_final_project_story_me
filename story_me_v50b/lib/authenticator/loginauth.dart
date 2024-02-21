@@ -1,11 +1,12 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
- 
 
 class LogInUser extends ChangeNotifier {
   LogInUser() {
-    print('Esta en marcha');
+    if (kDebugMode) {
+      print('Esta en marcha');
+    }
   }
   Future<bool> logedUser(Map<String, String> formData) async {
     var url = Uri.parse(
