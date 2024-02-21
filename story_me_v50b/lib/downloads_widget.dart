@@ -3,6 +3,10 @@ import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:storymev50b2/home_widget.dart';
+import 'package:storymev50b2/language_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'log_in_widget.dart';
 
 import 'app/downloads_model.dart';
 export 'app/downloads_model.dart';
@@ -146,7 +150,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Home');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -194,7 +198,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Downloads');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -242,7 +246,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('Language');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LanguageWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -290,7 +294,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('LogIn');
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -338,8 +342,12 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await launchURL(
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
+                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -637,7 +645,9 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                                     ),
                                     FFButtonWidget(
                                       onPressed: () {
-                                        print('elcofre pressed ...');
+                                        if (kDebugMode) {
+                                          print('elcofre pressed ...');
+                                        }
                                       },
                                       text: '',
                                       options: FFButtonOptions(
@@ -667,7 +677,9 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                                     ),
                                     FFButtonWidget(
                                       onPressed: () {
-                                        print('losangeles pressed ...');
+                                        if (kDebugMode) {
+                                          print('losangeles pressed ...');
+                                        }
                                       },
                                       text: '',
                                       options: FFButtonOptions(
