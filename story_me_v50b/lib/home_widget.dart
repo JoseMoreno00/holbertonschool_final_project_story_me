@@ -6,9 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:storymev50b2/downloads_widget.dart';
 import 'package:storymev50b2/language_widget.dart';
+import 'package:storymev50b2/player_widget.dart';
 import 'log_in_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import 'app/home_model.dart';
 export 'app/home_model.dart';
@@ -122,7 +122,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             elevation: 16,
             child: Container(
               width: 100,
-              height: 100,
+              height: 80,
               decoration: const BoxDecoration(
                 color: Color(0xFFF8EED7),
               ),
@@ -133,13 +133,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
                       width: 120,
-                      height: 120,
+                      height: 180,
                       clipBehavior: Clip.antiAlias,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
                       child: Image.asset(
-                        'assets/images/imagen_2024-02-20_035909040.png',
+                        'assets/images/logo.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -170,7 +170,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -218,7 +219,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -266,7 +268,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LanguageWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LanguageWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -314,7 +317,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -362,7 +366,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        const url =
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
@@ -453,9 +458,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
-                                'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
-                                width: 175,
-                                height: 123,
+                                'assets/images/logo.png',
+                                width: 165,
+                                height: 100,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -483,7 +488,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                   alignment: const AlignmentDirectional(0, 0.5),
                   child: Container(
                     width: double.infinity,
-                    height: 429,
+                    height: 420,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -492,7 +497,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: SizedBox(
                         width: double.infinity,
-                        height: 180,
+                        height: 160,
                         child: CarouselSlider(
                           items: [
                             Column(
@@ -507,7 +512,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -546,22 +551,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 FFButtonWidget(
                                   onPressed: () async {
-                                    context.pushNamed('Styles',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.bottomToTop,
-                                          duration:
-                                              const Duration(milliseconds: 2),
-                                        ),
-                                      },
-                                    );
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const PlayerWidget()));
                                   },
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -598,7 +596,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ),
                                 Container(
                                   width: 185,
-                                  height: 100,
+                                  height: 90,
                                   decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
@@ -622,7 +620,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
@@ -668,7 +666,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   text: '',
                                   options: FFButtonOptions(
                                     width: 200,
-                                    height: 300,
+                                    height: 280,
                                     padding:
                                         const EdgeInsetsDirectional.fromSTEB(
                                             24, 0, 24, 0),
