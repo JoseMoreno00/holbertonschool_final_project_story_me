@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,9 +11,15 @@ import 'package:storymev50b2/player_widget.dart';
 import 'package:storymev50b2/styles_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 import 'app/styles_model.dart';
 export 'app/styles_model.dart';
+
+String texto = '';
+String imagen = '';
+String player = '$cuento.$style.$idioma';
+String cuento = '';
+String style = '';
+String idioma = '';
 
 class StylesWidget extends StatefulWidget {
   const StylesWidget({super.key});
@@ -160,7 +167,7 @@ class _StylesWidgetState extends State<StylesWidget>
                         shape: BoxShape.circle,
                       ),
                       child: Image.asset(
-                        'assets/images/imagen_2024-02-20_035909040.png',
+                        'assets/images/logo.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -191,7 +198,8 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -239,7 +247,8 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -287,7 +296,8 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LanguageWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LanguageWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -335,7 +345,8 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -383,7 +394,8 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        const url =
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
@@ -475,7 +487,7 @@ class _StylesWidgetState extends State<StylesWidget>
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
-                                  'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                                  'assets/images/logo.png',
                                   width: 133,
                                   height: 97,
                                   fit: BoxFit.cover,
@@ -487,7 +499,7 @@ class _StylesWidgetState extends State<StylesWidget>
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'DARKLANDS',
-                                      fontSize: 28,
+                                      fontSize: 24,
                                       useGoogleFonts: false,
                                     ),
                               ),
@@ -497,7 +509,7 @@ class _StylesWidgetState extends State<StylesWidget>
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 35, 80, 0, 0),
                             child: Text(
-                              'Los Tres\nChanchitos',
+                              texto,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -514,7 +526,7 @@ class _StylesWidgetState extends State<StylesWidget>
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset(
-                              'assets/images/Cuento_elegido.png',
+                              imagen,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -558,31 +570,52 @@ class _StylesWidgetState extends State<StylesWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/Default_An_image_of_a_city_in_cyberpunk_style_in_night_time_1.jpg',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        style = 'cyber';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/cyber_style.jpg',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/Default_An_image_of_a_city_in_anime_style_in_sunset_2.jpg',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        style = 'anime';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/anime_style.jpg',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/Default_An_image_of_a_city_in_8bit_style_in_sunset_1.jpg',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        style = '8bit';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/8bit_style.jpg',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -629,33 +662,54 @@ class _StylesWidgetState extends State<StylesWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/imagen_2024-02-20_033153778.png',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        idioma = 'en';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/usaflag.jpg',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/Flag_of_Uruguay.svg.webp',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
-                                      alignment: const Alignment(-1, 0),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        idioma = 'es';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/uruflag.webp',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                        alignment: const Alignment(-1, 0),
+                                      ),
                                     ),
                                   ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.asset(
-                                      'assets/images/imagen_2024-02-20_032444112.png',
-                                      width: 120,
-                                      height: 170,
-                                      fit: BoxFit.cover,
-                                      alignment: const Alignment(0, 0),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        idioma = 'br';
+                                      });
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.asset(
+                                        'assets/images/brflag.png',
+                                        width: 120,
+                                        height: 170,
+                                        fit: BoxFit.cover,
+                                        alignment: const Alignment(0, 0),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -672,7 +726,11 @@ class _StylesWidgetState extends State<StylesWidget>
                   alignment: const AlignmentDirectional(-0.01, 0.84),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PlayerWidget()));
+                      if (kDebugMode) {
+                        print(player);
+                      }
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const PlayerWidget()));
                     },
                     text: '',
                     icon: const Icon(
@@ -709,4 +767,3 @@ class _StylesWidgetState extends State<StylesWidget>
     );
   }
 }
-

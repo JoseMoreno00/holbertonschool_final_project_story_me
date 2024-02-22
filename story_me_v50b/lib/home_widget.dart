@@ -444,7 +444,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: Container(
                     width: 414,
-                    height: 184,
+                    height: 194,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -461,7 +461,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               child: Image.asset(
                                 'assets/images/logo.png',
                                 width: 165,
-                                height: 100,
+                                height: 120,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -475,7 +475,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'DARKLANDS',
-                                  fontSize: 44,
+                                  fontSize: 38,
                                   useGoogleFonts: false,
                                 ),
                           ),
@@ -506,6 +506,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
+                                    texto = 'Caperucita roja';
+                                    imagen = 'assets/images/redridding.jpg';
+                                    cuento = 'caperucita';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
@@ -532,17 +535,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         topRight: Radius.circular(40),
                                       ),
                                     ),
-                                    child: Center(
-                                      child: Text(
-                                        'Caperucita Roja',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .copyWith(
-                                              color: Colors.white,
-                                              fontFamily: 'Readex Pro',
-                                            ),
-                                      ),
-                                    ),
+                                    child: Center(),
+                                  ),
+                                ),
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Caperucita roja:\n Una chica que le gusta andar sola con lobos',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -552,6 +557,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
+                                    texto = 'Los tres cerditos';
+                                    imagen = 'assets/images/3cerd.jpg';
+                                    cuento = 'Los 3 cerditos';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
@@ -578,17 +586,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         topRight: Radius.circular(40),
                                       ),
                                     ),
-                                    child: Center(
-                                      child: Text(
-                                        'Los tres cerditos',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .copyWith(
-                                              color: Colors.white,
-                                              fontFamily: 'Readex Pro',
-                                            ),
-                                      ),
-                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Los tres cerditos: \nTres hermanos cerdos que estudian ingenieria civil',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -598,6 +607,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
+                                    texto = 'Las aventuras\n de Cappe';
+                                    imagen = 'assets/images/cape.jpg';
+                                    cuento = 'Las aventuras de cape';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
@@ -624,17 +636,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         topRight: Radius.circular(40),
                                       ),
                                     ),
-                                    child: Center(
-                                      child: Text(
-                                        'Las aventuras de Cappe',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .copyWith(
-                                              color: Colors.white,
-                                              fontFamily: 'Readex Pro',
-                                            ),
-                                      ),
-                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Las aventuras de cape:\n Un junior que acosamos todos los dias',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
@@ -644,6 +657,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
+                                    texto = 'Perrandalf';
+                                    imagen = 'assets/images/perrandalf.jpg';
+                                    cuento = 'Perrandalf';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
@@ -670,17 +686,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         topRight: Radius.circular(40),
                                       ),
                                     ),
-                                    child: Center(
-                                      child: Text(
-                                        'Perrandalf',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .copyWith(
-                                              color: Colors.white,
-                                              fontFamily: 'Readex Pro',
-                                            ),
-                                      ),
-                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Perrandalf:\n Un furro que se cree mago',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ),
                               ],
