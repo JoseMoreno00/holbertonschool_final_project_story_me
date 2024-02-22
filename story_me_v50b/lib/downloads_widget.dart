@@ -119,7 +119,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                         shape: BoxShape.circle,
                       ),
                       child: Image.asset(
-                        'assets/images/imagen_2024-02-20_035909040.png',
+                        'assets/images/logo.png',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -150,7 +150,8 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomeWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -198,7 +199,8 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const DownloadsWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -246,7 +248,8 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LanguageWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LanguageWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -294,7 +297,8 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LogInWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LogInWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -342,7 +346,8 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url = 'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        const url =
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
@@ -437,7 +442,7 @@ class _DownloadsWidgetState extends State<DownloadsWidget>
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                            'assets/images/logo.png',
                             width: 175,
                             height: 139,
                             fit: BoxFit.cover,

@@ -6,7 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:storymev50b2/downloads_widget.dart';
 import 'package:storymev50b2/language_widget.dart';
-import 'package:storymev50b2/player_widget.dart';
+// import 'package:storymev50b2/player_widget.dart';
+import 'package:storymev50b2/styles_widget.dart';
 import 'log_in_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -443,7 +444,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: Container(
                     width: 414,
-                    height: 184,
+                    height: 194,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -460,7 +461,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               child: Image.asset(
                                 'assets/images/logo.png',
                                 width: 165,
-                                height: 100,
+                                height: 120,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -474,7 +475,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'DARKLANDS',
-                                  fontSize: 44,
+                                  fontSize: 38,
                                   useGoogleFonts: false,
                                 ),
                           ),
@@ -503,105 +504,48 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                FFButtonWidget(
-                                  onPressed: () {
+                                GestureDetector(
+                                  onTap: () {
+                                    texto = 'Caperucita roja';
+                                    imagen = 'assets/images/redridding.jpg';
+                                    cuento = 'caperucita';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
-                                  },
-                                  text: '',
-                                  options: FFButtonOptions(
-                                    width: 200,
-                                    height: 280,
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
-                                    iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.white,
-                                        ),
-                                    elevation: 3,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(40),
-                                      bottomRight: Radius.circular(40),
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  'Caperusita Roja',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FFButtonWidget(
-                                  onPressed: () async {
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const PlayerWidget()));
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const StylesWidget(),
+                                      ),
+                                    );
                                   },
-                                  text: '',
-                                  options: FFButtonOptions(
+                                  child: Container(
                                     width: 200,
                                     height: 280,
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
-                                    iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.white,
-                                        ),
-                                    elevation: 3,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(40),
-                                      bottomRight: Radius.circular(40),
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40),
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  'Los Tres Chanchitos',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Eczar',
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/redridding.jpg'),
+                                        fit: BoxFit.cover,
                                       ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
+                                        topLeft: Radius.circular(40),
+                                        topRight: Radius.circular(40),
+                                      ),
+                                    ),
+                                    child: Center(),
+                                  ),
                                 ),
                                 Container(
                                   width: 185,
-                                  height: 90,
+                                  height: 100,
                                   decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
                                   child: Text(
-                                    'Hello World',
+                                    'Caperucita roja:\n Una chica que le gusta andar sola con lobos',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -611,95 +555,150 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                FFButtonWidget(
-                                  onPressed: () {
+                                GestureDetector(
+                                  onTap: () {
+                                    texto = 'Los tres cerditos';
+                                    imagen = 'assets/images/3cerd.jpg';
+                                    cuento = 'Los 3 cerditos';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const StylesWidget(),
+                                      ),
+                                    );
                                   },
-                                  text: '',
-                                  options: FFButtonOptions(
+                                  child: Container(
                                     width: 200,
                                     height: 280,
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
-                                    iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.white,
-                                        ),
-                                    elevation: 3,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(40),
-                                      bottomRight: Radius.circular(40),
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40),
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/3cerd.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
+                                        topLeft: Radius.circular(40),
+                                        topRight: Radius.circular(40),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  'Las aventuras de Cappe',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Los tres cerditos: \nTres hermanos cerdos que estudian ingenieria civil',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
                                 ),
                               ],
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                FFButtonWidget(
-                                  onPressed: () {
+                                GestureDetector(
+                                  onTap: () {
+                                    texto = 'Las aventuras\n de Cappe';
+                                    imagen = 'assets/images/cape.jpg';
+                                    cuento = 'Las aventuras de cape';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
                                     }
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const StylesWidget(),
+                                      ),
+                                    );
                                   },
-                                  text: '',
-                                  options: FFButtonOptions(
+                                  child: Container(
                                     width: 200,
                                     height: 280,
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            24, 0, 24, 0),
-                                    iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.white,
-                                        ),
-                                    elevation: 3,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(40),
-                                      bottomRight: Radius.circular(40),
-                                      topLeft: Radius.circular(40),
-                                      topRight: Radius.circular(40),
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/cape.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
+                                        topLeft: Radius.circular(40),
+                                        topRight: Radius.circular(40),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  'Perrandalf',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Eczar',
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Las aventuras de cape:\n Un junior que acosamos todos los dias',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    texto = 'Perrandalf';
+                                    imagen = 'assets/images/perrandalf.jpg';
+                                    cuento = 'Perrandalf';
+                                    if (kDebugMode) {
+                                      print('Button pressed ...');
+                                    }
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const StylesWidget(),
                                       ),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 200,
+                                    height: 280,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/perrandalf.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(40),
+                                        bottomRight: Radius.circular(40),
+                                        topLeft: Radius.circular(40),
+                                        topRight: Radius.circular(40),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 185,
+                                  height: 100,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Text(
+                                    'Perrandalf:\n Un furro que se cree mago',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
                                 ),
                               ],
                             ),

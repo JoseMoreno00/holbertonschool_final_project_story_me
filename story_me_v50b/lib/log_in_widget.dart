@@ -1,3 +1,5 @@
+// WIDGET COMPLETE, DON'T TOUCH OR I KILL U
+import 'package:storymev50b2/authenticator/authen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,8 +10,6 @@ import 'package:storymev50b2/register_widget.dart';
 export 'app/login_model.dart';
 import 'package:storymev50b2/authenticator/loginauth.dart';
 import 'package:provider/provider.dart';
-import 'package:storymev50b2/authenticator/authen.dart';
-import 'package:storymev50b2/authenticator/loginauth.dart';
 
 class LogInWidget extends StatefulWidget {
   const LogInWidget({super.key});
