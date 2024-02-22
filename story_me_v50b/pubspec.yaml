@@ -23,10 +23,6 @@ dependencies:
   provider: ^6.0.4
   flutter_animate: ^4.1.1+1
 
-
-
-  
-  flutter_animate: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
