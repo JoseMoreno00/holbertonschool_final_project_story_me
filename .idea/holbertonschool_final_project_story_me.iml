@@ -15,6 +15,33 @@
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/ios/rive-cpp/dev/core_generator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/ios/rive-cpp/dev/core_generator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/ios/rive-cpp/dev/core_generator/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/macos/rive-cpp/dev/core_generator/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/macos/rive-cpp/dev/core_generator/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/rive_common/macos/rive-cpp/dev/core_generator/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

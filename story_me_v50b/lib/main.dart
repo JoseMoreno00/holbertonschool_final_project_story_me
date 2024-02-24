@@ -6,8 +6,14 @@ import 'package:storymev50b2/register_widget.dart';
 import 'package:storymev50b2/styles_widget.dart';
 import 'welcome_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+void main() async  {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-void main() {
   runApp(const AppState());
 }
 
