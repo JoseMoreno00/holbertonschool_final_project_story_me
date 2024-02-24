@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "841448231741",
+    "firebase_url": "https://storyme-dcd11-default-rtdb.firebaseio.com",
+    "project_id": "storyme-dcd11",
+    "storage_bucket": "storyme-dcd11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841448231741:android:8f6f596afec86a08212b54",
+        "android_client_info": {
+          "package_name": "com.example.storymev50b2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841448231741-foomdm45ln940loe4de4qg1gbt9s7vql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIO4aZzU5c4ZXX5XQDdcrnoNVupCdgO4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841448231741-foomdm45ln940loe4de4qg1gbt9s7vql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
