@@ -1,11 +1,19 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/player_widget.dart' show PlayerWidget;
+import '/player_widget.dart' show PlayerWidget;
 import 'package:flutter/material.dart';
 
 class PlayerModel extends FlutterFlowModel<PlayerWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for PageView widget.
+  PageController? pageViewController;
+
+  int get pageViewCurrentIndex => pageViewController != null &&
+          pageViewController!.hasClients &&
+          pageViewController!.page != null
+      ? pageViewController!.page!.round()
+      : 0;
 
   /// Initialization and disposal methods.
 

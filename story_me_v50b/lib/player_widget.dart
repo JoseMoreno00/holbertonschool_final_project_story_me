@@ -499,16 +499,17 @@ class _PlayerWidgetState extends State<PlayerWidget>
                         animationsMap['containerOnPageLoadAnimation1']!),
                     // EMPIEZO A TRABAJAR DESDE AQUI EN EL REPRODUCTOR!
                     Align(
-                      alignment: AlignmentDirectional(-0.99, -0.54),
+                      alignment: const AlignmentDirectional(-0.99, -0.54),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Container(
                           width: double.infinity,
                           height: 280,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                               topLeft: Radius.circular(20),
@@ -518,12 +519,14 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               width: 2,
                             ),
                           ),
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             height: 500,
                             child: Padding(
-                              padding: EdgeInsets.all(2),
+                              padding: const EdgeInsets.all(2),
                               child: PageView(
+                                controller: _model.pageViewController ??=
+                                    PageController(initialPage: 0),
                                 physics: const NeverScrollableScrollPhysics(),
                                 scrollDirection: Axis.horizontal,
                                 children: [

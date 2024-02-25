@@ -535,7 +535,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         topRight: Radius.circular(40),
                                       ),
                                     ),
-                                    child: Center(),
+                                    child: const Center(),
                                   ),
                                 ),
                                 Container(

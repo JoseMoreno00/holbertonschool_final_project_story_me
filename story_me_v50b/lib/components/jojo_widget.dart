@@ -42,7 +42,7 @@ class _JojoWidgetState extends State<JojoWidget> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
           stops: [0, 1],
@@ -53,7 +53,7 @@ class _JojoWidgetState extends State<JojoWidget> {
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0, -1),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
@@ -65,9 +65,9 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(-0.01, -0.58),
+            alignment: const AlignmentDirectional(-0.01, -0.58),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
               child: Text(
                 'StoryMe',
                 style: FlutterFlowTheme.of(context).displayMedium.override(
@@ -78,10 +78,10 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.04, -0.31),
+            alignment: const AlignmentDirectional(0.04, -0.31),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
-              child: Container(
+              padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+              child: SizedBox(
                 width: 300,
                 child: TextFormField(
                   controller: _model.barrabusquedaController,
@@ -99,7 +99,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                           fontSize: 19,
                           fontWeight: FontWeight.w300,
                         ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0xFF382924),
                         width: 2,
@@ -111,7 +111,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0xFF382924),
                         width: 2,
@@ -123,9 +123,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    errorBorder: OutlineInputBorder(
+                    errorBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xBACD382924),
+                        color: Color(0xbacd382924),
                         width: 2,
                       ),
                       borderRadius: BorderRadius.only(
@@ -135,9 +135,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                         topRight: Radius.circular(30),
                       ),
                     ),
-                    focusedErrorBorder: OutlineInputBorder(
+                    focusedErrorBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color(0xBACD382924),
+                        color: Color(0xbacd382924),
                         width: 2,
                       ),
                       borderRadius: BorderRadius.only(
@@ -148,7 +148,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                       ),
                     ),
                     filled: true,
-                    fillColor: Color(0xFF382924),
+                    fillColor: const Color(0xFF382924),
                     prefixIcon: Icon(
                       Icons.search_sharp,
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -168,7 +168,7 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(-0.89, -0.04),
+            alignment: const AlignmentDirectional(-0.89, -0.04),
             child: Text(
               'Libros',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -179,14 +179,14 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(-0.82, 0.47),
+            alignment: const AlignmentDirectional(-0.82, 0.47),
             child: Container(
               width: double.infinity,
               height: 250,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.transparent,
               ),
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: double.infinity,
                 child: CarouselSlider(
@@ -204,9 +204,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -215,7 +215,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -245,9 +245,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -256,7 +256,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -287,9 +287,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -298,7 +298,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -329,9 +329,9 @@ class _JojoWidgetState extends State<JojoWidget> {
                               width: MediaQuery.sizeOf(context).width,
                               height: 220,
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
                               iconPadding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
@@ -340,7 +340,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                                     color: Colors.white,
                                   ),
                               elevation: 3,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -377,7 +377,7 @@ class _JojoWidgetState extends State<JojoWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 1),
+            alignment: const AlignmentDirectional(0, 1),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -390,15 +390,15 @@ class _JojoWidgetState extends State<JojoWidget> {
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Eczar',
                           color: Colors.white,
                         ),
                     elevation: 3,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -413,15 +413,15 @@ class _JojoWidgetState extends State<JojoWidget> {
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Eczar',
                           color: Colors.white,
                         ),
                     elevation: 3,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -436,8 +436,8 @@ class _JojoWidgetState extends State<JojoWidget> {
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Eczar',
@@ -445,7 +445,7 @@ class _JojoWidgetState extends State<JojoWidget> {
                           fontSize: 12,
                         ),
                     elevation: 3,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
@@ -460,15 +460,15 @@ class _JojoWidgetState extends State<JojoWidget> {
                   options: FFButtonOptions(
                     width: 97.5,
                     height: 40,
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Eczar',
                           color: Colors.white,
                         ),
                     elevation: 3,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1,
                     ),
