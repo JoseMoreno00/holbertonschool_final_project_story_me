@@ -497,18 +497,18 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       ),
                     ).animateOnPageLoad(
                         animationsMap['containerOnPageLoadAnimation1']!),
+                    // EMPIEZO A TRABAJAR DESDE AQUI EN EL REPRODUCTOR!
                     Align(
-                      alignment: const AlignmentDirectional(-0.99, -0.54),
+                      alignment: AlignmentDirectional(-0.99, -0.54),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Container(
                           width: double.infinity,
                           height: 280,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: const BorderRadius.only(
+                            borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                               topLeft: Radius.circular(20),
@@ -516,6 +516,46 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             ),
                             border: Border.all(
                               width: 2,
+                            ),
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            height: 500,
+                            child: Padding(
+                              padding: EdgeInsets.all(2),
+                              child: PageView(
+                                physics: const NeverScrollableScrollPhysics(),
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/16/600',
+                                      width: 300,
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/860/600',
+                                      width: 300,
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Image.network(
+                                      'https://picsum.photos/seed/677/600',
+                                      width: 300,
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ).animateOnPageLoad(
@@ -549,6 +589,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                     ),
                   ],
                 ),
+                // TERMINO LA PARTE DEL REPRODUCTOR AQUI DE MOMENTO!
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

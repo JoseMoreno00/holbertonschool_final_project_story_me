@@ -1,2 +1,2 @@
-export 'package:storymev50b2/authenticator/loginauth.dart';
-export 'package:storymev50b2/authenticator/registerauth.dart';
+export 'registerauth.dart';
+export 'loginauth.dart';
