@@ -489,7 +489,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    texto = 'Caperucita roja';
+                                    texto = 'Caperucita\nroja';
                                     imagen = 'assets/images/redridding.jpg';
                                     cuento = 'caperucita';
                                     if (kDebugMode) {
@@ -540,7 +540,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    texto = 'Los tres cerditos';
+                                    texto = 'Los tres\ncerditos';
                                     imagen = 'assets/images/3cerd.jpg';
                                     cuento = 'Los 3 cerditos';
                                     if (kDebugMode) {

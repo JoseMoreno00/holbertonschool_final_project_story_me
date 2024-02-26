@@ -471,8 +471,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/logo.png',
-                                  width: 133,
-                                  height: 97,
+                                  width: 131,
+                                  height: 91,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -502,8 +502,8 @@ class _StylesWidgetState extends State<StylesWidget>
                             ),
                           ),
                           Container(
-                            width: 120,
-                            height: 120,
+                            width: 110,
+                            height: 110,
                             clipBehavior: Clip.antiAlias,
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
@@ -563,8 +563,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/cyber_style.jpg',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -579,8 +579,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/anime_style.jpg',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -595,8 +595,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/8bit_style.jpg',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -655,8 +655,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/usaflag.jpg',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -671,8 +671,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/uruflag.webp',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                         alignment: const Alignment(-1, 0),
                                       ),
@@ -688,8 +688,8 @@ class _StylesWidgetState extends State<StylesWidget>
                                       borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/brflag.png',
-                                        width: 120,
-                                        height: 170,
+                                        width: 110,
+                                        height: 160,
                                         fit: BoxFit.cover,
                                         alignment: const Alignment(0, 0),
                                       ),
