@@ -1,5 +1,8 @@
-import 'package:storymev50b2/imports.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
+import 'package:storymev50b2/imports.dart';
+
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 
 class PlayerWidget extends StatefulWidget {
   const PlayerWidget({super.key});
@@ -108,15 +111,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -124,307 +118,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        drawer: SizedBox(
-          width: 200,
-          child: Drawer(
-            elevation: 16,
-            child: Container(
-              width: 100,
-              height: 100,
-              decoration: const BoxDecoration(
-                color: Color(0xFFF8EED7),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                    child: Container(
-                      width: 120,
-                      height: 120,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                    child: Text(
-                      'Poro:3',
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            fontSize: 20,
-                          ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 170,
-                    child: Divider(
-                      thickness: 1,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const HomeWidget()));
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Icon(
-                                Icons.home,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Text(
-                                'Inicio',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 18,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        // ignore: deprecated_member_use
-                        launch(
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Icon(
-                                Icons.download_sharp,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Text(
-                                'Descargas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 18,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const LanguageWidget()));
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Icon(
-                                Icons.language_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Text(
-                                'Idioma',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 18,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const LogInWidget()));
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Icon(
-                                Icons.logout_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Text(
-                                'Cerrar Sesión',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 18,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        // ignore: deprecated_member_use
-                        launch(
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Icon(
-                                Icons.people_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 26,
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 0, 0),
-                              child: Text(
-                                'Sobre Nosotros',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 18,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-// END OF THE SIDE MENU
-//=============================================================================
-// START OF THE APP BAR
+        drawer: buildDrawer(context),
         appBar: AppBar(
           backgroundColor: const Color(0xFFFC772F),
           automaticallyImplyLeading: true,
@@ -464,7 +158,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             child: Image.asset(
                               'assets/images/logo.png',
                               width: 175,
-                              height: 136,
+                              height: 139,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -474,7 +168,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'DARKLANDS',
-                                  fontSize: 36,
+                                  fontSize: 40,
                                   useGoogleFonts: false,
                                 ),
                           ),
@@ -482,9 +176,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       ),
                     ).animateOnPageLoad(
                         animationsMap['containerOnPageLoadAnimation1']!),
-// END OF THE LOGO
-//=============================================================================
-//START OF THE PLAYER
                     Align(
                       alignment: const AlignmentDirectional(-0.99, -0.54),
                       child: Padding(
@@ -505,6 +196,95 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             border: Border.all(
                               width: 2,
                             ),
+                          ),
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: 500,
+                                child: Stack(
+                                  children: [
+                                    PageView(
+                                      controller: _model.pageViewController ??=
+                                          PageController(initialPage: 0),
+                                      scrollDirection: Axis.horizontal,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(24),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/16/600',
+                                            width: 300,
+                                            height: 200,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/860/600',
+                                            width: 300,
+                                            height: 200,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/677/600',
+                                            width: 300,
+                                            height: 200,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1, 1),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(16, 0, 0, 16),
+                                        child: smooth_page_indicator
+                                            .SmoothPageIndicator(
+                                          controller: _model
+                                                  .pageViewController ??=
+                                              PageController(initialPage: 0),
+                                          count: 3,
+                                          axisDirection: Axis.horizontal,
+                                          onDotClicked: (i) async {
+                                            await _model.pageViewController!
+                                                .animateToPage(
+                                              i,
+                                              duration: const Duration(
+                                                  milliseconds: 500),
+                                              curve: Curves.ease,
+                                            );
+                                          },
+                                          effect: smooth_page_indicator
+                                              .ExpandingDotsEffect(
+                                            expansionFactor: 3,
+                                            spacing: 8,
+                                            radius: 16,
+                                            dotWidth: 16,
+                                            dotHeight: 8,
+                                            dotColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
+                                            activeDotColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            paintStyle: PaintingStyle.fill,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation2']!),
@@ -537,13 +317,55 @@ class _PlayerWidgetState extends State<PlayerWidget>
                     ),
                   ],
                 ),
-// END OF PLAYER
-//=============================================================================
-//START OF PLAYER BUTTONS
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await _model.pageViewController?.previousPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.ease,
+                            );
+                          },
+                          text: '',
+                          icon: const Icon(
+                            Icons.chevron_left_rounded,
+                            size: 15,
+                          ),
+                          options: FFButtonOptions(
+                            width: 40,
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            color: const Color(0xFFFC772F),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(0),
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     Align(
                       alignment: const AlignmentDirectional(0, 1),
                       child: Padding(
@@ -578,9 +400,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               color: Colors.transparent,
                             ),
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(30),
+                              bottomLeft: Radius.circular(0),
                               bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(30),
+                              topLeft: Radius.circular(0),
                               topRight: Radius.circular(0),
                             ),
                           ),
@@ -631,10 +453,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            if (kDebugMode) {
-                              print('restart pressed ...');
-                            }
+                          onPressed: () async {
+                            await _model.pageViewController?.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.ease,
+                            );
                           },
                           text: '',
                           icon: const Icon(
@@ -645,6 +468,51 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             height: 40,
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10, 0, 10, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            color: const Color(0xFFFC772F),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(0),
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await _model.pageViewController?.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.ease,
+                            );
+                          },
+                          text: '',
+                          icon: const Icon(
+                            Icons.chevron_right_rounded,
+                            size: 15,
+                          ),
+                          options: FFButtonOptions(
+                            width: 40,
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0, 0, 0, 0),
                             color: const Color(0xFFFC772F),

@@ -19,7 +19,8 @@ export 'package:storymev50b2/app_models/player_model.dart';
 export 'package:storymev50b2/app_models/downloads_model.dart';
 export 'package:storymev50b2/app_models/language_model.dart';
 //Functions
-export 'package:storymev50b2/app_models/lateral_menu_model.dart';
+export 'package:storymev50b2/functions/lateral_menu_drawer.dart';
+export 'package:storymev50b2/functions/assets.dart';
 //Authenticator
 export 'package:storymev50b2/authenticator/authen.dart';
 // Dependencies

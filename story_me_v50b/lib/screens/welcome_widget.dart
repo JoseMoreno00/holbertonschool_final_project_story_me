@@ -1,6 +1,5 @@
 // WIDGET COMPLETE, DON'T TOUCH OR I KILL U
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/functions/assets.dart';
 import 'package:storymev50b2/imports.dart';
 
 class WelcomeWidget extends StatefulWidget {
