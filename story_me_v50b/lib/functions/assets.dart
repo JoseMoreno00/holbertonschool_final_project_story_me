@@ -1,4 +1,4 @@
-class AppAssets {
+class AppImg {
   static const logo = 'assets/images/logo.png';
   static const usaFlag = 'assets/images/usaflag.jpg';
   static const uruFlag = 'assets/images/uruflag.webp';

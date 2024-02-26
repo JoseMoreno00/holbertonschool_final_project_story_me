@@ -1,13 +1,7 @@
 // WIDGET COMPLETE, DON'T TOUCH OR I KILL U
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'log_in_widget.dart';
-
-import 'package:storymev50b2/app_models/welcome_model.dart';
-export 'package:storymev50b2/app_models/welcome_model.dart';
+import 'package:storymev50b2/functions/assets.dart';
+import 'package:storymev50b2/imports.dart';
 
 class WelcomeWidget extends StatefulWidget {
   const WelcomeWidget({super.key});
@@ -145,7 +139,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/logo.png',
+                            AppImg.logo,
                             width: 300,
                             height: 214,
                             fit: BoxFit.cover,
@@ -154,7 +148,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                             animationsMap['imageOnPageLoadAnimation']!),
                       ),
                       Text(
-                        'StoryMe',
+                        AppTexts.appName,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'DARKLANDS',
                               color: const Color(0xFF170E0D),

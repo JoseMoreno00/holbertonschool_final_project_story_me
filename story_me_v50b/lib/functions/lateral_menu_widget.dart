@@ -294,15 +294,9 @@ class _LateralMenuWidgetState extends State<LateralMenuWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url =
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
                         // ignore: deprecated_member_use
-                        if (await canLaunch(url)) {
-                          // ignore: deprecated_member_use
-                          await launch(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        launch(
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,

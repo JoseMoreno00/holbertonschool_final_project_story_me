@@ -381,13 +381,9 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url =
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        // ignore: deprecated_member_use
+                        launch(
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
