@@ -1,16 +1,11 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/home_widget.dart' show HomeWidget;
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:storymev50b2/screens/welcome_widget.dart' show WelcomeWidget;
 import 'package:flutter/material.dart';
 
-class HomeModel extends FlutterFlowModel<HomeWidget> {
+class WelcomeModel extends FlutterFlowModel<WelcomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for Carousel widget.
-  CarouselController? carouselController;
-
-  int carouselCurrentIndex = 1;
 
   /// Initialization and disposal methods.
 

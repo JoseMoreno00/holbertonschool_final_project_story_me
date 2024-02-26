@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/register_widget.dart' show RegisterWidget;
+import 'package:storymev50b2/screens/register_widget.dart' show RegisterWidget;
 import 'package:flutter/material.dart';
 
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
@@ -24,7 +24,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   TextEditingController? confirmarContraseaController;
   late bool confirmarContraseaVisibility;
   String? Function(BuildContext, String?)?
-  confirmarContraseaControllerValidator;
+      confirmarContraseaControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -50,7 +50,7 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     confirmarContraseaController?.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }

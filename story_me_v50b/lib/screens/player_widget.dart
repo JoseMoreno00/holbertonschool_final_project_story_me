@@ -1,28 +1,16 @@
-import 'package:flutter/foundation.dart';
+import 'package:storymev50b2/imports.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:storymev50b2/downloads_widget.dart';
-import 'package:storymev50b2/language_widget.dart';
-// import 'package:storymev50b2/player_widget.dart';
-import 'package:storymev50b2/styles_widget.dart';
-import 'log_in_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import 'app/home_model.dart';
-export 'app/home_model.dart';
-
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
+class PlayerWidget extends StatefulWidget {
+  const PlayerWidget({super.key});
 
   @override
-  State<HomeWidget> createState() => _HomeWidgetState();
+  State<PlayerWidget> createState() => _PlayerWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
-  late HomeModel _model;
+class _PlayerWidgetState extends State<PlayerWidget>
+    with TickerProviderStateMixin {
+  late PlayerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -51,33 +39,52 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       effects: [
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 100.ms,
+          delay: 0.ms,
           duration: 300.ms,
           begin: const Offset(0, 30),
           end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 100.ms,
+          delay: 0.ms,
           duration: 300.ms,
           begin: 0,
           end: 1,
         ),
       ],
     ),
-    'textOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 50.ms,
+          delay: 0.ms,
           duration: 300.ms,
           begin: const Offset(0, 30),
           end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 50.ms,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: const Offset(0, 30),
+          end: const Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
           duration: 300.ms,
           begin: 0,
           end: 1,
@@ -89,7 +96,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomeModel());
+    _model = createModel(context, () => PlayerModel());
   }
 
   @override
@@ -123,7 +130,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             elevation: 16,
             child: Container(
               width: 100,
-              height: 80,
+              height: 100,
               decoration: const BoxDecoration(
                 color: Color(0xFFF8EED7),
               ),
@@ -134,7 +141,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
                       width: 120,
-                      height: 180,
+                      height: 120,
                       clipBehavior: Clip.antiAlias,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
@@ -220,8 +227,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const DownloadsWidget()));
+                        // ignore: deprecated_member_use
+                        launch(
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -367,13 +375,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url =
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        // ignore: deprecated_member_use
+                        launch(
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -418,8 +422,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             ),
           ),
         ),
+// END OF THE SIDE MENU
+//=============================================================================
+// START OF THE APP BAR
         appBar: AppBar(
-          backgroundColor: const Color(0xFFF57340),
+          backgroundColor: const Color(0xFFFC772F),
           automaticallyImplyLeading: true,
           actions: const [],
           centerTitle: true,
@@ -440,304 +447,229 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             ),
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                  child: Container(
-                    width: 414,
-                    height: 194,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: const AlignmentDirectional(0, 0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0, 20, 0, 0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
-                              child: Image.asset(
-                                'assets/images/logo.png',
-                                width: 165,
-                                height: 120,
-                                fit: BoxFit.cover,
-                              ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: 408,
+                      height: 187,
+                      decoration: const BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.asset(
+                              'assets/images/logo.png',
+                              width: 175,
+                              height: 136,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0, 0),
-                          child: Text(
+                          Text(
                             'StoryMe',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'DARKLANDS',
-                                  fontSize: 38,
+                                  fontSize: 36,
                                   useGoogleFonts: false,
                                 ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation1']!),
+// END OF THE LOGO
+//=============================================================================
+//START OF THE PLAYER
+                    Align(
+                      alignment: const AlignmentDirectional(-0.99, -0.54),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 280,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                            border: Border.all(
+                              width: 2,
+                            ),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation2']!),
+                      ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
+                    Align(
+                      alignment: const AlignmentDirectional(-0.93, 0.21),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                            border: Border.all(
+                              width: 2,
+                            ),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation3']!),
+                      ),
+                    ),
+                  ],
                 ),
-                Align(
-                  alignment: const AlignmentDirectional(0, 0.5),
-                  child: Container(
-                    width: double.infinity,
-                    height: 420,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 160,
-                        child: CarouselSlider(
-                          items: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    texto = 'Caperucita roja';
-                                    imagen = 'assets/images/redridding.jpg';
-                                    cuento = 'caperucita';
-                                    if (kDebugMode) {
-                                      print('Button pressed ...');
-                                    }
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const StylesWidget(),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 200,
-                                    height: 280,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/redridding.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40),
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(40),
-                                      ),
-                                    ),
-                                    child: Center(),
-                                  ),
+// END OF PLAYER
+//=============================================================================
+//START OF PLAYER BUTTONS
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            if (kDebugMode) {
+                              print('pause pressed ...');
+                            }
+                          },
+                          text: '',
+                          icon: const Icon(
+                            Icons.pause,
+                            size: 15,
+                          ),
+                          options: FFButtonOptions(
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10, 0, 10, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            color: const Color(0xFFFC772F),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20,
                                 ),
-                                Container(
-                                  width: 185,
-                                  height: 100,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.transparent,
-                                  ),
-                                  child: Text(
-                                    'Caperucita roja:\n Una chica que le gusta andar sola con lobos',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ],
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    texto = 'Los tres cerditos';
-                                    imagen = 'assets/images/3cerd.jpg';
-                                    cuento = 'Los 3 cerditos';
-                                    if (kDebugMode) {
-                                      print('Button pressed ...');
-                                    }
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const StylesWidget(),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 200,
-                                    height: 280,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/3cerd.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40),
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(40),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 185,
-                                  height: 100,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.transparent,
-                                  ),
-                                  child: Text(
-                                    'Los tres cerditos: \nTres hermanos cerdos que estudian ingenieria civil',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ],
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(0),
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(0),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    texto = 'Las aventuras\n de Cappe';
-                                    imagen = 'assets/images/cape2.jpg';
-                                    cuento = 'Las aventuras de cape';
-                                    if (kDebugMode) {
-                                      print('Button pressed ...');
-                                    }
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const StylesWidget(),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 200,
-                                    height: 280,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/cape2.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40),
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(40),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 185,
-                                  height: 100,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.transparent,
-                                  ),
-                                  child: Text(
-                                    'Las aventuras de cape:\n Un junior que acosamos todos los dias',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    texto = 'Perrandalf';
-                                    imagen = 'assets/images/perrandalf.jpg';
-                                    cuento = 'Perrandalf';
-                                    if (kDebugMode) {
-                                      print('Button pressed ...');
-                                    }
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const StylesWidget(),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 200,
-                                    height: 280,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/perrandalf.jpg'),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(40),
-                                        bottomRight: Radius.circular(40),
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(40),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width: 185,
-                                  height: 100,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.transparent,
-                                  ),
-                                  child: Text(
-                                    'Perrandalf:\n Un furro que se cree mago',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                          carouselController: _model.carouselController ??=
-                              CarouselController(),
-                          options: CarouselOptions(
-                            initialPage: 1,
-                            viewportFraction: 0.5,
-                            disableCenter: true,
-                            enlargeCenterPage: true,
-                            enlargeFactor: 0.25,
-                            enableInfiniteScroll: true,
-                            scrollDirection: Axis.horizontal,
-                            autoPlay: false,
-                            onPageChanged: (index, _) =>
-                                _model.carouselCurrentIndex = index,
                           ),
                         ),
                       ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation2']!),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(-0.98, -0.42),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                    child: Text(
-                      'Libros',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                            fontSize: 27,
-                            fontWeight: FontWeight.normal,
+                    Align(
+                      alignment: const AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            if (kDebugMode) {
+                              print('play pressed ...');
+                            }
+                          },
+                          text: '',
+                          icon: const Icon(
+                            Icons.play_arrow,
+                            size: 15,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
-                  ),
-                ),
+                          options: FFButtonOptions(
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10, 0, 10, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            color: const Color(0xFFFC772F),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: BorderRadius.circular(0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0, 1),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            if (kDebugMode) {
+                              print('restart pressed ...');
+                            }
+                          },
+                          text: '',
+                          icon: const Icon(
+                            Icons.restart_alt_outlined,
+                            size: 15,
+                          ),
+                          options: FFButtonOptions(
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10, 0, 10, 0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0, 0, 0, 0),
+                            color: const Color(0xFFFC772F),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(0),
+                              bottomRight: Radius.circular(30),
+                              topLeft: Radius.circular(0),
+                              topRight: Radius.circular(30),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
               ],
             ),
           ),

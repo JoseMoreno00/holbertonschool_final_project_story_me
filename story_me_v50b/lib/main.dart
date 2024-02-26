@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:storymev50b2/authenticator/authen.dart';
-import 'package:storymev50b2/home_widget.dart';
-import 'package:storymev50b2/log_in_widget.dart';
-import 'package:storymev50b2/register_widget.dart';
-import 'package:storymev50b2/styles_widget.dart';
-import 'welcome_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:storymev50b2/imports.dart';
 
 void main() {
   runApp(const AppState());

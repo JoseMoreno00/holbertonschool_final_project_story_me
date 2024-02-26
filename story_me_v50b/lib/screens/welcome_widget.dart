@@ -6,22 +6,19 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'log_in_widget.dart';
 
-import 'app/welcome_model.dart';
-export 'app/welcome_model.dart';
+import 'package:storymev50b2/app_models/welcome_model.dart';
+export 'package:storymev50b2/app_models/welcome_model.dart';
 
 class WelcomeWidget extends StatefulWidget {
   const WelcomeWidget({super.key});
 
   @override
   State<WelcomeWidget> createState() => _WelcomeWidgetState();
-
-
 }
 
 class _WelcomeWidgetState extends State<WelcomeWidget>
     with TickerProviderStateMixin {
   late WelcomeModel _model;
-
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 

@@ -1,112 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:storymev50b2/language_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'log_in_widget.dart';
-import 'home_widget.dart';
+import 'package:storymev50b2/imports.dart';
 
-import 'app/player_model.dart';
-export 'app/player_model.dart';
-
-class PlayerWidget extends StatefulWidget {
-  const PlayerWidget({super.key});
+class LateralMenuWidget extends StatefulWidget {
+  const LateralMenuWidget({super.key});
 
   @override
-  State<PlayerWidget> createState() => _PlayerWidgetState();
+  State<LateralMenuWidget> createState() => _LateralMenuWidgetState();
 }
 
-class _PlayerWidgetState extends State<PlayerWidget>
-    with TickerProviderStateMixin {
-  late PlayerModel _model;
+class _LateralMenuWidgetState extends State<LateralMenuWidget> {
+  late LateralMenuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PlayerModel());
+    _model = createModel(context, () => LateralMenuModel());
   }
 
   @override
@@ -237,13 +147,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url =
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DownloadsWidget()));
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -391,7 +296,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       onTap: () async {
                         const url =
                             'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
+                        // ignore: deprecated_member_use
                         if (await canLaunch(url)) {
+                          // ignore: deprecated_member_use
                           await launch(url);
                         } else {
                           throw 'Could not launch $url';
@@ -437,249 +344,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
                   ),
                 ],
               ),
-            ),
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: const Color(0xFFFC772F),
-          automaticallyImplyLeading: true,
-          actions: const [],
-          centerTitle: true,
-          elevation: 4,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
-                stops: [0, 1],
-                begin: AlignmentDirectional(0, -1),
-                end: AlignmentDirectional(0, 1),
-              ),
-            ),
-            child: Stack(
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: 408,
-                      height: 187,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image.asset(
-                              'assets/images/logo.png',
-                              width: 175,
-                              height: 136,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Text(
-                            'StoryMe',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'DARKLANDS',
-                                  fontSize: 36,
-                                  useGoogleFonts: false,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation1']!),
-                    Align(
-                      alignment: const AlignmentDirectional(-0.99, -0.54),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 280,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                            ),
-                            border: Border.all(
-                              width: 2,
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(-0.93, 0.21),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 180,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                            border: Border.all(
-                              width: 2,
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation3']!),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(0, 1),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            if (kDebugMode) {
-                              print('pause pressed ...');
-                            }
-                          },
-                          text: '',
-                          icon: const Icon(
-                            Icons.pause,
-                            size: 15,
-                          ),
-                          options: FFButtonOptions(
-                            height: 40,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                10, 0, 10, 0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0, 0, 0, 0),
-                            color: const Color(0xFFFC772F),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(30),
-                              bottomRight: Radius.circular(0),
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(0),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0, 1),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            if (kDebugMode) {
-                              print('play pressed ...');
-                            }
-                          },
-                          text: '',
-                          icon: const Icon(
-                            Icons.play_arrow,
-                            size: 15,
-                          ),
-                          options: FFButtonOptions(
-                            height: 40,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                10, 0, 10, 0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0, 0, 0, 0),
-                            color: const Color(0xFFFC772F),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                            ),
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0, 1),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
-                        child: FFButtonWidget(
-                          onPressed: () {
-                            if (kDebugMode) {
-                              print('restart pressed ...');
-                            }
-                          },
-                          text: '',
-                          icon: const Icon(
-                            Icons.restart_alt_outlined,
-                            size: 15,
-                          ),
-                          options: FFButtonOptions(
-                            height: 40,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                10, 0, 10, 0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0, 0, 0, 0),
-                            color: const Color(0xFFFC772F),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                            borderSide: const BorderSide(
-                              color: Colors.transparent,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(0),
-                              bottomRight: Radius.circular(30),
-                              topLeft: Radius.circular(0),
-                              topRight: Radius.circular(30),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
-              ],
             ),
           ),
         ),

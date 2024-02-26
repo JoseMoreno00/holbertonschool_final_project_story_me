@@ -1,11 +1,16 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/lateral_menu_widget.dart' show LateralMenuWidget;
+import 'package:storymev50b2/screens/language_widget.dart' show LanguageWidget;
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class LateralMenuModel extends FlutterFlowModel<LateralMenuWidget> {
+class LanguageModel extends FlutterFlowModel<LanguageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // State field(s) for Carousel widget.
+  CarouselController? carouselController;
+
+  int carouselCurrentIndex = 1;
 
   /// Initialization and disposal methods.
 

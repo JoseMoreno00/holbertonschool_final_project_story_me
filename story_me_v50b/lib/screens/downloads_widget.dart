@@ -1,41 +1,21 @@
-import 'package:flutter/foundation.dart';
+import 'package:storymev50b2/imports.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:storymev50b2/downloads_widget.dart';
-import 'package:storymev50b2/home_widget.dart';
-import 'package:storymev50b2/language_widget.dart';
-import 'package:storymev50b2/log_in_widget.dart';
-import 'package:storymev50b2/player_widget.dart';
-import 'package:storymev50b2/styles_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import 'app/styles_model.dart';
-export 'app/styles_model.dart';
-
-String texto = '';
-String imagen = '';
-String player = '$cuento.$style.$idioma';
-String cuento = '';
-String style = '';
-String idioma = '';
-
-class StylesWidget extends StatefulWidget {
-  const StylesWidget({super.key});
+class DownloadsWidget extends StatefulWidget {
+  const DownloadsWidget({super.key});
 
   @override
-  State<StylesWidget> createState() => _StylesWidgetState();
+  State<DownloadsWidget> createState() => _DownloadsWidgetState();
 }
 
-class _StylesWidgetState extends State<StylesWidget>
+class _DownloadsWidgetState extends State<DownloadsWidget>
     with TickerProviderStateMixin {
-  late StylesModel _model;
+  late DownloadsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
+    'columnOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
@@ -54,45 +34,7 @@ class _StylesWidgetState extends State<StylesWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: const Offset(0, 30),
-          end: const Offset(0, 0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 300.ms,
-          begin: 0,
-          end: 1,
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
@@ -116,7 +58,7 @@ class _StylesWidgetState extends State<StylesWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => StylesModel());
+    _model = createModel(context, () => DownloadsModel());
   }
 
   @override
@@ -394,13 +336,9 @@ class _StylesWidgetState extends State<StylesWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        const url =
-                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me';
-                        if (await canLaunch(url)) {
-                          await launch(url);
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        // ignore: deprecated_member_use
+                        launch(
+                            'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -467,297 +405,309 @@ class _StylesWidgetState extends State<StylesWidget>
             ),
             child: Stack(
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                  child: Container(
-                    width: 414,
-                    height: 142,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: 414,
+                      height: 142,
+                      decoration: const BoxDecoration(
+                        color: Colors.transparent,
+                      ),
                     ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
+                  ],
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0, 0),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            width: 175,
+                            height: 139,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'StoryMe',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'DARKLANDS',
+                            fontSize: 35,
+                            useGoogleFonts: false,
+                          ),
+                    ),
+                  ],
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation']!),
+                Align(
+                  alignment: const AlignmentDirectional(0, 0.6),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                    child: Container(
+                      width: 396,
+                      height: 455,
+                      decoration: const BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      child: Stack(
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.asset(
-                                  'assets/images/logo.png',
-                                  width: 133,
-                                  height: 97,
-                                  fit: BoxFit.cover,
+                              Align(
+                                alignment:
+                                    const AlignmentDirectional(-0.9, -0.54),
+                                child: Text(
+                                  'Libros Descargados',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Eczar',
+                                        fontSize: 24,
+                                      ),
                                 ),
                               ),
-                              Text(
-                                'StoryMe',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'DARKLANDS',
-                                      fontSize: 24,
-                                      useGoogleFonts: false,
+                              Align(
+                                alignment: const AlignmentDirectional(0, -0.26),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0, 20, 0, 0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      FFButtonWidget(
+                                        onPressed: () {
+                                          if (kDebugMode) {
+                                            print('treschanchitos pressed ...');
+                                          }
+                                        },
+                                        text: '',
+                                        options: FFButtonOptions(
+                                          width: 110,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.2,
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(24, 0, 24, 0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3,
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () {
+                                          if (kDebugMode) {
+                                            print('caperucita pressed ...');
+                                          }
+                                        },
+                                        text: '',
+                                        options: FFButtonOptions(
+                                          width: 110,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.2,
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(24, 0, 24, 0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3,
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () {
+                                          if (kDebugMode) {
+                                            print('perrandalf pressed ...');
+                                          }
+                                        },
+                                        text: '',
+                                        options: FFButtonOptions(
+                                          width: 110,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.2,
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(24, 0, 24, 0),
+                                          iconPadding:
+                                              const EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Readex Pro',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 3,
+                                          borderSide: const BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0, 30, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    FFButtonWidget(
+                                      onPressed: () {
+                                        if (kDebugMode) {
+                                          print('yisus pressed ...');
+                                        }
+                                      },
+                                      text: '',
+                                      options: FFButtonOptions(
+                                        width: 110,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.2,
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24, 0, 24, 0),
+                                        iconPadding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 0, 0, 0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 3,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
                                     ),
+                                    FFButtonWidget(
+                                      onPressed: () {
+                                        if (kDebugMode) {
+                                          print('elcofre pressed ...');
+                                        }
+                                      },
+                                      text: '',
+                                      options: FFButtonOptions(
+                                        width: 110,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.2,
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24, 0, 24, 0),
+                                        iconPadding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 0, 0, 0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 3,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    FFButtonWidget(
+                                      onPressed: () {
+                                        if (kDebugMode) {
+                                          print('losangeles pressed ...');
+                                        }
+                                      },
+                                      text: '',
+                                      options: FFButtonOptions(
+                                        width: 110,
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.2,
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24, 0, 24, 0),
+                                        iconPadding: const EdgeInsetsDirectional
+                                            .fromSTEB(0, 0, 0, 0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 3,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                35, 80, 0, 0),
-                            child: Text(
-                              texto,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Eczar',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            width: 120,
-                            height: 120,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              imagen,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
                         ],
                       ),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(-1, -0.26),
-                  child: Container(
-                    width: 396,
-                    height: 250,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: Stack(
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment:
-                                  const AlignmentDirectional(-0.9, -0.47),
-                              child: Text(
-                                'Estilos',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      fontSize: 24,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 10, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        style = 'cyber';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/cyber_style.jpg',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        style = 'anime';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/anime_style.jpg',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        style = '8bit';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/8bit_style.jpg',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation2']!),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0, 0.6),
-                  child: Container(
-                    width: 396,
-                    height: 250,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: Stack(
-                      children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment:
-                                  const AlignmentDirectional(-0.89, 0.14),
-                              child: Text(
-                                'Idiomas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Eczar',
-                                      fontSize: 24,
-                                    ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 10, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        idioma = 'en';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/usaflag.jpg',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        idioma = 'es';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/uruflag.webp',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                        alignment: const Alignment(-1, 0),
-                                      ),
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        idioma = 'br';
-                                      });
-                                    },
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Image.asset(
-                                        'assets/images/brflag.png',
-                                        width: 120,
-                                        height: 170,
-                                        fit: BoxFit.cover,
-                                        alignment: const Alignment(0, 0),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation3']!),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(-0.01, 0.84),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      if (kDebugMode) {
-                        print(player);
-                      }
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const PlayerWidget()));
-                    },
-                    text: '',
-                    icon: const Icon(
-                      Icons.play_arrow,
-                      color: Color(0xFF382924),
-                      size: 50,
-                    ),
-                    options: FFButtonOptions(
-                      width: 150,
-                      padding: const EdgeInsets.all(14),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      color: const Color(0xFFFC772F),
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 20,
-                      borderSide: const BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['buttonOnPageLoadAnimation']!),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation']!),
+                  ),
                 ),
               ],
             ),

@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/player_widget.dart' show PlayerWidget;
+import 'package:storymev50b2/screens/player_widget.dart' show PlayerWidget;
 import 'package:flutter/material.dart';
 
 class PlayerModel extends FlutterFlowModel<PlayerWidget> {

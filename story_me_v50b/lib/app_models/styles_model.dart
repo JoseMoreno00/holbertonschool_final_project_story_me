@@ -1,8 +1,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/downloads_widget.dart' show DownloadsWidget;
+import 'package:storymev50b2/screens/styles_widget.dart' show StylesWidget;
 import 'package:flutter/material.dart';
 
-class DownloadsModel extends FlutterFlowModel<DownloadsWidget> {
+class StylesModel extends FlutterFlowModel<StylesWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

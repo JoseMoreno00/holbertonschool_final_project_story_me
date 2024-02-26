@@ -1,5 +1,5 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
-import 'package:storymev50b2/log_in_widget.dart' show LogInWidget;
+import 'package:storymev50b2/screens/log_in_widget.dart' show LogInWidget;
 import 'package:flutter/material.dart';
 
 class LogInModel extends FlutterFlowModel<LogInWidget> {
@@ -35,7 +35,7 @@ class LogInModel extends FlutterFlowModel<LogInWidget> {
     contraseaController?.dispose();
   }
 
-/// Action blocks are added here.
+  /// Action blocks are added here.
 
-/// Additional helper methods are added here.
+  /// Additional helper methods are added here.
 }
