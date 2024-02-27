@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:storymev50b2/imports.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 

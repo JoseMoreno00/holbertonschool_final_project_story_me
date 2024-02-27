@@ -26,6 +26,7 @@ dependencies:
 
   
   flutter_animate: any
+  smooth_page_indicator: ^1.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -27,8 +27,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // Route of the first widget
       initialRoute: '/welcome_widget',
       routes: {
+        // Navigation routes
         '/welcome_widget': (context) => const WelcomeWidget(),
         '/register_widget': (context) => const RegisterWidget(),
         '/login_widget': (context) => const LogInWidget(),

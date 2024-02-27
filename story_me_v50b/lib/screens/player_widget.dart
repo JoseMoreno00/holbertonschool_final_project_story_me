@@ -157,8 +157,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'assets/images/logo.png',
-                              width: 175,
-                              height: 139,
+                              width: 171,
+                              height: 131,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -168,7 +168,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'DARKLANDS',
-                                  fontSize: 40,
+                                  fontSize: 37,
                                   useGoogleFonts: false,
                                 ),
                           ),
@@ -199,6 +199,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                           ),
                           child: Stack(
                             children: [
+                              // ignore: sized_box_for_whitespace
                               Container(
                                 width: double.infinity,
                                 height: 500,
