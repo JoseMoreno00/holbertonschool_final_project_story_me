@@ -1,5 +1,7 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:story_me_v60b/imports.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 
 class PlayerWidget extends StatefulWidget {
   const PlayerWidget({super.key});
@@ -103,7 +105,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
             child: wrapWithModel(
               model: _model.componentLateralMenuModel,
               updateCallback: () => setState(() {}),
-              child: ComponentLateralMenuWidget(),
+              child: const ComponentLateralMenuWidget(),
             ),
           ),
         ),
@@ -135,7 +137,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                     wrapWithModel(
                       model: _model.componentLogoModel,
                       updateCallback: () => setState(() {}),
-                      child: ComponentLogoWidget(),
+                      child: const ComponentLogoWidget(),
                     ),
                   ],
                 ),
@@ -343,7 +345,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
                           onPressed: () {
-                            print('pause pressed ...');
+                            if (kDebugMode) {
+                              print('pause pressed ...');
+                            }
                           },
                           text: '',
                           icon: const Icon(
@@ -384,7 +388,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
                           onPressed: () {
-                            print('play pressed ...');
+                            if (kDebugMode) {
+                              print('play pressed ...');
+                            }
                           },
                           text: '',
                           icon: const Icon(

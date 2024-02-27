@@ -21,12 +21,14 @@ export 'package:story_me_v60b/components/component_lateral_menu_home_widget.dart
 export 'package:story_me_v60b/components/component_styles_styles_widget.dart';
 export 'package:story_me_v60b/components/component_languages_style_widget.dart';
 export 'package:story_me_v60b/components/component_carrusel_widget.dart';
+export 'package:story_me_v60b/components/component_logo_widget.dart';
 
 //Components models
 export 'package:story_me_v60b/model_components/component_carrusel_home_model.dart';
 export 'package:story_me_v60b/model_components/component_lateral_menu_model.dart';
 export 'package:story_me_v60b/model_components/component_styles_styles_model.dart';
 export 'package:story_me_v60b/model_components/component_languages_style_model.dart';
+export 'package:story_me_v60b/model_components/component_logo_model.dart';
 
 //Authenticator
 export 'package:story_me_v60b/authenticator/authen.dart';
