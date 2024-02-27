@@ -608,7 +608,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 GestureDetector(
                                   onTap: () {
                                     texto = 'Las aventuras\n de Cappe';
-                                    imagen = 'assets/images/cape.jpg';
+                                    imagen = 'assets/images/cape2.jpg';
                                     cuento = 'Las aventuras de cape';
                                     if (kDebugMode) {
                                       print('Button pressed ...');
@@ -626,7 +626,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/cape.jpg'),
+                                            'assets/images/cape2.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                       borderRadius: BorderRadius.only(
