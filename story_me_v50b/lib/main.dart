@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:storymev50b2/authenticator/authen.dart';
 import 'package:storymev50b2/home_widget.dart';
@@ -13,6 +14,9 @@ void main() async  {
     await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+=======
+import 'package:storymev50b2/imports.dart';
+>>>>>>> origin/Martin
 
   runApp(const AppState());
 }
@@ -40,8 +44,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // Route of the first widget
       initialRoute: '/welcome_widget',
       routes: {
+        // Navigation routes
         '/welcome_widget': (context) => const WelcomeWidget(),
         '/register_widget': (context) => const RegisterWidget(),
         '/login_widget': (context) => const LogInWidget(),
