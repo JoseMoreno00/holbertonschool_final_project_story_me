@@ -75,9 +75,9 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
-                      width: 175,
-                      height: 123,
+                      'assets/images/logo.png',
+                      width: 172,
+                      height: 122,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -89,7 +89,7 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
                   'StoryMe',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'DARKLANDS',
-                        fontSize: 44,
+                        fontSize: 40,
                         useGoogleFonts: false,
                       ),
                 ),

@@ -78,6 +78,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => WelcomeModel());
+
+    Timer(const Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LogInWidget()),
+      );
+    });
   }
 
   @override
@@ -122,7 +128,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/40a74bde94d30abf874882bc8c812fa0.png',
+                            'assets/images/logo.png',
                             width: 300,
                             height: 214,
                             fit: BoxFit.cover,
