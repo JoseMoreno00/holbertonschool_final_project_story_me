@@ -17,9 +17,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
   late FlutterTts flutterTts; // Instancia de FlutterTts
 
   Future<void> playContent() async {
-    await flutterTts.setLanguage('es-ES'); // Establece el idioma (opcional)
-    await flutterTts
-        .setSpeechRate(0.5); // Establece la velocidad de lectura (opcional)
+    await flutterTts.setLanguage('es-ES'); // Establece el idioma
+    await flutterTts.setSpeechRate(0.5); // Establece la velocidad de lectura
     await flutterTts.speak(
         fileContent[idx]); // Lee el contenido de la lista en la posición idx
   }
