@@ -171,7 +171,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               children: [
                                 SizedBox(
                                   width: double.infinity,
-                                  height: 500,
+                                  height: 350,
                                   child: Stack(
                                     children: [
                                       PageView(
