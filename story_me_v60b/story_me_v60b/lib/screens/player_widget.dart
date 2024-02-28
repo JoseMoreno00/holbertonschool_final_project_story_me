@@ -89,6 +89,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.dispose();
   }
 
+// CONTROLER OF WIDGET CHANGE PAGE
   var idx = 0;
   List<String> fileContent = [];
   Future<void> readFile() async {
@@ -484,8 +485,12 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            idx += 1;
-                            print(idx);
+                            setState(() {
+                              idx += 1;
+                            });
+                            if (kDebugMode) {
+                              print(idx);
+                            }
                             await _model.pageViewController?.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
