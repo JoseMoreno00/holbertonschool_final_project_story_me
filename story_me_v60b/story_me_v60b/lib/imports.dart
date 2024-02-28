@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 export 'package:flutter/material.dart';
 
 // Screens
@@ -39,4 +41,5 @@ export 'package:flutter/services.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 export 'dart:async';

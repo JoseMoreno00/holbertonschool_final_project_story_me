@@ -1,5 +1,6 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:story_me_v60b/imports.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 
@@ -13,6 +14,14 @@ class PlayerWidget extends StatefulWidget {
 class _PlayerWidgetState extends State<PlayerWidget>
     with TickerProviderStateMixin {
   late PlayerModel _model;
+  late FlutterTts flutterTts; // Instancia de FlutterTts
+
+  Future<void> playContent() async {
+    await flutterTts.setLanguage('es-ES'); // Establece el idioma
+    await flutterTts.setSpeechRate(0.5); // Establece la velocidad de lectura
+    await flutterTts.speak(
+        fileContent[idx]); // Lee el contenido de la lista en la posición idx
+  }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
@@ -80,15 +89,24 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.initState();
     _model = createModel(context, () => PlayerModel());
     readFile();
+    flutterTts = FlutterTts(); // Inicializa la instancia de FlutterTts
+
+    @override
+    void initState() {
+      super.initState();
+      _model = createModel(context, () => PlayerModel());
+      readFile();
+    }
+
+    @override
+    void dispose() {
+      _model.dispose();
+
+      super.dispose();
+    }
   }
 
-  @override
-  void dispose() {
-    _model.dispose();
-
-    super.dispose();
-  }
-
+// CONTROLER OF WIDGET CHANGE PAGE
   var idx = 0;
   List<String> fileContent = [];
   Future<void> readFile() async {
@@ -142,6 +160,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
             ),
             child: Stack(
               children: [
+// =================================================================
+// IMAGES PLAYER
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -182,7 +202,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               children: [
                                 SizedBox(
                                   width: double.infinity,
-                                  height: 500,
+                                  height: 350,
                                   child: Stack(
                                     children: [
                                       PageView(
@@ -278,7 +298,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10, 20, 10, 0),
                           child: Container(
-                            // conteiner text of the book
+//================================================================
+// TEXT PLAYER !!!
                             width: double.infinity,
                             height: 180,
                             decoration: BoxDecoration(
@@ -311,8 +332,18 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+// =============================================================================
+// PREV BUTTON!!!
                         child: FFButtonWidget(
                           onPressed: () async {
+                            setState(() {
+                              if (idx > 0) {
+                                idx -= 1;
+                              }
+                            });
+                            if (kDebugMode) {
+                              print(idx);
+                            }
                             await _model.pageViewController?.previousPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
@@ -356,6 +387,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+//================================================================
+// PAUSE BUTTON!!!
                         child: FFButtonWidget(
                           onPressed: () {
                             if (kDebugMode) {
@@ -399,11 +432,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+//================================================================
+// PLAY BUTTON!!!
                         child: FFButtonWidget(
                           onPressed: () {
-                            if (kDebugMode) {
-                              print('play pressed ...');
-                            }
+                            playContent();
                           },
                           text: '',
                           icon: const Icon(
@@ -437,8 +470,16 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+//================================================================
+// RESTART BUTTON!!!
                         child: FFButtonWidget(
                           onPressed: () async {
+                            setState(() {
+                              idx = 0;
+                            });
+                            if (kDebugMode) {
+                              print(idx);
+                            }
                             await _model.pageViewController?.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
@@ -477,15 +518,22 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       ),
                     ),
                     Align(
-                      // NEXT BUTTOM!!!
                       alignment: const AlignmentDirectional(0, 1),
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+// =================================================================
+// NEXT BUTTOM!!!
                         child: FFButtonWidget(
                           onPressed: () async {
-                            idx += 1;
-                            print(idx);
+                            setState(() {
+                              if (idx < fileContent.length - 1) {
+                                idx += 1;
+                              }
+                            });
+                            if (kDebugMode) {
+                              print(idx);
+                            }
                             await _model.pageViewController?.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
