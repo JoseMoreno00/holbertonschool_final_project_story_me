@@ -21,6 +21,7 @@ dependencies:
   google_fonts: ^4.0.3
   http: ^0.13.6
   provider: ^6.0.4
+  flutter_tts: ^3.8.5
 
 
 
