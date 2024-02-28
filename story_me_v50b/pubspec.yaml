@@ -38,6 +38,7 @@ flutter:
 
 
   assets:
+    - assets/books/3_little_pigs/es/book.txt
     - assets/images/
     - assets/fonts/
 

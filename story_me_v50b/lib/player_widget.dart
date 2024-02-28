@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,6 @@ import 'package:storymev50b2/language_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'log_in_widget.dart';
 import 'home_widget.dart';
-
 import 'app/player_model.dart';
 export 'app/player_model.dart';
 
@@ -23,7 +23,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
   late PlayerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -107,6 +106,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => PlayerModel());
+    readFile();
   }
 
   @override
@@ -114,6 +114,18 @@ class _PlayerWidgetState extends State<PlayerWidget>
     _model.dispose();
 
     super.dispose();
+  }
+
+  String fileContent = "";
+  List<String> listi = [];
+  var idx = 0;
+  Future<void> readFile() async {
+    final String content =
+        await rootBundle.loadString('assets/books/3_little_pigs/es/book.txt');
+    setState(() {
+      fileContent = content;
+    });
+    
   }
 
   @override
@@ -126,7 +138,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
         ),
       );
     }
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -585,6 +596,15 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             border: Border.all(
                               width: 2,
                             ),
+                          ),
+                          child: Text(
+                            fileContent,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Ezcar',
+                                  fontSize: 14,
+                                ),
                           ),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation3']!),
