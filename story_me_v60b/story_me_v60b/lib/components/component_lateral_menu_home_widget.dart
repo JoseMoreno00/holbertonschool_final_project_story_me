@@ -86,7 +86,8 @@ class _ComponentLateralMenuWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Home');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomeWidget()));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -133,7 +134,7 @@ class _ComponentLateralMenuWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Downloads');
+                  // context.pushNamed('Downloads');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -180,7 +181,7 @@ class _ComponentLateralMenuWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Language');
+                  // context.pushNamed('Language');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -227,7 +228,8 @@ class _ComponentLateralMenuWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('LogIn');
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const LogInWidget()));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -274,7 +276,8 @@ class _ComponentLateralMenuWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  await launchURL(
+                  // ignore: deprecated_member_use
+                  launch(
                       'https://github.com/JoseMoreno00/holbertonschool_final_project_story_me');
                 },
                 child: Row(

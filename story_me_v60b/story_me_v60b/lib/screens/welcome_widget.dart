@@ -22,8 +22,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -41,8 +41,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.easeInOut,
           delay: 100.ms,
           duration: 800.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -60,8 +60,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 800.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: const Offset(0, 100),
+          end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -95,13 +95,13 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFE1D5B6),
+        backgroundColor: const Color(0xFFE1D5B6),
         body: SafeArea(
           top: true,
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
                 stops: [0, 1],
@@ -112,12 +112,13 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
@@ -133,7 +134,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                         'StoryMe',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily: 'DARKLANDS',
-                              color: Color(0xFF170E0D),
+                              color: const Color(0xFF170E0D),
                               fontSize: 85,
                               fontWeight: FontWeight.normal,
                               useGoogleFonts: false,
@@ -141,9 +142,10 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation1']!),
                       Align(
-                        alignment: AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 150, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0, 150, 0, 0),
                           child: Text(
                             'Listo para una nueva aventura?',
                             textAlign: TextAlign.center,
@@ -151,7 +153,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Eczar',
-                                  color: Color(0xFF170E0D),
+                                  color: const Color(0xFF170E0D),
                                   fontSize: 25,
                                   fontWeight: FontWeight.w500,
                                 ),

@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:story_me_v60b/imports.dart';
 
@@ -21,8 +23,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 100.ms,
           duration: 300.ms,
-          begin: Offset(0, 30),
-          end: Offset(0, 0),
+          begin: const Offset(0, 30),
+          end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -40,8 +42,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           curve: Curves.easeInOut,
           delay: 50.ms,
           duration: 300.ms,
-          begin: Offset(0, 30),
-          end: Offset(0, 0),
+          begin: const Offset(0, 30),
+          end: const Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -75,7 +77,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFB89E7D),
+        backgroundColor: const Color(0xFFB89E7D),
         drawer: Container(
           width: 200,
           child: Drawer(
@@ -83,14 +85,14 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             child: wrapWithModel(
               model: _model.componentLateralMenuModel,
               updateCallback: () => setState(() {}),
-              child: ComponentLateralMenuWidget(),
+              child: const ComponentLateralMenuWidget(),
             ),
           ),
         ),
         appBar: AppBar(
-          backgroundColor: Color(0xFFF57340),
+          backgroundColor: const Color(0xFFF57340),
           automaticallyImplyLeading: true,
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 4,
         ),
@@ -99,7 +101,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
                 stops: [0, 1],
@@ -110,33 +112,33 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0, -1),
+                  alignment: const AlignmentDirectional(0, -1),
                   child: wrapWithModel(
                     model: _model.componentLogoModel,
                     updateCallback: () => setState(() {}),
-                    child: ComponentLogoWidget(),
+                    child: const ComponentLogoWidget(),
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0, 0.5),
+                  alignment: const AlignmentDirectional(0, 0.5),
                   child: Container(
                     width: double.infinity,
                     height: 429,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: wrapWithModel(
                       model: _model.componentCarruselHomeModel,
                       updateCallback: () => setState(() {}),
-                      child: ComponentCarruselHomeWidget(),
+                      child: const ComponentCarruselHomeWidget(),
                     ),
                   ).animateOnPageLoad(
                       animationsMap['containerOnPageLoadAnimation']!),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-0.98, -0.42),
+                  alignment: const AlignmentDirectional(-0.98, -0.42),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
                     child: Text(
                       'Libros',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
