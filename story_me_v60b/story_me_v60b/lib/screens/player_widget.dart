@@ -89,6 +89,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.dispose();
   }
 
+  var idx = 0;
   List<String> fileContent = [];
   Future<void> readFile() async {
     String content =
@@ -293,7 +294,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                 width: 2,
                               ),
                             ),
-                            child: Text(fileContent[1]),
+                            child: Text(fileContent[idx]),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation2']!),
                         ),
@@ -476,12 +477,15 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       ),
                     ),
                     Align(
+                      // NEXT BUTTOM!!!
                       alignment: const AlignmentDirectional(0, 1),
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
                           onPressed: () async {
+                            idx += 1;
+                            print(idx);
                             await _model.pageViewController?.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,
