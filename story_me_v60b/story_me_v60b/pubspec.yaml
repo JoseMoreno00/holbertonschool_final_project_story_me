@@ -41,12 +41,12 @@ flutter:
 
 
   assets:
+    - assets/books/3_little_pigs/es/book.txt
     - assets/images/
     - assets/images/languages/
     - assets/images/styles/
     - assets/images/books/
     - assets/fonts/
-
   fonts:
     - family: DARKLANDS
       fonts:

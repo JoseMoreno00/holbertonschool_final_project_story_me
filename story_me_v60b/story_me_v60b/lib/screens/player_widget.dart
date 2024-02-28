@@ -15,7 +15,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
   late PlayerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -80,6 +79,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => PlayerModel());
+    readFile();
   }
 
   @override
@@ -87,6 +87,17 @@ class _PlayerWidgetState extends State<PlayerWidget>
     _model.dispose();
 
     super.dispose();
+  }
+
+  var idx = 0;
+  List<String> fileContent = [];
+  Future<void> readFile() async {
+    String content =
+        await rootBundle.loadString('assets/books/3_little_pigs/es/book.txt');
+    List<String> lineas = content.split('\n');
+    setState(() {
+      fileContent = lineas;
+    });
   }
 
   @override
@@ -267,6 +278,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10, 20, 10, 0),
                           child: Container(
+                            // conteiner text of the book
                             width: double.infinity,
                             height: 180,
                             decoration: BoxDecoration(
@@ -282,6 +294,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                 width: 2,
                               ),
                             ),
+                            child: Text(fileContent[idx]),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation2']!),
                         ),
@@ -464,12 +477,15 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       ),
                     ),
                     Align(
+                      // NEXT BUTTOM!!!
                       alignment: const AlignmentDirectional(0, 1),
                       child: Padding(
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                         child: FFButtonWidget(
                           onPressed: () async {
+                            idx += 1;
+                            print(idx);
                             await _model.pageViewController?.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.ease,

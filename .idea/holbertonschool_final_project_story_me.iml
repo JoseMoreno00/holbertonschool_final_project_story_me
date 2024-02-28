@@ -36,6 +36,15 @@
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/url_launcher_windows/example/build" />
+<<<<<<< HEAD
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/build" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/story_me_v50b/windows/flutter/ephemeral/.plugin_symlinks/firebase_core/example/build" />
+=======
+>>>>>>> origin/Martin
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
