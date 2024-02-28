@@ -3,6 +3,13 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:story_me_v60b/imports.dart';
 
+String texto = '';
+String imagen = '';
+String player = '$cuento.$style.$idioma';
+String cuento = '';
+String style = '';
+String idioma = '';
+
 class StylesWidget extends StatefulWidget {
   const StylesWidget({super.key});
 
@@ -154,7 +161,7 @@ class _StylesWidgetState extends State<StylesWidget>
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 35, 80, 0, 0),
                             child: Text(
-                              'Los Tres\nChanchitos',
+                              texto,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -164,14 +171,14 @@ class _StylesWidgetState extends State<StylesWidget>
                             ),
                           ),
                           Container(
-                            width: 120,
-                            height: 120,
+                            width: 110,
+                            height: 110,
                             clipBehavior: Clip.antiAlias,
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset(
-                              'assets/images/Cuento_elegido.png',
+                              imagen,
                               fit: BoxFit.cover,
                             ),
                           ),

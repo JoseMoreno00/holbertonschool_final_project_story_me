@@ -59,7 +59,7 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
       alignment: const AlignmentDirectional(0, -1),
       child: Container(
         width: 414,
-        height: 184,
+        height: 186,
         decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
@@ -73,11 +73,11 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(7),
                     child: Image.asset(
                       'assets/images/logo.png',
                       width: 172,
-                      height: 122,
+                      height: 115,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -89,7 +89,7 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
                   'StoryMe',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'DARKLANDS',
-                        fontSize: 40,
+                        fontSize: 36,
                         useGoogleFonts: false,
                       ),
                 ),

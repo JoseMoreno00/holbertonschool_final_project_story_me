@@ -51,48 +51,46 @@ class _ComponentCarruselHomeWidgetState
           padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
           child: Container(
             width: double.infinity,
-            height: 432,
+            height: 397,
             child: CarouselSlider(
               items: [
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
+                        texto = 'Caperucita\nroja';
+                        imagen = 'assets/images/books/redridding.jpg';
+                        cuento = 'caperucita';
                         if (kDebugMode) {
                           print('Button pressed ...');
                         }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const StylesWidget(),
+                          ),
+                        );
                       },
-                      text: '',
-                      options: FFButtonOptions(
+                      child: Container(
                         width: 200,
-                        height: 300,
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
+                        height: 280,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/books/redridding.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40),
+                          ),
                         ),
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
-                        ),
+                        child: const Center(),
                       ),
                     ),
                     Container(
                       width: 185,
-                      height: 100,
+                      height: 90,
                       constraints: const BoxConstraints(
                         minWidth: 200,
                       ),
@@ -122,41 +120,38 @@ class _ComponentCarruselHomeWidgetState
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const StylesWidget()));
+                    GestureDetector(
+                      onTap: () {
+                        texto = 'Los tres\ncerditos';
+                        imagen = 'assets/images/books/3cerd.jpg';
+                        cuento = 'Los 3 cerditos';
+                        if (kDebugMode) {
+                          print('Button pressed ...');
+                        }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const StylesWidget(),
+                          ),
+                        );
                       },
-                      text: '',
-                      options: FFButtonOptions(
+                      child: Container(
                         width: 200,
-                        height: 300,
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+                        height: 280,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/books/3cerd.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40),
+                          ),
                         ),
                       ),
                     ),
                     Container(
                       width: 185,
-                      height: 100,
+                      height: 90,
                       constraints: const BoxConstraints(
                         minWidth: 200,
                       ),
@@ -186,42 +181,38 @@ class _ComponentCarruselHomeWidgetState
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
+                        texto = 'Las aventuras\nde Cappe';
+                        imagen = 'assets/images/books/cape2.jpg';
+                        cuento = 'Las aventuras de cape';
                         if (kDebugMode) {
                           print('Button pressed ...');
                         }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const StylesWidget(),
+                          ),
+                        );
                       },
-                      text: '',
-                      options: FFButtonOptions(
+                      child: Container(
                         width: 200,
-                        height: 300,
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+                        height: 280,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/books/cape2.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40),
+                          ),
                         ),
                       ),
                     ),
                     Container(
                       width: 185,
-                      height: 100,
+                      height: 90,
                       constraints: const BoxConstraints(
                         minWidth: 200,
                       ),
@@ -251,42 +242,39 @@ class _ComponentCarruselHomeWidgetState
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
+                        texto = 'Perrandalf';
+                        imagen = 'assets/images/books/perrandalf.jpg';
+                        cuento = 'Perrandalf';
                         if (kDebugMode) {
                           print('Button pressed ...');
                         }
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const StylesWidget(),
+                          ),
+                        );
                       },
-                      text: '',
-                      options: FFButtonOptions(
+                      child: Container(
                         width: 200,
-                        height: 300,
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: Colors.white,
-                                ),
-                        elevation: 3,
-                        borderSide: const BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
+                        height: 280,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                                'assets/images/books/perrandalf.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(40),
+                            topRight: Radius.circular(40),
+                          ),
                         ),
                       ),
                     ),
                     Container(
                       width: 185,
-                      height: 100,
+                      height: 90,
                       constraints: const BoxConstraints(
                         minWidth: 200,
                       ),

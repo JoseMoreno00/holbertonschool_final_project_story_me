@@ -88,8 +88,8 @@ class _ComponentLanguagesStyleWidgetState
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
-                          'assets/images/imagen_2024-02-20_033153778.png',
-                          width: 120,
+                          'assets/images/languages/usaflag.jpg',
+                          width: 110,
                           height: 170,
                           fit: BoxFit.cover,
                         ),
@@ -97,8 +97,8 @@ class _ComponentLanguagesStyleWidgetState
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
-                          'assets/images/Flag_of_Uruguay.svg.webp',
-                          width: 120,
+                          'assets/images/languages/uruflag.webp',
+                          width: 110,
                           height: 170,
                           fit: BoxFit.cover,
                           alignment: const Alignment(-1, 0),
@@ -107,8 +107,8 @@ class _ComponentLanguagesStyleWidgetState
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
-                          'assets/images/imagen_2024-02-20_032444112.png',
-                          width: 120,
+                          'assets/images/languages/brflag.png',
+                          width: 110,
                           height: 170,
                           fit: BoxFit.cover,
                           alignment: const Alignment(0, 0),

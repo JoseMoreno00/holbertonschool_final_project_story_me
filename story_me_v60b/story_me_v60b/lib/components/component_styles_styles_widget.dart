@@ -60,7 +60,7 @@ class _ComponentStyleStylesWidgetState extends State<ComponentStyleStylesWidget>
       alignment: const AlignmentDirectional(0, -1),
       child: Container(
         width: 396,
-        height: 250,
+        height: 245,
         decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
@@ -90,8 +90,8 @@ class _ComponentStyleStylesWidgetState extends State<ComponentStyleStylesWidget>
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/Default_An_image_of_a_city_in_cyberpunk_style_in_night_time_1.jpg',
-                            width: 120,
+                            'assets/images/styles/cyber_style.jpg',
+                            width: 110,
                             height: 170,
                             fit: BoxFit.cover,
                           ),
@@ -99,8 +99,8 @@ class _ComponentStyleStylesWidgetState extends State<ComponentStyleStylesWidget>
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/Default_An_image_of_a_city_in_anime_style_in_sunset_2.jpg',
-                            width: 120,
+                            'assets/images/styles/anime_style.jpg',
+                            width: 110,
                             height: 170,
                             fit: BoxFit.cover,
                           ),
@@ -108,8 +108,8 @@ class _ComponentStyleStylesWidgetState extends State<ComponentStyleStylesWidget>
                         ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.asset(
-                            'assets/images/Default_An_image_of_a_city_in_8bit_style_in_sunset_1.jpg',
-                            width: 120,
+                            'assets/images/styles/8bit_style.jpg',
+                            width: 110,
                             height: 170,
                             fit: BoxFit.cover,
                           ),

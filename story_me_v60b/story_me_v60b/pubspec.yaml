@@ -18,7 +18,7 @@ dependencies:
   flutterflow_ui: ^0.2.0+1
   url_launcher: ^6.2.5
   carousel_slider: ^4.2.1
-  google_fonts: 4.0.3
+  google_fonts: ^4.0.3
   http: ^0.13.6
   provider: ^6.0.4
 
@@ -42,6 +42,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/languages/
+    - assets/images/styles/
+    - assets/images/books/
     - assets/fonts/
 
   fonts:
