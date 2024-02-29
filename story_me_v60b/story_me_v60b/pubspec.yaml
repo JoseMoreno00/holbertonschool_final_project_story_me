@@ -48,9 +48,9 @@ flutter:
     - assets/images/styles/
     - assets/images/books/
     - assets/fonts/
+    - assets/books/images/3_little_pigs/anime/
+
   fonts:
     - family: DARKLANDS
       fonts:
         - asset: assets/fonts/Darklands.ttf
-     
-    

@@ -1,3 +1,4 @@
+// ignore_for_file: unused_element
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:story_me_v60b/imports.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -17,10 +18,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
   late FlutterTts flutterTts; // Instancia de FlutterTts
 
   Future<void> playContent() async {
+    var omg = idx - 1;
     await flutterTts.setLanguage('es-ES'); // Establece el idioma
     await flutterTts.setSpeechRate(0.5); // Establece la velocidad de lectura
-    await flutterTts.speak(
-        fileContent[idx]); // Lee el contenido de la lista en la posición idx
+    await flutterTts.speak(fileContent[
+        omg]); // Lee el contenido de la lista en la posición idx
   }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -89,14 +91,15 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.initState();
     _model = createModel(context, () => PlayerModel());
     readFile();
+    // loadImage();
     flutterTts = FlutterTts(); // Inicializa la instancia de FlutterTts
 
-    @override
-    void initState() {
-      super.initState();
-      _model = createModel(context, () => PlayerModel());
-      readFile();
-    }
+    // @override
+    // void initState() {
+    //   super.initState();
+    //   _model = createModel(context, () => PlayerModel());
+    //   readFile();
+    // }
 
     @override
     void dispose() {
@@ -107,7 +110,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
   }
 
 // CONTROLER OF WIDGET CHANGE PAGE
-  var idx = 0;
+  var idx = 1;
+  
   List<String> fileContent = [];
   Future<void> readFile() async {
     String content =
@@ -117,6 +121,19 @@ class _PlayerWidgetState extends State<PlayerWidget>
       fileContent = lineas;
     });
   }
+
+  // List<String> imagenes = [];
+  // var i = 1;
+  // String imagenReproducor = "";
+
+  // Future<void> loadImage() async {
+  //   if (i <= 15) {
+  //     setState(() {
+  //       imagenes.add('');
+  //       i += 1;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -205,44 +222,166 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                   height: 350,
                                   child: Stack(
                                     children: [
-                                      PageView(
-                                        controller:
-                                            _model.pageViewController ??=
-                                                PageController(initialPage: 0),
-                                        scrollDirection: Axis.horizontal,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(24),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/16/600',
-                                              width: 300,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/860/600',
-                                              width: 300,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/677/600',
-                                              width: 300,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                      Image.asset(
+                                          'assets/books/images/3_little_pigs/anime/($idx)-3_little_pigs_PM-anime.jpg'),
+                                      // PageView(
+                                      //   controller:
+                                      //       _model.pageViewController ??=
+                                      //           PageController(initialPage: 0),
+                                      //   scrollDirection: Axis.horizontal,
+                                      //   children: [
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(24),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(1)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(2)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(3)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(24),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(4)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(5)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(6)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(24),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(7)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(8)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(9)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(24),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(10)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(11)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(12)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(24),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(13)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(14)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //     ClipRRect(
+                                      //       borderRadius:
+                                      //           BorderRadius.circular(8),
+                                      //       child: Image.asset(
+                                      //         'assets/books/images/3_little_pigs/anime/(15)-3_little_pigs_PM-anime.jpg',
+                                      //         width: 300,
+                                      //         height: 200,
+                                      //         fit: BoxFit.cover,
+                                      //       ),
+                                      //     ),
+                                      //   ],
+                                      // ),
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(-1, 1),
@@ -315,7 +454,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                 width: 2,
                               ),
                             ),
-                            child: Text(fileContent[idx]),
+                            child: Text(fileContent[idx - 1]),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation2']!),
                         ),
@@ -337,7 +476,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             setState(() {
-                              if (idx > 0) {
+                              if (idx > 1) {
                                 idx -= 1;
                               }
                             });
@@ -475,7 +614,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             setState(() {
-                              idx = 0;
+                              idx = 1;
                             });
                             if (kDebugMode) {
                               print(idx);
@@ -580,5 +719,10 @@ class _PlayerWidgetState extends State<PlayerWidget>
         ),
       ),
     );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(IntProperty('idx', idx));
   }
 }
