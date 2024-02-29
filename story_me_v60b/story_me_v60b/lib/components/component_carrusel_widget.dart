@@ -16,6 +16,30 @@ class _ComponentCarruselHomeWidgetState
   late ComponentCarruselHomeModel _model;
 
   @override
+  void generateChilds() {
+    dynamic childs = [
+      CarruselChildObject(
+          storyTitle: 'Caperucita roja',
+          storyDescription: 'caperucita',
+          storyImage: 'assets/images/books/redridding.jpg'),
+      CarruselChildObject(
+          storyTitle: 'Los tres chanchitos',
+          storyDescription: 'Los 3 cerditos',
+          storyImage: 'assets/images/books/3cerd.jpg'),
+      CarruselChildObject(
+          storyTitle: 'Las aventuras de Cape',
+          storyDescription: 'Las aventuras de cape',
+          storyImage: 'assets/images/books/cape2.jpg'),
+      CarruselChildObject(
+          storyTitle: 'Perrandalf',
+          storyDescription: 'Perrandalf',
+          storyImage: 'assets/images/books/perrandalf.jpg'),
+    ];
+
+    return childs;
+  }
+
+  @override
   void setState(VoidCallback callback) {
     super.setState(callback);
     _model.onUpdate();
