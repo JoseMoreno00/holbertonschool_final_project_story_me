@@ -7,10 +7,8 @@ class StylesModel extends FlutterFlowModel<StylesWidget> {
   final unfocusNode = FocusNode();
   // Model for ComponentLateralMenu component.
   late ComponentLateralMenuModel componentLateralMenuModel;
-  // Model for ComponentStyleStyles component.
-  late ComponentStyleStylesModel componentStyleStylesModel;
-  // Model for ComponentLanguagesStyle component.
-  late ComponentLanguagesStyleModel componentLanguagesStyleModel;
+  // Model for ComponentCarruselStyles component.
+  late ComponentCarruselStylesModel componentCarruselStylesModel;
 
   /// Initialization and disposal methods.
 
@@ -18,18 +16,15 @@ class StylesModel extends FlutterFlowModel<StylesWidget> {
   void initState(BuildContext context) {
     componentLateralMenuModel =
         createModel(context, () => ComponentLateralMenuModel());
-    componentStyleStylesModel =
-        createModel(context, () => ComponentStyleStylesModel());
-    componentLanguagesStyleModel =
-        createModel(context, () => ComponentLanguagesStyleModel());
+    componentCarruselStylesModel =
+        createModel(context, () => ComponentCarruselStylesModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     componentLateralMenuModel.dispose();
-    componentStyleStylesModel.dispose();
-    componentLanguagesStyleModel.dispose();
+    componentCarruselStylesModel.dispose();
   }
 
   /// Action blocks are added here.

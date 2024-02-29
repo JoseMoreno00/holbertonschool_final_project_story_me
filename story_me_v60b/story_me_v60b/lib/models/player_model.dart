@@ -7,8 +7,6 @@ class PlayerModel extends FlutterFlowModel<PlayerWidget> {
   final unfocusNode = FocusNode();
   // Model for ComponentLateralMenu component.
   late ComponentLateralMenuModel componentLateralMenuModel;
-  // Model for ComponentLogo component.
-  late ComponentLogoModel componentLogoModel;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -17,6 +15,8 @@ class PlayerModel extends FlutterFlowModel<PlayerWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for Switch widget.
+  bool? switchValue;
 
   /// Initialization and disposal methods.
 
@@ -24,14 +24,12 @@ class PlayerModel extends FlutterFlowModel<PlayerWidget> {
   void initState(BuildContext context) {
     componentLateralMenuModel =
         createModel(context, () => ComponentLateralMenuModel());
-    componentLogoModel = createModel(context, () => ComponentLogoModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     componentLateralMenuModel.dispose();
-    componentLogoModel.dispose();
   }
 
   /// Action blocks are added here.

@@ -1,7 +1,8 @@
-// ignore_for_file: sized_box_for_whitespace
-
-import 'package:flutterflow_ui/flutterflow_ui.dart';
+// =========================================================
+// Import the following packages
+// =========================================================
 import 'package:story_me_v60b/imports.dart';
+import 'package:flutterflow_ui/flutterflow_ui.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({super.key});
@@ -14,7 +15,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
   late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+// =========================================================
+// Transition animations
+// =========================================================
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -71,14 +74,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+// =========================================================
+// Call for the lateral menu
+// =========================================================
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFB89E7D),
-        drawer: Container(
+        backgroundColor: const Color(0xFFFCFAEF),
+        drawer: SizedBox(
           width: 200,
           child: Drawer(
             elevation: 16,
@@ -89,7 +95,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             ),
           ),
         ),
+// =========================================================
+// App bar
+// =========================================================
         appBar: AppBar(
+          title: Image.asset(
+            'assets/images/logo.png',
+            width: 100,
+            height: 100,
+            fit: BoxFit.contain,
+          ),
           backgroundColor: const Color(0xFFF57340),
           automaticallyImplyLeading: true,
           actions: const [],
@@ -102,53 +117,66 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFFE1D5B6), Color(0xFFB89E7D)],
-                stops: [0, 1],
-                begin: AlignmentDirectional(0, -1),
-                end: AlignmentDirectional(0, 1),
-              ),
+              color: Color(0xFFFCFAEF),
             ),
             child: Stack(
               children: [
-                Align(
-                  alignment: const AlignmentDirectional(0, -1),
-                  child: wrapWithModel(
-                    model: _model.componentLogoModel,
-                    updateCallback: () => setState(() {}),
-                    child: const ComponentLogoWidget(),
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0, 0.5),
-                  child: Container(
-                    width: double.infinity,
-                    height: 429,
-                    decoration: const BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                    child: wrapWithModel(
-                      model: _model.componentCarruselHomeModel,
-                      updateCallback: () => setState(() {}),
-                      child: const ComponentCarruselHomeWidget(),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation']!),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(-0.98, -0.42),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
-                    child: Text(
-                      'Libros',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Eczar',
-                            fontSize: 27,
-                            fontWeight: FontWeight.normal,
+                Stack(
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+// =========================================================
+// Call for carrousel
+// =========================================================
+                        Align(
+                          alignment: const AlignmentDirectional(0, 0.5),
+                          child: Container(
+                            width: double.infinity,
+                            height: MediaQuery.sizeOf(context).height * 0.85,
+                            decoration: const BoxDecoration(
+                              color: Colors.transparent,
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0, -1),
+                              child: wrapWithModel(
+                                model: _model.componentCarruselHomeModel,
+                                updateCallback: () => setState(() {}),
+                                child: const ComponentCarruselHomeWidget(),
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
+                        ),
+                        Flexible(
+                          child: Align(
+                            alignment: const AlignmentDirectional(0, 1),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.8,
+                              height: MediaQuery.sizeOf(context).height * 0.1,
+                              decoration: const BoxDecoration(),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0, 1),
+                                child: AutoSizeText(
+                                  ('Qué aventura quieres vivir hoy?'),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Eczar',
+                                        color: const Color(0xFF382924),
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                  minFontSize: 20,
+                                ).animateOnPageLoad(
+                                    animationsMap['textOnPageLoadAnimation']!),
+                              ),
+                            ),
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
