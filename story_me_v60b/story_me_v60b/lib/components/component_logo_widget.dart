@@ -56,10 +56,10 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, -1),
+      alignment: const AlignmentDirectional(1, -1),
       child: Container(
         width: 414,
-        height: 186,
+        height: 123,
         decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
@@ -67,31 +67,18 @@ class _ComponentLogoWidgetState extends State<ComponentLogoWidget>
           alignment: const AlignmentDirectional(0, 0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0, 0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(7),
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      width: 172,
-                      height: 115,
-                      fit: BoxFit.cover,
-                    ),
+                alignment: const AlignmentDirectional(1, 0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(7),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 109,
+                    height: 123,
+                    fit: BoxFit.cover,
                   ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0, 0),
-                child: Text(
-                  'StoryMe',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'DARKLANDS',
-                        fontSize: 36,
-                        useGoogleFonts: false,
-                      ),
                 ),
               ),
             ],
