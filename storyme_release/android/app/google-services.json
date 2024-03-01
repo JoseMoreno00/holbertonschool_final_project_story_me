@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816449824580",
+    "project_id": "storyme-final",
+    "storage_bucket": "storyme-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816449824580:android:5ef7ce8e0bf4b513a35911",
+        "android_client_info": {
+          "package_name": "com.storymerelease.storyme_release"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1FGUKdADxeJ_SWZsNJifufJ21KabueS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
