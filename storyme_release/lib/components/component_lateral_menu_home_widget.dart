@@ -55,7 +55,7 @@ class _ComponentLateralMenuWidgetState
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
-                  'assets/images/imagen_2024-02-20_035909040.png',
+                  'assets/images/logo.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -111,53 +111,6 @@ class _ComponentLateralMenuWidgetState
                             const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                         child: Text(
                           'Inicio',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyLarge
-                              .override(
-                                fontFamily: 'Eczar',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                fontSize: 18,
-                              ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  // context.pushNamed('Downloads');
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(0, 0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: Icon(
-                          Icons.download_sharp,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 26,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0, 0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                        child: Text(
-                          'Descargas',
                           style: FlutterFlowTheme.of(context)
                               .bodyLarge
                               .override(

@@ -1,13 +1,14 @@
+// ignore_for_file: unused_import
+
 import 'dart:io';
+import 'imports.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:storyme_release/authenticator/registerauth.dart';
-import 'package:storyme_release/imports.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   Platform.isAndroid
       ? await Firebase.initializeApp(
           options: const FirebaseOptions(
@@ -18,13 +19,12 @@ Future main() async {
           ),
         )
       : await Firebase.initializeApp();
-
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class AppState extends StatelessWidget {
+  const AppState({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
@@ -34,36 +34,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-    getUsers();
-  }
-
-  void getUsers() async {
-    CollectionReference collectionReference =
-        FirebaseFirestore.instance.collection("users");
-    QuerySnapshot users = await collectionReference.get();
-
-    if (users.docs.isNotEmpty == true) {
-      for (var doc in users.docs) {
-        if (kDebugMode) {
-          print(doc.data());
-        }
-      }
-    }
-  }
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,13 +46,13 @@ class _MyHomePageState extends State<MyHomePage> {
         primarySwatch: Colors.blue,
       ),
       // Route of the first widget
-      initialRoute: '/welcome_widget',
+      initialRoute: '/home_widget',
       routes: {
         // Navigation routes
         '/welcome_widget': (context) => const WelcomeWidget(),
         '/register_widget': (context) => const RegisterWidget(),
         '/login_widget': (context) => const LogInWidget(),
-        '/galery_widget': (context) => const HomeWidget(),
+        '/home_widget': (context) => const HomeWidget(),
         '/story_widget': (context) => const StylesWidget(),
       },
     );

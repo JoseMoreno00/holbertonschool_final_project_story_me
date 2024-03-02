@@ -19,6 +19,7 @@ dependencies:
 
   cupertino_icons: ^1.0.6
   firebase_core:
+  firebase_auth: ^4.4.1
   cloud_firestore:
   flutterflow_ui: ^0.2.0+1
   url_launcher: ^6.2.5
@@ -28,7 +29,6 @@ dependencies:
   provider: ^6.0.4
   flutter_tts: ^3.8.5
   auto_size_text: ^3.0.0
-  firebase_auth: ^4.4.1
   smooth_page_indicator: ^1.0.1
   flutter_animate: ^4.1.1+1
   
@@ -42,18 +42,14 @@ dev_dependencies:
 
 
 flutter:
-
+  assets:
+    - assets/images/
+    - assets/images/books/
+    - assets/images/styles/
+    - assets/books/3_little_pigs/es/book.txt
 
   uses-material-design: true
 
-assets:
-    - assets/books/3_little_pigs/es/book.txt
-    - assets/images/
-    - assets/images/languages/
-    - assets/images/styles/
-    - assets/images/books/
-    - assets/fonts/
-    - assets/books/images/3_little_pigs/anime/
     
 fonts:
   - family: DARKLANDS
