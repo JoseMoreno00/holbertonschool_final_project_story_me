@@ -30,6 +30,16 @@ class _LogInWidgetState extends State<LogInWidget> {
     });
   }
 
+  // ignore: non_constant_identifier_names
+  Future<void> SingInEMAILPASS(String email, String password) async {
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+    // ignore: use_build_context_synchronously
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const HomeWidget()));
+  }
+
+//
   @override
   void dispose() {
     _model.dispose();
@@ -37,10 +47,8 @@ class _LogInWidgetState extends State<LogInWidget> {
     super.dispose();
   }
 
-  var formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<LogInUser>(context);
     if (isiOS) {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
@@ -131,7 +139,6 @@ class _LogInWidgetState extends State<LogInWidget> {
                         ),
                       ),
                       child: Form(
-                        key: formKey,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -410,35 +417,8 @@ class _LogInWidgetState extends State<LogInWidget> {
                                     0, 25, 0, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (formKey.currentState!.validate()) {
-                                      var response = await loginProvider
-                                          .logedUser(formData);
-                                      if (response) {
-                                        // ignore: use_build_context_synchronously
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const HomeWidget()));
-                                      } else {
-                                        // ignore: use_build_context_synchronously
-                                        showDialog(
-                                            // ignore: use_build_context_synchronously
-                                            context: context,
-                                            builder: (context) {
-                                              return const AlertDialog(
-                                                title: Text(
-                                                    'No se pudo encontrar el usuario'),
-                                              );
-                                            });
-                                      }
-                                    } else {
-                                      if (kDebugMode) {
-                                        print('No se pudo validar');
-                                      }
-                                    }
-                                    if (kDebugMode) {
-                                      print('Button pressed ...');
-                                    }
+                                    await SingInEMAILPASS(formData['email']!,
+                                        formData['password']!);
                                   },
                                   text: 'Iniciar Sesión',
                                   options: FFButtonOptions(

@@ -115,6 +115,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
     List<String> lineas = content.split('\n');
     setState(() {
       fileContent = lineas;
+      print(fileContent[1]);
     });
   }
 
@@ -319,7 +320,10 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               width: 1,
                             ),
                           ),
-                          child: Text(fileContent[idx - 1]),
+                          child: Text(fileContent[idx - 1],
+                              // ignore: deprecated_member_use
+                              style: FlutterFlowTheme.of(context).bodyText1,
+                              textAlign: TextAlign.center),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation2']!),
                       ),

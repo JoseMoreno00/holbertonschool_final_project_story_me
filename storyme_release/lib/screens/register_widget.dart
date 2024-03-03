@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/authenticator/registerauth.dart';
 import 'package:storyme_release/imports.dart';
@@ -36,6 +38,15 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     });
   }
 
+  Future<void> register(String email, String password) async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LogInWidget()));
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -43,11 +54,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     super.dispose();
   }
 
-  var formKey = GlobalKey<FormState>();
   Map<String, String> formData = {'usuario': '', 'email': '', 'password': ''};
   @override
   Widget build(BuildContext context) {
-    final registerProvider = Provider.of<RegisterUser>(context);
     if (isiOS) {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
@@ -137,7 +146,6 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                       child: Form(
-                        key: formKey,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -450,35 +458,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     0, 25, 0, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (formKey.currentState!.validate()) {
-                                      var response = await registerProvider
-                                          .registrarUsuario(formData);
-                                      if (response) {
-                                        // ignore: use_build_context_synchronously
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const LogInWidget()));
-                                      } else {
-                                        // ignore: use_build_context_synchronously
-                                        showDialog(
-                                            // ignore: use_build_context_synchronously
-                                            context: context,
-                                            builder: (context) {
-                                              return const AlertDialog(
-                                                title: Text(
-                                                    'No se pudo registrar el Usuario'),
-                                              );
-                                            });
-                                      }
-                                    } else {
-                                      if (kDebugMode) {
-                                        print('No se pudo validar');
-                                      }
-                                    }
-                                    if (kDebugMode) {
-                                      print('crearcuenta pressed ...');
-                                    }
+                                    await register(
+                                      formData['email']!,
+                                      formData['password']!,
+                                    );
                                   },
                                   text: 'Crear Cuenta',
                                   options: FFButtonOptions(

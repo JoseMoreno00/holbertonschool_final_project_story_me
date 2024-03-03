@@ -19,7 +19,7 @@ dependencies:
 
   cupertino_icons: ^1.0.6
   firebase_core:
-  firebase_auth: ^4.4.1
+  firebase_auth: ^4.16.0
   cloud_firestore:
   flutterflow_ui: ^0.2.0+1
   url_launcher: ^6.2.5

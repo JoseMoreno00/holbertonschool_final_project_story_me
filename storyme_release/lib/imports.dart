@@ -46,3 +46,4 @@ export 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 export 'dart:async';
 export 'package:auto_size_text/auto_size_text.dart';
+export 'package:firebase_auth/firebase_auth.dart';

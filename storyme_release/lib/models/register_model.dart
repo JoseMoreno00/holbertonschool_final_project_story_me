@@ -49,6 +49,8 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
     confirmarContraseaController?.dispose();
   }
 
+  register(String email, String password) {}
+
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
