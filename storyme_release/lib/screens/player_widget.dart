@@ -319,7 +319,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               width: 1,
                             ),
                           ),
-                          child: Text(fileContent[idx -= 1]),
+                          child: Text(fileContent[idx - 1]),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation2']!),
                       ),

@@ -10,7 +10,7 @@ class RegisterUser extends ChangeNotifier {
   }
   Future<bool> registrarUsuario(Map<String, String> formData) async {
     var url = Uri.parse(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCIO4aZzU5c4ZXX5XQDdcrnoNVupCdgO4U');
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1FGUKdADxeJ_SWZsNJifufJ21KabueS4');
     var response = await http.post(url, body: jsonEncode(formData));
     if (response.statusCode == 200) {
       return true;
