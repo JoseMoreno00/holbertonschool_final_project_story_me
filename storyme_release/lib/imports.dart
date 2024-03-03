@@ -24,6 +24,7 @@ export 'package:storyme_release/components/component_carrusel_styles_widget.dart
 export 'package:storyme_release/components/component_languages_style_widget.dart';
 export 'package:storyme_release/components/component_carrusel_widget.dart';
 export 'package:storyme_release/components/component_logo_widget.dart';
+// export 'package:storyme_release/components/fetch_carrusel_home.dart';
 
 //Components models
 export 'package:storyme_release/model_components/component_lateral_menu_model.dart';

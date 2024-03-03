@@ -115,7 +115,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
     List<String> lineas = content.split('\n');
     setState(() {
       fileContent = lineas;
-      print(fileContent[1]);
+      if (kDebugMode) {
+        print(fileContent[1]);
+      }
     });
   }
 
