@@ -16,6 +16,8 @@ class _Cuento {
   });
 }
 
+String link = '';
+
 class StoryWidget extends StatelessWidget {
   final String cuento;
   final String url;
@@ -31,7 +33,7 @@ class StoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 500,
       child: Stack(
         children: [
           Column(
@@ -39,6 +41,7 @@ class StoryWidget extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
+                  imagen = url;
                   if (kDebugMode) {
                     print('Button pressed ...');
                   }
@@ -50,7 +53,7 @@ class StoryWidget extends StatelessWidget {
                 },
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 0.8,
-                  height: MediaQuery.sizeOf(context).height * 0.68,
+                  height: MediaQuery.sizeOf(context).height * 0.7,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(url),
@@ -154,38 +157,44 @@ class _ComponentCarruselHomeWidgetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.7,
+      height: MediaQuery.sizeOf(context).height * 1,
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: CarouselSlider(
-              items: stories.map((item) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return StoryWidget(
-                      cuento: item.cuento,
-                      url: item.url,
-                      title: item.title,
-                    );
-                  },
-                );
-              }).toList(),
-              options: CarouselOptions(
-                aspectRatio: 16 / 9,
-                viewportFraction: 0.8,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 3),
-                autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enlargeCenterPage: true,
-                onPageChanged: (index, reason) {
-                  // Función opcional que se llama cuando cambia la página
-                },
-                scrollDirection: Axis.horizontal,
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            child: Container(
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 0.9,
+              child: CarouselSlider(
+                items: stories.map((item) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return StoryWidget(
+                        cuento: item.cuento,
+                        url: item.url,
+                        title: item.title,
+                      );
+                    },
+                  );
+                }).toList(),
+                carouselController: _model.carouselController ??=
+                    CarouselController(),
+                options: CarouselOptions(
+                  initialPage: 1,
+                  viewportFraction: 0.7,
+                  disableCenter: true,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.25,
+                  enableInfiniteScroll: true,
+                  scrollDirection: Axis.horizontal,
+                  autoPlay: true,
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayInterval: const Duration(milliseconds: (800 + 2000)),
+                  autoPlayCurve: Curves.linear,
+                  pauseAutoPlayInFiniteScroll: true,
+                  onPageChanged: (index, _) =>
+                      _model.carouselCurrentIndex = index,
+                ),
               ),
             ),
           ),

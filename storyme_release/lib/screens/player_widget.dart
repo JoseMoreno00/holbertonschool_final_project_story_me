@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace, unused_element, depend_on_referenced_packages
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/imports.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -108,16 +109,17 @@ class _PlayerWidgetState extends State<PlayerWidget>
 // =========================================================
 // Controller change pages
 // =========================================================
+  final ref = FirebaseDatabase.instance.ref('books');
   List<String> fileContent = [];
   Future<void> readFile() async {
-    String content =
-        await rootBundle.loadString('assets/books/3_little_pigs/es/book.txt');
-    List<String> lineas = content.split('\n');
-    setState(() {
-      fileContent = lineas;
-      if (kDebugMode) {
-        print(fileContent[1]);
-      }
+    ref.child('cuento').once().then((DatabaseEvent snapshot) {
+      final Map<dynamic, dynamic> values = snapshot.snapshot.value as Map;
+      values.forEach((key, value) {
+        fileContent.add(value['cuento']);
+        setState(() {
+          fileContent = fileContent;
+        });
+      });
     });
   }
 

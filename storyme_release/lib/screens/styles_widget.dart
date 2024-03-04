@@ -134,7 +134,7 @@ class _StylesWidgetState extends State<StylesWidget>
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
-                                        child: Image.asset(
+                                        child: Image.network(
                                           imagen,
                                           fit: BoxFit.cover,
                                           alignment: const Alignment(-1, 0),
