@@ -47,7 +47,7 @@ flutter:
     - assets/images/
     - assets/images/books/
     - assets/images/styles/
-    - assets/books/3_little_pigs/es/book.txt
+    - assets/books/3_little_pigstxt/es/
 
   uses-material-design: true
 

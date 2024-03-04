@@ -1,5 +1,9 @@
 // ignore_for_file: sized_box_for_whitespace, unused_element, depend_on_referenced_packages
 
+// ignore: unused_import
+import 'dart:io';
+
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/imports.dart';
@@ -17,7 +21,8 @@ class PlayerWidget extends StatefulWidget {
 class _PlayerWidgetState extends State<PlayerWidget>
     with TickerProviderStateMixin {
   late PlayerModel _model;
-  late FlutterTts flutterTts; // Instancia de FlutterTts
+  late FlutterTts flutterTts;
+  // Instancia de FlutterTts
 
   Future<void> playContent() async {
     var omg = idx - 1;
@@ -98,35 +103,39 @@ class _PlayerWidgetState extends State<PlayerWidget>
   }
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     _model = createModel(context, () => PlayerModel());
     // ignore: unused_local_variable
     flutterTts = FlutterTts();
-    fetchBook();
+    cargarContenidoLibro();
   }
 
   var idx = 1;
   List<String> fileContent = [];
-  Future<void> fetchBook() async {
+
+  Future<void> cargarContenidoLibro() async {
     DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
-    DataSnapshot snapshot = (await databaseReference
-        .child('books/es/$libro')
-        .once()) as DataSnapshot;
-    if (snapshot.value != null) {
-      var bookData = snapshot.value;
-      if (bookData is List<dynamic>) {
-        fileContent =
-            List<String>.from(bookData.map((item) => item.toString()));
-      } else {
-        throw Exception('El libro no existe');
-      }
-    } else {
-      throw Exception('El libro no existe');
+
+    dynamic collection = databaseReference.child('books').child('es');
+
+    DatabaseEvent snapshot = await collection.once() as DatabaseEvent;
+
+    Map<dynamic, dynamic> values =
+        snapshot.snapshot.value as Map<dynamic, dynamic>;
+
+    String? contenido = values['3_little_pigstxt'];
+
+    if (contenido == null) {
+      return;
     }
+
+    setState(() {
+      fileContent = contenido.split('\\n');
+    });
   }
 
-// =========================================================
+// ========================================================
 // Controller change pages
 // =========================================================
   @override
@@ -326,11 +335,14 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               topRight: Radius.circular(10),
                             ),
                             border: Border.all(
-                              color: const Color(0xFFFC772F),
+                              color: const Color.fromARGB(255, 250, 119, 47),
                               width: 1,
                             ),
                           ),
-                          child: Text(fileContent[idx - 1],
+                          child: Text(
+                              fileContent.isNotEmpty
+                                  ? fileContent[idx - 1]
+                                  : 'Loading ...',
                               // ignore: deprecated_member_use
                               style: FlutterFlowTheme.of(context).bodyText1,
                               textAlign: TextAlign.center),

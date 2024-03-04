@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // Route of the first widget
-      initialRoute: '/welcome_widget',
+      initialRoute: '/home_widget',
       routes: {
         // Navigation routes
         '/welcome_widget': (context) => const WelcomeWidget(),
