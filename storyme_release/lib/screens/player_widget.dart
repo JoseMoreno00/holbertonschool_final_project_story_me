@@ -1,6 +1,5 @@
 // ignore: unused_import
 
-import 'dart:io';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
@@ -150,7 +149,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
           await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
       imageUrls.add(downloadUrl);
     }
-    print(imageUrls);
+    if (kDebugMode) {
+      print(imageUrls);
+    }
     return imageUrls;
   }
 
