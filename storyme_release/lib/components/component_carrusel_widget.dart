@@ -1,72 +1,169 @@
-// ignore_for_file: sized_box_for_whitespace, unused_import
+// ignore_for_file: sized_box_for_whitespace, unused_import, library_private_types_in_public_api
+import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/imports.dart';
-import 'package:storyme_release/components/fetch_carrusel_home.dart';
+
+class _Cuento {
+  final String cuento;
+  final String url;
+  final String title;
+
+  _Cuento({
+    required this.cuento,
+    required this.url,
+    required this.title,
+  });
+}
+
+class StoryWidget extends StatelessWidget {
+  final String cuento;
+  final String url;
+  final String title;
+
+  const StoryWidget({
+    super.key,
+    required this.cuento,
+    required this.url,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      height: MediaQuery.of(context).size.height * 0.68,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(url),
+          fit: BoxFit.cover,
+        ),
+        color: Colors.grey,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(0),
+          bottomRight: Radius.circular(0),
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+      ),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: 100,
+          constraints: const BoxConstraints(
+            minWidth: 200,
+          ),
+          decoration: BoxDecoration(
+            color: const Color(0xFFEDECEA),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+              topLeft: Radius.circular(0),
+              topRight: Radius.circular(0),
+            ),
+            border: Border.all(
+              color: const Color(0xFFFC772F),
+              width: 1,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              cuento,
+              style: const TextStyle(
+                fontFamily: 'Eczar',
+                color: Color(0xFF382924),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class ComponentCarruselHomeWidget extends StatefulWidget {
   const ComponentCarruselHomeWidget({super.key});
 
   @override
-  State<ComponentCarruselHomeWidget> createState() =>
+  _ComponentCarruselHomeWidgetState createState() =>
       _ComponentCarruselHomeWidgetState();
 }
 
 class _ComponentCarruselHomeWidgetState
     extends State<ComponentCarruselHomeWidget> {
   late ComponentCarruselHomeModel _model;
+  final ref = FirebaseDatabase.instance.ref('carrusel');
 
-  @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
-    _model.onUpdate();
-  }
+  late List<_Cuento> stories;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ComponentCarruselHomeModel());
+    stories = [];
+    fetchStories();
+  }
+
+  void fetchStories() async {
+    ref.once().then((DatabaseEvent snapshot) {
+      final List<_Cuento> fetchedStories = [];
+      final Map<dynamic, dynamic> values = snapshot.snapshot.value as Map;
+      values.forEach((key, value) {
+        fetchedStories.add(_Cuento(
+          cuento: value['cuento'],
+          url: value['url'],
+          title: value['title'],
+        ));
+      });
+      setState(() {
+        stories = fetchedStories;
+      });
+    });
   }
 
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.sizeOf(context).height * 1,
+      height: MediaQuery.of(context).size.height * 1,
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-            child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 0.9,
-              child: CarouselSlider(
-                // ignore: prefer_const_literals_to_create_immutables
-                items: [],
-                carouselController: _model.carouselController ??=
-                    CarouselController(),
-                options: CarouselOptions(
-                  initialPage: 1,
-                  viewportFraction: 0.7,
-                  disableCenter: true,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0.25,
-                  enableInfiniteScroll: true,
-                  scrollDirection: Axis.horizontal,
-                  autoPlay: true,
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayInterval: const Duration(milliseconds: (800 + 2000)),
-                  autoPlayCurve: Curves.linear,
-                  pauseAutoPlayInFiniteScroll: true,
-                  onPageChanged: (index, _) =>
-                      _model.carouselCurrentIndex = index,
-                ),
+            padding: const EdgeInsets.only(top: 20.0),
+            child: CarouselSlider(
+              items: stories.map((item) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return StoryWidget(
+                      cuento: item.cuento,
+                      url: item.url,
+                      title: item.title,
+                    );
+                  },
+                );
+              }).toList(),
+              options: CarouselOptions(
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                onPageChanged: (index, reason) {
+                  // Función opcional que se llama cuando cambia la página
+                },
+                scrollDirection: Axis.horizontal,
               ),
             ),
           ),
