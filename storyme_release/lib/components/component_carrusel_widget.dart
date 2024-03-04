@@ -17,6 +17,8 @@ class _Cuento {
 }
 
 String link = '';
+String texto = '';
+String libro = '';
 
 class StoryWidget extends StatelessWidget {
   final String cuento;
@@ -42,6 +44,8 @@ class StoryWidget extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   imagen = url;
+                  texto = title;
+                  libro = cuento;
                   if (kDebugMode) {
                     print('Button pressed ...');
                   }

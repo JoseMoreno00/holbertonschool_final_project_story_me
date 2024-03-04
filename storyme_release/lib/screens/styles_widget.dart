@@ -3,10 +3,8 @@
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/imports.dart';
 
-String texto = '';
 String imagen = '';
-String player = '$cuento.$style.$idioma';
-String cuento = '';
+String player = '$libro.$style.$idioma';
 String style = '';
 String idioma = '';
 

@@ -98,31 +98,37 @@ class _PlayerWidgetState extends State<PlayerWidget>
   }
 
   @override
-  void initState() {
+  void initState() async {
     super.initState();
     _model = createModel(context, () => PlayerModel());
-    readFile();
+    // ignore: unused_local_variable
     flutterTts = FlutterTts();
+    fetchBook();
   }
 
   var idx = 1;
+  List<String> fileContent = [];
+  Future<void> fetchBook() async {
+    DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+    DataSnapshot snapshot = (await databaseReference
+        .child('books/es/$libro')
+        .once()) as DataSnapshot;
+    if (snapshot.value != null) {
+      var bookData = snapshot.value;
+      if (bookData is List<dynamic>) {
+        fileContent =
+            List<String>.from(bookData.map((item) => item.toString()));
+      } else {
+        throw Exception('El libro no existe');
+      }
+    } else {
+      throw Exception('El libro no existe');
+    }
+  }
+
 // =========================================================
 // Controller change pages
 // =========================================================
-  final ref = FirebaseDatabase.instance.ref('books');
-  List<String> fileContent = [];
-  Future<void> readFile() async {
-    ref.child('cuento').once().then((DatabaseEvent snapshot) {
-      final Map<dynamic, dynamic> values = snapshot.snapshot.value as Map;
-      values.forEach((key, value) {
-        fileContent.add(value['cuento']);
-        setState(() {
-          fileContent = fileContent;
-        });
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
