@@ -129,24 +129,26 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 // =========================================================
 // Call for carrousel
 // =========================================================
-                        Align(
-                          alignment: const AlignmentDirectional(0, 0.5),
-                          child: Container(
-                            width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.85,
-                            decoration: const BoxDecoration(
-                              color: Colors.transparent,
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0, -1),
-                              child: wrapWithModel(
-                                model: _model.componentCarruselHomeModel,
-                                updateCallback: () => setState(() {}),
-                                child: const ComponentCarruselHomeWidget(),
+                        Expanded(
+                          child: Align(
+                            alignment: const AlignmentDirectional(0, 0.5),
+                            child: Container(
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.85,
+                              decoration: const BoxDecoration(
+                                color: Colors.transparent,
                               ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation']!),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0, -1),
+                                child: wrapWithModel(
+                                  model: _model.componentCarruselHomeModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: const ComponentCarruselHomeWidget(),
+                                ),
+                              ),
+                            ).animateOnPageLoad(
+                                animationsMap['containerOnPageLoadAnimation']!),
+                          ),
                         ),
                         Flexible(
                           child: Align(
