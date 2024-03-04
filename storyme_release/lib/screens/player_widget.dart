@@ -1,10 +1,8 @@
-// ignore_for_file: sized_box_for_whitespace, unused_element, depend_on_referenced_packages
-
 // ignore: unused_import
-import 'dart:io';
 
-// import 'package:firebase_core/firebase_core.dart';
+import 'dart:io';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
 import 'package:storyme_release/imports.dart';
 import 'package:flutter_tts/flutter_tts.dart';
@@ -22,8 +20,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
     with TickerProviderStateMixin {
   late PlayerModel _model;
   late FlutterTts flutterTts;
-  // Instancia de FlutterTts
 
+  get import => null;
+//=============================================================================
+// Text to speech implementation
+//=============================================================================
   Future<void> playContent() async {
     var omg = idx - 1;
     await flutterTts.setLanguage('es-ES'); // Establece el idioma
@@ -33,9 +34,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
   }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-// =========================================================
+// ============================================================================
 // Transition animations
-// =========================================================
+// ============================================================================
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -102,6 +103,8 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.dispose();
   }
 
+  // Remove the unused field '_pageController'
+  // PageController _pageController = PageController();
   @override
   void initState() {
     super.initState();
@@ -109,30 +112,46 @@ class _PlayerWidgetState extends State<PlayerWidget>
     // ignore: unused_local_variable
     flutterTts = FlutterTts();
     cargarContenidoLibro();
+
+    _getImageUrlsFromFirestore();
   }
 
   var idx = 1;
+  //============================================================================
+  // Load book content from Firebase Realtime Database
+  //============================================================================
   List<String> fileContent = [];
-
   Future<void> cargarContenidoLibro() async {
     DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
-
     dynamic collection = databaseReference.child('books').child('es');
-
     DatabaseEvent snapshot = await collection.once() as DatabaseEvent;
-
     Map<dynamic, dynamic> values =
         snapshot.snapshot.value as Map<dynamic, dynamic>;
-
     String? contenido = values['3_little_pigstxt'];
-
     if (contenido == null) {
       return;
     }
-
     setState(() {
       fileContent = contenido.split('\\n');
     });
+  }
+
+//============================================================================
+// Load images from Firestore
+//============================================================================
+  // Add this import statement
+
+  List<String> imageUrls = [];
+  Future<List<String>> _getImageUrlsFromFirestore() async {
+    for (int i = 1; i <= 15; i++) {
+      String imagePath =
+          '3_little_pigs_PM/anime/($i)-3_little_pigs_PM-anime.jpg';
+      String downloadUrl =
+          await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
+      imageUrls.add(downloadUrl);
+    }
+    print(imageUrls);
+    return imageUrls;
   }
 
 // ========================================================
@@ -204,13 +223,14 @@ class _PlayerWidgetState extends State<PlayerWidget>
                         ),
                         child: Stack(
                           children: [
+                            // ignore: sized_box_for_whitespace
                             Container(
                               width: double.infinity,
                               height: MediaQuery.sizeOf(context).height * 1,
                               child: Stack(
                                 children: [
-                                  Image.asset(
-                                    'assets/books/images/3_little_pigs/anime/($idx)-3_little_pigs_PM-anime.jpg',
+                                  Image.network(
+                                    imageUrls[idx - 1],
                                     fit: BoxFit.fill,
                                   ),
                                   Align(
@@ -228,13 +248,18 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                         count: 3,
                                         axisDirection: Axis.horizontal,
                                         onDotClicked: (i) async {
-                                          await _model.pageViewController!
-                                              .animateToPage(
-                                            i,
-                                            duration: const Duration(
-                                                milliseconds: 500),
-                                            curve: Curves.ease,
-                                          );
+                                          if (_model.pageViewController !=
+                                                  null &&
+                                              _model.pageViewController!
+                                                  .hasClients) {
+                                            await _model.pageViewController!
+                                                .animateToPage(
+                                              i,
+                                              duration: const Duration(
+                                                  milliseconds: 500),
+                                              curve: Curves.ease,
+                                            );
+                                          }
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(

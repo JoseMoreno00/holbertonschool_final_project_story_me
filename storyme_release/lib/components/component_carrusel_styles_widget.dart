@@ -138,11 +138,13 @@ class _ComponentCarruselStylesWidgetState
                               if (kDebugMode) {
                                 print('Button pressed ...');
                               }
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => const PlayerWidget(),
-                                ),
-                              );
+                              Timer(const Duration(seconds: 2), () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PlayerWidget()),
+                                );
+                              });
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.8,

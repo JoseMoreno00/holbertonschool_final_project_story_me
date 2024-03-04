@@ -16,6 +16,7 @@ Future main() async {
             messagingSenderId: '816449824580',
             projectId: 'storyme-final',
             apiKey: 'AIzaSyD1FGUKdADxeJ_SWZsNJifufJ21KabueS4',
+            storageBucket: 'storyme-final.appspot.com',
           ),
         )
       : await Firebase.initializeApp();
