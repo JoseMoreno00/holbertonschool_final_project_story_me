@@ -13,7 +13,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget>
   late WelcomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+//=============================================================================
+// Animations
+//=============================================================================
   final animationsMap = {
     'imageOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,

@@ -20,7 +20,9 @@ class _StylesWidgetState extends State<StylesWidget>
   late StylesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+//=============================================================================
+// Animations
+//=============================================================================
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -56,6 +58,9 @@ class _StylesWidgetState extends State<StylesWidget>
     super.dispose();
   }
 
+//=============================================================================
+// Call for lateral menu component
+//=============================================================================
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -69,6 +74,9 @@ class _StylesWidgetState extends State<StylesWidget>
           width: 200,
           child: Drawer(
             elevation: 16,
+//=============================================================================
+// Call for Styles carrusel component
+//=============================================================================
             child: wrapWithModel(
               model: _model.componentLateralMenuModel,
               updateCallback: () => setState(() {}),
@@ -77,6 +85,8 @@ class _StylesWidgetState extends State<StylesWidget>
           ),
         ),
         appBar: AppBar(
+          title: Image.asset('assets/images/logo.png',
+              width: 100, height: 100, fit: BoxFit.contain),
           backgroundColor: const Color(0xFFFC772F),
           automaticallyImplyLeading: true,
           actions: const [],

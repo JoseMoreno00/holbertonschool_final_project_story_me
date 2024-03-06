@@ -46,16 +46,14 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - assets/images/books/
     - assets/images/styles/
-    - assets/books/3_little_pigstxt/es/
-
+    
   uses-material-design: true
 
     
-fonts:
-  - family: DARKLANDS
-    fonts:
-      - asset: assets/fonts/Darklands.ttf
+  fonts:
+    - family: DARKLANDS
+      fonts:
+        - asset: assets/fonts/Darklands.ttf
 
  

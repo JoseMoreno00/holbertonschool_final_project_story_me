@@ -1,12 +1,11 @@
-// ignore_for_file: unused_import
-
 import 'dart:io';
 import 'imports.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:storyme_release/authenticator/registerauth.dart';
 
+//=============================================================================
+// Main function, entry point of the app, start of the firebase app
+//=============================================================================
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Platform.isAndroid
@@ -23,9 +22,11 @@ Future main() async {
   runApp(const MyApp());
 }
 
+//=============================================================================
+// State provider for the app
+//=============================================================================
 class AppState extends StatelessWidget {
   const AppState({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
@@ -38,16 +39,19 @@ class AppState extends StatelessWidget {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+//=============================================================================
+// Build constructo, take welcome widget as the first widget to be displayed
+//=============================================================================
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       // Route of the first widget
-      initialRoute: '/home_widget',
+      initialRoute: '/welcome_widget',
       routes: {
         // Navigation routes
         '/welcome_widget': (context) => const WelcomeWidget(),

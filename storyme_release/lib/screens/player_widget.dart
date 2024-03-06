@@ -1,5 +1,4 @@
 // ignore: unused_import
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutterflow_ui/flutterflow_ui.dart';
@@ -102,13 +101,10 @@ class _PlayerWidgetState extends State<PlayerWidget>
     super.dispose();
   }
 
-  // Remove the unused field '_pageController'
-  // PageController _pageController = PageController();
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => PlayerModel());
-    // ignore: unused_local_variable
     flutterTts = FlutterTts();
     cargarContenidoLibro();
 
@@ -138,8 +134,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
 //============================================================================
 // Load images from Firestore
 //============================================================================
-  // Add this import statement
-
   List<String> imageUrls = [];
   Future<List<String>> _getImageUrlsFromFirestore() async {
     for (int i = 1; i <= 15; i++) {
@@ -148,9 +142,6 @@ class _PlayerWidgetState extends State<PlayerWidget>
       String downloadUrl =
           await FirebaseStorage.instance.ref(imagePath).getDownloadURL();
       imageUrls.add(downloadUrl);
-    }
-    if (kDebugMode) {
-      print(imageUrls);
     }
     return imageUrls;
   }
@@ -211,7 +202,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                       alignment: const AlignmentDirectional(-0.99, -0.54),
                       child: Container(
                         width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.5,
+                        height: MediaQuery.sizeOf(context).height * 0.44,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -231,7 +222,9 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               child: Stack(
                                 children: [
                                   Image.network(
-                                    imageUrls[idx - 1],
+                                    imageUrls.isNotEmpty
+                                        ? imageUrls[idx - 1]
+                                        : 'Loading ...',
                                     fit: BoxFit.fill,
                                   ),
                                   Align(
@@ -285,51 +278,16 @@ class _PlayerWidgetState extends State<PlayerWidget>
 // =========================================================
 // Images player
 // =========================================================
-                            Align(
-                              alignment: const AlignmentDirectional(1, 1),
+                            const Align(
+                              alignment: AlignmentDirectional(1, 1),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Flexible(
                                     child: Align(
-                                      alignment:
-                                          const AlignmentDirectional(0, 1),
+                                      alignment: AlignmentDirectional(0, 1),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Flexible(
-                                            child: Align(
-                                              alignment:
-                                                  const AlignmentDirectional(
-                                                      1, 1),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 10, 0),
-                                                child: Switch.adaptive(
-                                                  value: _model.switchValue ??=
-                                                      false,
-                                                  onChanged: (newValue) async {
-                                                    setState(() => _model
-                                                        .switchValue = true);
-                                                  },
-                                                  activeColor:
-                                                      const Color(0xFF02B126),
-                                                  activeTrackColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent1,
-                                                  inactiveTrackColor:
-                                                      const Color(0xFFE53935),
-                                                  inactiveThumbColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
                                       ),
                                     ),
                                   ),
@@ -351,7 +309,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                             const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width,
-                          height: MediaQuery.sizeOf(context).height * 0.22,
+                          height: MediaQuery.sizeOf(context).height * 0.29,
                           decoration: BoxDecoration(
                             color: const Color(0xFFEDECEA),
                             borderRadius: const BorderRadius.only(
@@ -370,7 +328,13 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                   ? fileContent[idx - 1]
                                   : 'Loading ...',
                               // ignore: deprecated_member_use
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context)
+                                  // ignore: deprecated_member_use
+                                  .bodyText1
+                                  .override(
+                                      fontFamily: 'Eczar',
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w500),
                               textAlign: TextAlign.center),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation2']!),
@@ -393,7 +357,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               alignment: const AlignmentDirectional(0, 1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 50),
+                                    0, 0, 0, 39),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     setState(() {
@@ -449,64 +413,13 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               ),
                             ),
 // =========================================================
-// Pause button
-// =========================================================
-                            Align(
-                              alignment: const AlignmentDirectional(0, 1),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 50),
-                                child: FFButtonWidget(
-                                  onPressed: () {
-                                    if (kDebugMode) {
-                                      print('pause pressed ...');
-                                    }
-                                  },
-                                  text: '',
-                                  icon: const Icon(
-                                    Icons.pause,
-                                    size: 35,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: MediaQuery.sizeOf(context).width *
-                                        0.155,
-                                    height: MediaQuery.sizeOf(context).height *
-                                        0.06,
-                                    padding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 10, 0),
-                                    iconPadding:
-                                        const EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 0),
-                                    color: const Color(0xFFFC772F),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                    ),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(0),
-                                      bottomRight: Radius.circular(0),
-                                      topLeft: Radius.circular(0),
-                                      topRight: Radius.circular(0),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-// =========================================================
 // Play button
 // =========================================================
                             Align(
                               alignment: const AlignmentDirectional(0, 1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 50),
+                                    0, 0, 0, 39),
                                 child: FFButtonWidget(
                                   onPressed: () {
                                     playContent();
@@ -517,11 +430,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                   text: '',
                                   icon: const Icon(
                                     Icons.play_arrow,
-                                    size: 35,
+                                    size: 31,
                                   ),
                                   options: FFButtonOptions(
                                     width: MediaQuery.sizeOf(context).width *
-                                        0.155,
+                                        0.166,
                                     height: MediaQuery.sizeOf(context).height *
                                         0.06,
                                     padding:
@@ -553,7 +466,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               alignment: const AlignmentDirectional(0, 1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 50),
+                                    0, 0, 0, 39),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     setState(() {
@@ -568,11 +481,11 @@ class _PlayerWidgetState extends State<PlayerWidget>
                                   text: '',
                                   icon: const Icon(
                                     Icons.restart_alt_outlined,
-                                    size: 35,
+                                    size: 31,
                                   ),
                                   options: FFButtonOptions(
                                     width: MediaQuery.sizeOf(context).width *
-                                        0.155,
+                                        0.166,
                                     height: MediaQuery.sizeOf(context).height *
                                         0.06,
                                     padding:
@@ -609,7 +522,7 @@ class _PlayerWidgetState extends State<PlayerWidget>
                               alignment: const AlignmentDirectional(0, 1),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 0, 0, 50),
+                                    0, 0, 0, 39),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     setState(() {

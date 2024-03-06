@@ -35,7 +35,7 @@ class StoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 495,
       child: Stack(
         children: [
           Column(
@@ -57,7 +57,7 @@ class StoryWidget extends StatelessWidget {
                 },
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 0.8,
-                  height: MediaQuery.sizeOf(context).height * 0.7,
+                  height: MediaQuery.sizeOf(context).height * 0.69,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(url),

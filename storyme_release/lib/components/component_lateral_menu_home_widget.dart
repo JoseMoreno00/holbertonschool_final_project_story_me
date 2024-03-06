@@ -63,11 +63,13 @@ class _ComponentLateralMenuWidgetState
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
               child: Text(
-                'Poro:3',
+                'StoryMe',
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      fontSize: 20,
+                      fontFamily: 'DARKLANDS',
+                      color: const Color(0xFF170E0D),
+                      fontWeight: FontWeight.normal,
+                      fontSize: 45,
+                      useGoogleFonts: false,
                     ),
               ),
             ),
