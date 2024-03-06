@@ -1,3 +1,5 @@
+# Readme and cleanup of the repository in process
+---
 <h1 align="center"> StoryMe </h1> <br>
 <p align="center">
   <a href="https://github.com/JoseMoreno00/holbertonschool_final_project_story_me/blob/Micaela/Readme/StoryMeLogo.png">
@@ -112,4 +114,3 @@ Here is a data model diagram showing how will be stored the data of the app and 
 | Project Manager & Full-stack Developer | Back-end Developer & Dev-ops | Front-end Developer & UI/UX Designer | Full-stack Developer |
 [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mabreu88)  | [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JoseMoreno00/) | [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MicaViera) | [![Github Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MrKindness235) |
 | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/martin-abreu-04790220a/) | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jose-moreno-587480281/) | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/noelia-viera-9716772b3/) | [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/patricio-coiti%C3%B1o-95a7aa2b5/) |
-
