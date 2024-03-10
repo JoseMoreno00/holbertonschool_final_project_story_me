@@ -106,6 +106,8 @@ Here is a data model diagram showing how will be stored the data of the app and 
 * [Mastering the Leonardo AI Prompt Guide](https://www.thetechmantle.com/leonardo-ai-prompt-guide/)
 * [Prompting Tips & Tricks](https://intercom.help/leonardo-ai/en/articles/8067671-prompting-tips-tricks)
 
+## Work In Progress
+<p>This is a WIP; more features and further polish will be added in given time.</p>
 
 ## Authors :busts_in_silhouette:
 
