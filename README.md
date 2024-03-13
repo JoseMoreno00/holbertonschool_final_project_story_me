@@ -1,5 +1,3 @@
-# Readme and cleanup of the repository in process
----
 <h1 align="center"> StoryMe </h1> <br>
 <p align="center">
   <a href="https://github.com/JoseMoreno00/holbertonschool_final_project_story_me/blob/Micaela/Readme/StoryMeLogo.png">
@@ -109,11 +107,12 @@ Here is a data model diagram showing how will be stored the data of the app and 
 * [Mastering the Leonardo AI Prompt Guide](https://www.thetechmantle.com/leonardo-ai-prompt-guide/)
 * [Prompting Tips & Tricks](https://intercom.help/leonardo-ai/en/articles/8067671-prompting-tips-tricks)
 
-## Work In Progress
-<p>This is a WIP; more features and further polish will be added in given time.</p>
-
 ## Acknowledgements
 <p>We would like to acknowledge the kind support of: The Holberton School Uruguay Staff for their guidance, all the testing department (mostly composed of Mr Abreu's daughters) and all of our fellow Holbies who helped to shape this project. </p>
+
+## Work In Progress
+<p>This project will continue its development beyond what has been achieved at this point as part of Holberton Uruguay's curriculum.
+The new repository and documentation will be linked here as it continues its development.</p>
 
 ## Authors :busts_in_silhouette:
 
