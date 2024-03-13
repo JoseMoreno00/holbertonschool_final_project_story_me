@@ -92,7 +92,7 @@ Here is a data model diagram showing how will be stored the data of the app and 
   Here we have the loading screen.</p>
 
 <p align="center">
-  <img width="268" alt="Screenshot 2024-03-13 133111" src="https://github.com/JoseMoreno00/holbertonschool_final_project_story_me/assets/121252659/536c8198-1894-499e-bbc4-681f2e87c4ec">
+  <img width="268" alt="Screenshot 2024-03-13 133111" src="https://github.com/JoseMoreno00/holbertonschool_final_project_story_me/assets/121252659/536c8198-1894-499e-bbc4-681f2e87c4ec" class="center">
 The home screen with the library.</p>
 
 <p align="center">
