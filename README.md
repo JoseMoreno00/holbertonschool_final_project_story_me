@@ -21,6 +21,7 @@
 - [Architecture](#architecture)
 - [Data Model](#datamodel)
 - [API - LeonardoAI](#APILeonardoAI)
+- [WIP - Work In Progress](#WorkInProgress)
 - [Authors](#authors)
 
 ## Introduction :book:
@@ -84,7 +85,7 @@ Here is a data model diagram showing how will be stored the data of the app and 
   As part of the creative process at the time of sharing our ideas for the user interface we made a Wireframe as a guide for what would later be the Mockup and FrontEnd of the app.
 </p>
 
-## Mockups
+## App Mockup
 <p align="center">These are the mockups of the final prodcut.</p>
 
 <p align="center">
