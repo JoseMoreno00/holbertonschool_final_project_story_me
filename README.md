@@ -22,6 +22,7 @@
 - [Data Model](#datamodel)
 - [API - LeonardoAI](#APILeonardoAI)
 - [WIP - Work In Progress](#WorkInProgress)
+- [Acknowledgements](#Acknowledgements)
 - [Authors](#authors)
 
 ## Introduction :book:
@@ -135,6 +136,9 @@ After choosing one of the downloaded books to play, the user will be shown which
 
 ## Work In Progress
 <p>This is a WIP; more features and further polish will be added in given time.</p>
+
+## Acknowledgements
+<p>We would like to acknowledge the kind support of: The Holberton School Uruguay Staff for their guidance, all the testing department (mostly composed of Mr Abreu's daughters) and all our fellow Holbies who helped to shape this project. </p>
 
 ## Authors :busts_in_silhouette:
 
